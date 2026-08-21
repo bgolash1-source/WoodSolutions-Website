@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Materials library</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Materials Library tab</h1>
+
+  <p>The Materials Library is your shop's stock list — every sheet good, solid-wood board, and edge-banding roll you keep on hand. Edit the rows once, save the library, and from then on every job you build pulls from the same list. The tab is also where you tell the app <em>which</em> material the current job should use for panels, stiles & rails, and edge banding.</p>
+
+  <h2>Job in progress — can I still change materials?</h2>
+  <p>No — once the cut list has rows, job materials lock for the whole job (see <strong>Overview</strong> help). Main-form fields gray out, the whole edge banding section locks in slab mode (material, width, thickness, and options), and right-click <em>Use for Panel</em> / <em>Use for Stiles &amp; Rails</em> / <em>Use for Edge Banding</em> is disabled. You can still edit library rows and save the library. To build with different stock, <strong>Clear Grid</strong> and start a new job.</p>
+
+  <h2 id="layout">What you see on the tab</h2>
+  <p>The Materials Library tab is split into three areas, top to bottom:</p>
+  <ol>
+    <li><strong>Three job-material combos</strong> at the very top — Panel Material, Stile/Rail Material, and Wood Species. These set what the current job uses.</li>
+    <li><strong>Two buttons + a one-line hint</strong> — <code>Add Sheet Row</code> / <code>Add Solid Wood Row</code> / <code>Add Edge Band Row</code> (the label changes based on the active grid tab) and <code>Save Library</code>.</li>
+    <li><strong>Three grid tabs</strong> — Sheet Stock, Solid Wood, and Edge Banding. The active tab is highlighted in light blue so you always know which list you're editing.</li>
+  </ol>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Materials Library tab layout with the three job-material combos at top, buttons in the middle, and the three grid tabs at the bottom">
+      <rect x="8" y="8" width="624" height="344" fill="#fdfdfd" stroke="#888" stroke-width="1"/>
+
+      <text x="20" y="30" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">Panel Material</text>
+      <rect x="20" y="36" width="180" height="22" fill="#fff" stroke="#666"/>
+      <text x="24" y="51" font-family="Segoe UI" font-size="10" fill="#222">Sheet &mdash; 3/4 Baltic Birch</text>
+
+      <text x="220" y="30" font-family="Segoe UI" font-size="11" fill="#333">Stile/Rail Material</text>
+      <rect x="220" y="36" width="180" height="22" fill="#fff" stroke="#666"/>
+      <text x="224" y="51" font-family="Segoe UI" font-size="10" fill="#222">Solid Wood &mdash; Cherry FAS 4/4</text>
+
+      <text x="420" y="30" font-family="Segoe UI" font-size="11" fill="#333">Wood Species</text>
+      <rect x="420" y="36" width="180" height="22" fill="#fff" stroke="#666"/>
+      <text x="424" y="51" font-family="Segoe UI" font-size="10" fill="#222">Cherry</text>
+
+      <rect x="20" y="78" width="180" height="26" fill="#e8e8e8" stroke="#666"/>
+      <text x="110" y="96" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#222">Add Solid Wood Row</text>
+      <rect x="210" y="78" width="180" height="26" fill="#e8e8e8" stroke="#666"/>
+      <text x="300" y="96" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#222">Save Library</text>
+      <text x="400" y="96" font-family="Segoe UI" font-size="10" fill="#666" font-style="italic">Click a row in the grids, then pick it above to use in this job.</text>
+
+      <rect x="20" y="116" width="100" height="22" fill="#cfe4ff" stroke="#4a7fc1" stroke-width="1.2"/>
+      <text x="70" y="131" text-anchor="middle" font-family="Segoe UI" font-size="11" font-weight="bold" fill="#1c3d6e">Sheet Stock</text>
+      <rect x="120" y="116" width="100" height="22" fill="#f4f4f4" stroke="#888"/>
+      <text x="170" y="131" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#333">Solid Wood</text>
+      <rect x="220" y="116" width="100" height="22" fill="#f4f4f4" stroke="#888"/>
+      <text x="270" y="131" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#333">Edge Banding</text>
+
+      <rect x="20" y="138" width="600" height="200" fill="#fff" stroke="#888"/>
+      <rect x="20" y="138" width="600" height="22" fill="#f0f0f0" stroke="#bbb"/>
+      <text x="40" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Name</text>
+      <text x="180" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Thickness</text>
+      <text x="260" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Core</text>
+      <text x="340" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Sheet W</text>
+      <text x="420" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Sheet L</text>
+      <text x="500" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">Cost</text>
+      <text x="560" y="153" font-family="Segoe UI" font-size="10" fill="#222" font-weight="bold">In dropdown</text>
+
+      <line x1="20" y1="180" x2="620" y2="180" stroke="#eee"/>
+      <line x1="20" y1="202" x2="620" y2="202" stroke="#eee"/>
+      <line x1="20" y1="224" x2="620" y2="224" stroke="#eee"/>
+
+      <text x="40" y="174" font-family="Segoe UI" font-size="10" fill="#222">3/4 Baltic Birch</text>
+      <text x="180" y="174" font-family="Segoe UI" font-size="10" fill="#222">0.75</text>
+      <text x="260" y="174" font-family="Segoe UI" font-size="10" fill="#222">Baltic Birch</text>
+      <text x="340" y="174" font-family="Segoe UI" font-size="10" fill="#222">60</text>
+      <text x="420" y="174" font-family="Segoe UI" font-size="10" fill="#222">60</text>
+      <text x="500" y="174" font-family="Segoe UI" font-size="10" fill="#222">$78.00</text>
+      <rect x="585" y="166" width="10" height="10" fill="#fff" stroke="#444"/>
+      <path d="M586 171 L589 174 L594 167" fill="none" stroke="#222" stroke-width="1.4"/>
+
+      <text x="40" y="196" font-family="Segoe UI" font-size="10" fill="#222">3/4 MDF</text>
+      <text x="180" y="196" font-family="Segoe UI" font-size="10" fill="#222">0.75</text>
+      <text x="260" y="196" font-family="Segoe UI" font-size="10" fill="#222">MDF</text>
+      <text x="340" y="196" font-family="Segoe UI" font-size="10" fill="#222">49</text>
+      <text x="420" y="196" font-family="Segoe UI" font-size="10" fill="#222">97</text>
+      <text x="500" y="196" font-family="Segoe UI" font-size="10" fill="#222">$42.00</text>
+      <rect x="585" y="188" width="10" height="10" fill="#fff" stroke="#444"/>
+    </svg>
+    <figcaption>The three areas of the Materials Library tab — job combos at top, buttons + hint in the middle, and the three grid tabs (Sheet Stock highlighted in light blue) at the bottom.</figcaption>
+  </figure>
+
+  <figure class="help-figure">
+    <img src="images/materials-library-tab.png" alt="The Materials Library tab in DoorCut with the three job-material combos at the top, the Add Row and Save Library buttons, and the Sheet Stock grid below" />
+    <figcaption>The actual Materials Library tab. <em>Drop <code>materials-library-tab.png</code> into <code>Help/images/</code> to replace this placeholder — capture the whole tab with all three combos at top and one grid (e.g., Sheet Stock) visible below.</em></figcaption>
+  </figure>
+
+  <h2 id="setjob">Tell the current job which material to use</h2>
+  <p>The three combos at the top of the tab drive what shows up on the cutlist for the job that is currently open. They are independent — pick one, two, or all three.</p>
+  <ul>
+    <li><strong>Panel Material</strong> — the material the door panel is cut from. The dropdown mixes sheet stock and solid wood, and each item is prefixed so you can't confuse them: <em>Sheet — 3/4 Baltic Birch</em> vs <em>Solid Wood — Cherry FAS 4/4</em>.</li>
+    <li><strong>Stile/Rail Material</strong> — the material for the frame parts. Same prefix scheme.</li>
+    <li><strong>Wood Species</strong> — only matters when a panel or stile/rail is solid wood. The app hides this combo automatically when neither side is solid wood, so don't worry if it disappears for an all-sheet job.</li>
+  </ul>
+
+  <figure class="help-figure">
+    <img src="images/materials-library-combos.png" alt="Close-up of the three job-material combos at the top of the Materials Library tab, with the Panel Material dropdown popped open showing Sheet and Solid Wood entries side by side" />
+    <figcaption>The three job-material combos. <em>Drop <code>materials-library-combos.png</code> into <code>Help/images/</code> to replace this placeholder — click the Panel Material dropdown so the popup is open and the "Sheet — " / "Solid Wood — " prefixes are clearly visible, then capture.</em></figcaption>
+  </figure>
+
+  <h3 id="autospecies">What happens when you pick a solid-wood panel</h3>
+  <p>If you choose a solid-wood panel material (e.g., <em>Solid Wood — Cherry FAS 4/4</em>), the Wood Species combo auto-fills with <em>Cherry</em> so your cutlist never has an empty species field. You can override it afterwards — pick the species you actually plan to glue up from if it differs from the board source.</p>
+
+  <h2 id="grids">Editing the stock grids</h2>
+  <p>Each of the three sub-tabs (Sheet Stock, Solid Wood, Edge Banding) is a freely editable grid. The columns differ per tab but the workflow is the same:</p>
+  <ul>
+    <li><strong>Click <code>Add Sheet Row</code> / <code>Add Solid Wood Row</code> / <code>Add Edge Band Row</code></strong> to append a fresh row to the active grid. The button label always tells you what kind of row you'll get, so you can't accidentally add a sheet to the Solid Wood tab.</li>
+    <li><strong>Type into any cell</strong> to edit. Numeric columns (thickness, cost, sheet width/length) expect a number; text columns (name, core, species) accept anything.</li>
+    <li><strong>Click a column header to sort</strong> — alphabetical for text columns, ascending/descending numeric for thickness, cost, and dimensions. Click again to flip direction.</li>
+    <li><strong>Tick the "In dropdown" checkbox</strong> on a row to make that material appear in the three job-material combos at the top of the tab. Untick it for stock you don't normally carry — the combos only show what's actually in your shop, which keeps the lists short.</li>
+    <li><strong>Save Library</strong> writes every change to disk. <em>Until you click Save, edits live only in memory and will be lost if you close the app.</em></li>
+  </ul>
+
+  <figure class="help-figure">
+    <img src="images/materials-library-grid-sort.png" alt="The Sheet Stock grid in the Materials Library tab with one column header showing a sort arrow, indicating the rows have been re-ordered by that column" />
+    <figcaption>Sorting the grid. <em>Drop <code>materials-library-grid-sort.png</code> into <code>Help/images/</code> to replace this placeholder — click the Thickness column header so the sort arrow shows, then capture the Sheet Stock grid with several rows visible.</em></figcaption>
+  </figure>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 110" role="img" aria-label="In dropdown checkbox column controls which materials appear in the job combos at the top of the tab">
+      <rect x="20" y="20" width="280" height="70" fill="#fff" stroke="#888"/>
+      <rect x="20" y="20" width="280" height="20" fill="#f0f0f0" stroke="#bbb"/>
+      <text x="32" y="34" font-family="Segoe UI" font-size="10" font-weight="bold" fill="#222">Name</text>
+      <text x="160" y="34" font-family="Segoe UI" font-size="10" font-weight="bold" fill="#222">Thickness</text>
+      <text x="240" y="34" font-family="Segoe UI" font-size="10" font-weight="bold" fill="#222">In dropdown</text>
+
+      <text x="32" y="56" font-family="Segoe UI" font-size="10" fill="#222">3/4 Baltic Birch</text>
+      <text x="160" y="56" font-family="Segoe UI" font-size="10" fill="#222">0.75</text>
+      <rect x="258" y="48" width="10" height="10" fill="#fff" stroke="#444"/>
+      <path d="M259 53 L262 56 L267 49" fill="none" stroke="#222" stroke-width="1.4"/>
+
+      <text x="32" y="78" font-family="Segoe UI" font-size="10" fill="#222">1/2 MDF</text>
+      <text x="160" y="78" font-family="Segoe UI" font-size="10" fill="#222">0.50</text>
+      <rect x="258" y="70" width="10" height="10" fill="#fff" stroke="#444"/>
+
+      <path d="M310 55 L370 55" stroke="#4a7fc1" stroke-width="1.4" fill="none" marker-end="url(#mlarrow)"/>
+      <defs>
+        <marker id="mlarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#4a7fc1"/>
+        </marker>
+      </defs>
+
+      <rect x="380" y="38" width="240" height="22" fill="#fff" stroke="#666"/>
+      <text x="386" y="53" font-family="Segoe UI" font-size="10" fill="#222">Sheet &mdash; 3/4 Baltic Birch</text>
+      <text x="380" y="80" font-family="Segoe UI" font-size="9" fill="#666" font-style="italic">Only checked rows reach this combo</text>
+    </svg>
+    <figcaption>Tick "In dropdown" on the rows you stock — those are the only materials that reach the Panel/Stile-Rail combos at the top.</figcaption>
+  </figure>
+
+  <figure class="help-figure">
+    <img src="images/materials-library-in-dropdown.png" alt="Close-up of the In dropdown column in the Materials Library grid, showing some rows ticked and others unticked" />
+    <figcaption>The In dropdown column in real life. <em>Drop <code>materials-library-in-dropdown.png</code> into <code>Help/images/</code> to replace this placeholder — capture a portion of any grid with a mix of ticked and unticked "In dropdown" checkboxes so the distinction is obvious.</em></figcaption>
+  </figure>
+
+  <h2 id="defaults">First-time setup</h2>
+  <p>The app ships with a starter list of common sheet, solid-wood, and edge-banding rows, but they all arrive <strong>unchecked</strong> in the "In dropdown" column. That keeps your pickers blank until you tell the app what your shop actually stocks. Three quick passes will get you running:</p>
+  <ol>
+    <li>Open <strong>Sheet Stock</strong>, tick "In dropdown" on the rows you keep on hand (e.g., 3/4 Baltic Birch, 3/4 MDF, 1/4 Tempered Hardboard). Edit cost or sheet size if your supplier's pricing differs.</li>
+    <li>Open <strong>Solid Wood</strong>, tick the boards you actually buy (e.g., Cherry FAS 4/4, Walnut Sel & Btr 4/4, Hard Maple FAS 5/4). Adjust nominal thickness and cost.</li>
+    <li>Open <strong>Edge Banding</strong>, tick any rolls you keep stocked.</li>
+    <li>Click <strong>Save Library</strong>. From this point on, every new job opens with the same shortlist in the dropdowns.</li>
+  </ol>
+  <p>Once a job is set up, the Panel/Stile-Rail combos at the top of the tab let you actually <em>apply</em> a material to the open job. The grid below is for editing stock — the combo above is for picking what this job uses.</p>
+
+  <h2 id="tips">Tips</h2>
+  <ul>
+    <li><strong>Always Save after editing.</strong> Adding a row or changing a price is not persistent until you click Save Library.</li>
+    <li><strong>Use the "In dropdown" column to declutter.</strong> If a combo lists materials you don't carry, the fix is to untick those rows here — not to delete them. Untouching keeps the row available if you ever start stocking it again.</li>
+    <li><strong>Sort by Thickness</strong> to quickly find every 1/2, 5/8, or 3/4 board side-by-side. Sort by <strong>Cost</strong> to spot pricing entries that look wrong.</li>
+    <li><strong>The Wood Species combo is hidden</strong> until at least one of Panel or Stile/Rail is a solid-wood material. If you expected to see it and it's missing, check that you didn't pick a Sheet for both.</li>
+    <li><strong>Type prefixes are display-only.</strong> "Sheet — " and "Solid Wood — " are added at render time so it's clear at a glance which kind of material you're picking. The underlying material itself isn't renamed.</li>
+  </ul>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

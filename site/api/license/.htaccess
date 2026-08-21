@@ -1,0 +1,10 @@
+# Block direct web access to secrets and rate-limit storage.
+<Files "config.php">
+  Require all denied
+</Files>
+
+<IfModule mod_authz_core.c>
+  <DirectoryMatch "data">
+    Require all denied
+  </DirectoryMatch>
+</IfModule>

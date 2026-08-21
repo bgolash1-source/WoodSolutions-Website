@@ -1,0 +1,23 @@
+# Installers and large binaries — upload to host separately
+site/downloads/*.exe
+site/downloads/*.apk
+site/downloads/*.msi
+site/calculator/downloads/*.exe
+site/calculator/downloads/*.apk
+
+site/api/license/config.php
+site/_legacy-scrape/
+site/_tmp_*.html
+woodsolutions-site.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vs/
+
+# Keep folder placeholders
+!site/downloads/.gitkeep
+!site/downloads/README.txt
+!site/images/.gitkeep
+!site/calculator/downloads/.gitkeep

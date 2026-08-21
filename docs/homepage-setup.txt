@@ -1,0 +1,14 @@
+WOOD SOLUTIONS — NEW HOMEPAGE (site/index.html)
+================================================
+
+Live:  https://www.woodsolutions.com/
+
+CONTACT: sales@woodsolutions.com
+FOCUS:  DoorCut 3.0 — first product release
+
+BEFORE PUBLISH
+--------------
+1. Set real installer path:  site/index.html → downloads/DoorCut-Setup.exe
+2. Optional nav links already include calculator/ — add TimberTally when ready.
+
+See docs/deploy.md for full upload layout.

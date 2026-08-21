@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Slab + edgebanding</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Door 1 slab + edgebanding</h1>
+  <p>This is for a flat slab door with banding around the edge — a one-piece door, not a frame-and-panel. It only shows up when <strong>Door 1</strong> is selected and you set it to <strong>Slab + Edgebanding</strong> in Door Setup. It is not its own door in the sidebar.</p>
+
+  <h2>Setup, in order</h2>
+  <ol>
+    <li>Pick <strong>Door 1</strong> in the sidebar.</li>
+    <li>Open <strong>Door Setup</strong> and choose <strong>Slab + Edgebanding</strong> (not Frame &amp; Panel).</li>
+    <li>Set a <strong>sheet stock</strong> panel material — plywood, MDF, melamine, and so on. <strong>You cannot use solid wood</strong> for a slab door here.</li>
+    <li>Pick the <strong>panel sheet</strong> from the dropdown (a common one is 3/4&quot; poplar plywood or paint grade).</li>
+    <li>If you want, keep your PVC or solid-wood band entries on the <strong>Materials Library</strong> tab, then pick one here or click <strong>Use Selected for Edge Band</strong>.</li>
+    <li>Set <strong>Width</strong>, <strong>Thick</strong>, <strong>Thin band — no door deduction</strong>, and <strong>Edgebander extra</strong> to match your band and your machine.</li>
+    <li>Click <strong>Add Door To Cutlist</strong>.</li>
+  </ol>
+
+  <h2>Why is this section grayed out?</h2>
+  <p>The banding controls only wake up when Door 1 is in <strong>Slab + Edgebanding</strong> mode. If another door is selected, or Door 1 is still Frame &amp; Panel, they stay off — there is nothing to band on a framed door in this workflow.</p>
+  <p>Once the cut list has rows, the whole edge banding section locks for the job (material, width, thickness, and options). <strong>Clear Grid</strong> to change banding setup. See <strong>Overview</strong> help.</p>
+
+  <h2>Why the frame joinery disappears in slab mode</h2>
+  <p>A slab door has no stiles, rails, or frame joints, so when slab + edgebanding is on, the <strong>Cope &amp; stick</strong>, <strong>Mortise &amp; tenon</strong>, joinery diagrams, and <strong>Machining Allowance</strong> all hide. Nothing to set there.</p>
+
+  <h2>Field notes</h2>
+  <p><strong>Keep full slab size</strong> — checked, the slab stays the full door width and height (normal for thin PVC). Unchecked, the band thickness can shrink the slab size a little.</p>
+  <p><strong>Extra length on each band cut</strong> — type <strong>0</strong> for none, or add the bit of extra your edgebander needs on each end of every band piece (every machine is a little different).</p>
+  <p><strong>Panel material check</strong> — if the panel is set to solid wood and you try to add it, DoorCut throws an error. Use sheet stock for a slab.</p>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

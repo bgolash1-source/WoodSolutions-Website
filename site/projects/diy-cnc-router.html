@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DIY CNC Router — Wood Solutions</title>
+  <meta name="description" content="Barry Golash — DIY 3-axis CNC router build (2015–present). Wood, aluminum, and steel machining in the home shop.">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-wordmark">Wood Solutions<span>Applications for cabinetmakers</span></span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="../doorcut.html">DoorCut</a>
+          <div class="nav-submenu"><a href="../doorcut/help/index.html">Help</a></div>
+        </div>
+        <a href="../products.html">Products</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../calculator/index.html">Fraction calculator</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="project-back"><a href="../projects.html">← All projects</a></p>
+    <h1>DIY CNC router</h1>
+    <p class="project-article-lead">
+      CNC router build and evolution (2015–present) — a shop machine capable of milling wood, aluminum, and steel.
+    </p>
+
+    <figure class="project-hero project-hero-wide">
+      <img src="../images/projects/141.webp" alt="DIY CNC router — overview of the machine" width="362" height="289" loading="eager">
+    </figure>
+
+    <article class="project-article">
+      <p>
+        In 2015, I decided to build a CNC router for my shop. This was not my first machine build — I had previously
+        constructed several shop machines using traditional woodworking and metalworking tools, including a combination
+        wide-belt sander/planer and a pin router, using a South Bend lathe, metal cutoff saw, and drill press.
+        One of my main goals was a machine capable of machining both wood and metal.
+      </p>
+
+      <h2>Frame and mechanical components</h2>
+      <p>
+        I started at my local surplus store and found a fabricated aluminum frame of TIG-welded I-beams defining the
+        overall size: 36″ × 80″. eBay became my primary source for precision components. I purchased three ball screw
+        assemblies with bearing blocks; only the blocks were used. The screws were replaced with Nook Industries XPR
+        precision rolled ball screws, 5/8″ diameter with 0.200″ pitch — common in DIY CNC builds and excellent resolution.
+        With my 67″ screw length, vibration became severe at 250 IPM; reducing maximum speed to 200 IPM eliminated it.
+      </p>
+
+      <h2>X-axis linear rails</h2>
+      <p>
+        The X-axis uses Thomson 1-1/4″ round linear motion rails under the aluminum frame — 48 precision holes.
+        After about five hours of dial-indicator alignment, I achieved 0.002″ parallelism. I compromised bearing block
+        spacing at 15″ instead of the full 36″ machine width to preserve travel.
+      </p>
+
+      <h2>Gantry design</h2>
+      <p>
+        The gantry is 4″ × 4″ structural steel tubing, 3/16″ wall. Top and bottom plates were milled at a machine shop;
+        the Y-axis tube was Blanchard ground on all four sides ($200, well worth it). Four THK linear rails were
+        butt-jointed on the Y-axis — not ideal, but they installed without issues.
+      </p>
+
+      <h2>Z-axis and spindle</h2>
+      <p>
+        I chose a metalworking spindle from Little Machine Shop with R8 collets, driven by a 1 HP Baldor DC motor and
+        electronic speed controller — essential for machining steel. Belt tension uses a THK wide-body linear slide and
+        surplus Acme screw on an aluminum sub-plate.
+      </p>
+
+      <h2>Spindle drive fix</h2>
+      <p>
+        Woodworking at up to 4,500 RPM was quiet and effective, but steel at ~800 RPM lacked torque when relying only on
+        electronic speed reduction. A two-step pulley system from Little Machine Shop, with a matching aluminum motor
+        pulley I machined, resolved the problem.
+      </p>
+
+      <h2>Cast iron table</h2>
+      <p>
+        Several years later I added a cast iron work surface at the end of the table for metal machining — machinist’s
+        vise and a stable platform for heavy cuts.
+      </p>
+
+      <h2>Gantry rigidity</h2>
+      <p>
+        Sudden stops caused spindle shake traced to self-aligning Thomson round bearings on the X-axis. Standard
+        (non-self-aligning) replacements from eBay ($29 each vs. $100 new) dramatically improved rigidity.
+      </p>
+
+      <h2>Ball screw replacement</h2>
+      <p>
+        I replaced a slightly bent original Nook screw with a new one and custom bearing blocks. HSS tooling on the
+        South Bend lathe handled the hardened ends better than carbide; I single-pointed the threads with excellent results.
+      </p>
+
+      <h2>Electronics upgrade</h2>
+      <p>
+        I rebuilt the control box in a used industrial enclosure from eBay ($95) with panel-mount connectors, improved
+        grounding, DIN-rail supplies, and snap-action limit switches. The finished box is 24″ × 30″ with a Plexiglas
+        front panel — clean wiring and much better serviceability.
+      </p>
+
+      <figure class="project-hero">
+        <img src="../images/projects/1008.webp" alt="CNC router control box and electronics" width="375" height="500" loading="lazy">
+        <figcaption class="project-shot-caption">Control enclosure — DIN-rail power and terminal blocks</figcaption>
+      </figure>
+
+      <h2>Final thoughts</h2>
+      <p>
+        Mechanical upgrades, bearing replacements, and electronics improvements transformed this into a machine I’m
+        genuinely happy with — quiet, rigid, versatile, and capable of serious metal machining. Exactly what I set out
+        to build in 2015.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions</p>
+    <p class="footer-links">
+      <a href="../privacy.html">Privacy Policy</a> ·
+      <a href="../terms.html">Terms of Service</a> ·
+      <a href="../contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

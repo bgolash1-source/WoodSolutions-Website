@@ -1,0 +1,882 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DoorCut 3.0 — Cabinet Door Software | Wood Solutions</title>
+  <meta name="description" content="DoorCut 3.0 — cabinet door layout, joinery, cut lists, and shop production for Windows. Releasing soon — $299 one-time, 14-day trial at launch.">
+  <meta property="og:image" content="images/doorcut-logo.png">
+  <style>
+    :root {
+      --walnut: #3d2e24;
+      --walnut-soft: #5c4a3a;
+      --cream: #f7f3ed;
+      --cream-dark: #ebe4d8;
+      --amber: #c4923a;
+      --amber-light: #e8b86a;
+      --text: #2a221c;
+      --muted: #6b5f54;
+      --card: #ffffff;
+      --border: #ddd5c8;
+      --shadow: 0 8px 28px rgba(61, 46, 36, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: var(--walnut-soft); }
+    a:hover { color: var(--amber); }
+
+    .site-header {
+      background: #000;
+      color: #fff;
+      padding: 14px 20px;
+      border-bottom: 3px solid var(--amber);
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-wordmark {
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .brand-wordmark span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0.82;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--amber-light); }
+    nav a[aria-current="page"] { color: var(--amber-light); }
+
+    .nav-group:has(.nav-submenu a[aria-current="page"]) > a {
+      color: var(--amber-light);
+    }
+
+    .nav-group { position: relative; }
+
+    .nav-group > a::after {
+      content: " ▾";
+      font-size: 0.72em;
+      opacity: 0.65;
+    }
+
+    .nav-submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 148px;
+      padding-top: 6px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      z-index: 20;
+    }
+
+    .nav-group:hover .nav-submenu,
+    .nav-group:focus-within .nav-submenu { display: block; }
+
+    .nav-submenu a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-submenu a::after { content: none; }
+
+    .nav-submenu a[aria-current="page"] {
+      background: rgba(196, 146, 58, 0.14);
+    }
+
+    @media (max-width: 820px) {
+      .nav-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .nav-group > a::after { content: none; }
+
+      .nav-submenu {
+        display: block;
+        position: static;
+        min-width: 0;
+        padding: 0 0 0 12px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        border-left: 2px solid var(--amber);
+      }
+
+      .nav-submenu a {
+        padding: 4px 0 4px 8px;
+        font-size: 0.88rem;
+        opacity: 0.88;
+      }
+
+      .nav-submenu a[aria-current="page"] {
+        background: transparent;
+        opacity: 1;
+      }
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+
+    .status-live {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .status-release-soon {
+      background: rgba(196, 146, 58, 0.22);
+      color: #7a5210;
+    }
+
+    .release-notice {
+      margin: 0 0 28px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(196, 146, 58, 0.45);
+      background: rgba(196, 146, 58, 0.1);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .release-notice strong {
+      color: var(--walnut);
+    }
+
+    .release-notice a {
+      font-weight: 650;
+    }
+
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 820px) {
+      .product-hero { grid-template-columns: 1fr; }
+    }
+
+    .product-hero h1 {
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+
+    .product-logo {
+      display: block;
+      width: min(100%, 440px);
+      height: auto;
+      margin: 0 0 10px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .product-version {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--amber);
+      margin-top: 4px;
+    }
+
+    .product-lead {
+      margin: 0 0 20px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 38em;
+    }
+
+    .product-shot {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+      margin-top: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-card {
+      background: var(--walnut);
+      color: #fff;
+      border-radius: 14px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 16px;
+    }
+
+    .pricing-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 12px 0 4px;
+    }
+
+    .price-current {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .price-was {
+      font-size: 1.15rem;
+      opacity: 0.55;
+      text-decoration: line-through;
+    }
+
+    .price-note {
+      margin: 0 0 18px;
+      font-size: 0.92rem;
+      opacity: 0.9;
+    }
+
+    .price-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .price-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--amber-light);
+    }
+
+    .price-badge-trial {
+      background: rgba(232, 184, 106, 0.22);
+      color: #ffe9c4;
+    }
+
+    .trial-notice {
+      margin: 0 0 18px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(232, 184, 106, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .trial-notice strong {
+      color: var(--amber-light);
+    }
+
+    .policy-notice {
+      margin: 14px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.84rem;
+      opacity: 0.82;
+      line-height: 1.45;
+    }
+
+    .policy-notice strong {
+      color: #fff;
+    }
+
+    .sys-req {
+      margin: 0 0 16px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      opacity: 0.92;
+    }
+
+    .sys-req strong {
+      color: var(--amber-light);
+      font-weight: 650;
+    }
+
+    .info-panel .sys-req {
+      opacity: 1;
+      color: var(--text);
+    }
+
+    .info-panel .sys-req strong {
+      color: var(--walnut);
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 0 0 22px;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .pricing-card li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 8px;
+      opacity: 0.92;
+    }
+
+    .pricing-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber-light);
+      font-weight: 700;
+    }
+
+    .pricing-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 650;
+      text-decoration: none;
+      font-size: 0.98rem;
+      text-align: center;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--walnut);
+      box-shadow: 0 4px 14px rgba(196, 146, 58, 0.35);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); color: var(--walnut); }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+
+    .pricing-fine {
+      margin: 16px 0 0;
+      font-size: 0.82rem;
+      opacity: 0.75;
+      line-height: 1.45;
+    }
+
+    .checkout-via {
+      margin: 0 0 14px;
+      font-size: 0.88rem;
+      opacity: 0.88;
+      line-height: 1.45;
+    }
+
+    .checkout-via a {
+      color: var(--amber-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .checkout-via a:hover { text-decoration: underline; }
+
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      color: var(--walnut);
+    }
+
+    .section-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 42em;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 20px 18px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--walnut);
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .info-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-panel h2 {
+      margin-top: 0;
+    }
+
+    .info-panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .info-panel p:last-child { margin-bottom: 0; }
+
+    .info-panel strong { color: var(--walnut); }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--walnut);
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steps strong { color: var(--walnut); }
+
+    .contact-strip {
+      background: var(--walnut);
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .contact-strip h2 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+      color: #fff;
+    }
+
+    .contact-strip p {
+      margin: 0;
+      opacity: 0.88;
+      max-width: 28em;
+    }
+
+    .contact-strip a {
+      color: var(--amber-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-strip a:hover { text-decoration: underline; }
+
+    .site-footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .site-footer p { margin: 6px 0; }
+
+    .site-footer .footer-links a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .site-footer .footer-email a {
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .site-footer .footer-mor {
+      font-size: 0.82rem;
+      max-width: 28em;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+
+    .site-footer .footer-mor a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-wordmark">
+          Wood Solutions
+          <span>Applications for cabinetmakers</span>
+        </span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="doorcut.html" aria-current="page">DoorCut</a>
+          <div class="nav-submenu">
+            <a href="doorcut/help/index.html">Help</a>
+          </div>
+        </div>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="calculator/index.html">Fraction calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="release-notice" role="status">
+      <strong>DoorCut 3.0 releases soon.</strong>
+      The 14-day trial installer and Creem.io checkout will open when our Merchant of Record verification completes.
+      Until then, explore the product details and help guide below, or
+      <a href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">email sales@woodsolutions.com</a> for launch updates.
+    </p>
+
+    <div class="product-hero">
+      <div>
+        <span class="status status-release-soon">Releasing soon</span>
+        <h1>
+          <img class="product-logo"
+               src="images/doorcut-logo.png"
+               alt="DoorCut — cabinet door cutlists"
+               width="880"
+               height="880">
+          <span class="product-version">Version 3.0</span>
+        </h1>
+        <p class="product-lead">
+          Standalone Windows software for cabinet door layout, joinery math, cut lists,
+          and shop production — built for cabinetmakers who work in fractions and real machining allowances.
+        </p>
+        <img class="product-shot"
+             src="images/doorcut-screenshot.webp"
+             alt="DoorCut — cabinet door layout and cut list screen"
+             width="1246"
+             height="648"
+             loading="eager">
+      </div>
+
+      <aside class="pricing-card" id="purchase">
+        <h2>One-time purchase</h2>
+        <div class="price-row">
+          <span class="price-current">$299</span>
+          <span class="price-was">$350</span>
+        </div>
+        <p class="price-note">Introductory price — no subscription, no recurring fees.</p>
+        <div class="price-badges">
+          <span class="price-badge price-badge-trial">14-day free trial</span>
+          <span class="price-badge">Standalone app</span>
+          <span class="price-badge">Perpetual license</span>
+          <span class="price-badge">Windows</span>
+        </div>
+        <p class="trial-notice">
+          <strong>Try before you buy.</strong> Download and run DoorCut free for
+          <strong>14 full days</strong> — same features as the paid license. Use real jobs
+          in your shop first. We ask that you complete the trial before purchasing so you
+          know DoorCut fits your workflow.
+        </p>
+        <p class="sys-req">
+          <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+          Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+        </p>
+        <ul>
+          <li>Full DoorCut 3.0 — door layout through cut lists</li>
+          <li>Install on your shop PC — yours to keep</li>
+          <li>Updates included for the 3.x release line</li>
+          <li>Email support for licensing and setup</li>
+        </ul>
+        <div class="pricing-actions">
+          <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Get launch updates</a>
+          <a class="btn btn-secondary" href="doorcut/help/index.html">Read the help guide</a>
+        </div>
+        <p class="checkout-via">
+          <strong>Releasing soon.</strong> One-time purchase at <strong>$299</strong> (introductory).
+          Secure checkout and license delivery through
+          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>
+          opens at launch.
+        </p>
+        <p class="pricing-fine">
+          At launch, the installer starts a 14-day trial automatically — no credit card required.
+          For multi-seat or shop-wide licensing, email
+          <a href="mailto:sales@woodsolutions.com" style="color:var(--amber-light);">sales@woodsolutions.com</a>.
+        </p>
+        <p class="policy-notice">
+          <strong>All sales are final — no refunds.</strong> DoorCut is shop software you install locally;
+          use the 14-day trial to evaluate it fully before you purchase a license.
+        </p>
+      </aside>
+    </div>
+
+    <section class="section">
+      <h2>What DoorCut does</h2>
+      <p class="section-intro">
+        DoorCut calculates every part in a typical cabinet door — stiles, rails, panels, and muntins —
+        with full control over machining allowances and panel placement within each style.
+        Originally developed in Borland Delphi and now modernized in C#.
+      </p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Door styles &amp; sizing</h3>
+          <p>
+            Standard raised-panel, glass, and arched styles with definable stile, rail, and muntin widths.
+            Custom panel placement lets you get new looks from the same base style.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Joinery math</h3>
+          <p>
+            Cope-and-stick and mortise-and-tenon modes with tenon and panel inset allowances
+            calculated into every rail, stile, and muntin length.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Cut lists</h3>
+          <p>
+            Production-ready part lists for the table saw and CNC — quantities, dimensions,
+            and material assignments in one job.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Materials library</h3>
+          <p>
+            Assign sheet goods and solid stock to frame and panel parts.
+            Save your shop’s common materials for repeat jobs.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Label printing</h3>
+          <p>
+            Print labels for the shop floor so parts stay tied to the right door and opening
+            through machining and assembly.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Sheet Logic (shared line)</h3>
+          <p>
+            Solid-wood and sheet-goods optimizers are rolling out through Sheet Logic —
+            the same engine planned for DrawerCut and CabinetLogic.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Standalone software — not a subscription</h2>
+        <p>
+          DoorCut is a <strong>one-time purchase</strong>. You install it on your Windows PC,
+          keep the license, and run your door jobs without a monthly bill or cloud dependency.
+          Your cut lists and job files stay on your machine.
+        </p>
+        <p>
+          The introductory price of <strong>$299</strong> (regularly <strong>$350</strong>) reflects
+          our first public release — we’d rather get DoorCut into real shops and earn your feedback
+          than optimize for list price on day one.
+        </p>
+        <p>
+          <strong>14-day free trial:</strong> Download DoorCut and use every feature for two weeks
+          before you pay. Run actual door jobs, check joinery math against your shop standards,
+          and confirm the cut lists work for you.
+        </p>
+        <p>
+          <strong>Checkout &amp; licensing:</strong> Purchases are processed through
+          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>,
+          our Merchant of Record. Creem.io handles secure checkout (card and other payment methods),
+          sales tax where required, and emails your license key and receipt automatically.
+          Wood Solutions stays focused on the software; Creem.io handles the transaction side.
+          <strong>All sales are final — no refunds.</strong> That is why we offer a 14-day full trial before you buy.
+        </p>
+        <p class="sys-req">
+          <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+          Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Learn more — DoorCut Help</h2>
+        <p>
+          The same user guide built into the app is on the web: door setup, joinery modes,
+          machining allowances, cut lists, materials library, and optimization topics.
+          Read before you buy or keep it open while you work through the trial.
+        </p>
+        <p style="margin-bottom: 0;">
+          <a class="btn btn-primary" href="doorcut/help/index.html" style="display:inline-block;margin-top:4px;">Open DoorCut Help</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>When DoorCut launches</h2>
+      <p class="section-intro">
+        Start with the free trial — then buy a single license through Creem.io when checkout opens.
+        Multi-seat or invoice purchases: contact us directly.
+      </p>
+      <p class="sys-req" style="margin-top:0;margin-bottom:18px;color:var(--text);">
+        <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+        Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+      </p>
+      <ol class="steps">
+        <li><strong>Download</strong> the installer when we announce launch — your <strong>14-day full trial</strong> starts automatically (no credit card).</li>
+        <li><strong>Evaluate</strong> in your shop: door styles, joinery, cut lists, and labels on real work.</li>
+        <li><strong>Buy</strong> on Creem.io when you are satisfied — introductory price <strong>$299</strong> (checkout link posted at launch).</li>
+        <li><strong>Activate</strong> with the license key emailed from Creem.io — usually within minutes. All sales are final; no refunds after purchase.</li>
+        <li><strong>Need several seats?</strong> Email <a href="mailto:sales@woodsolutions.com?subject=DoorCut%20multi-seat%20licensing">sales@woodsolutions.com</a> — we can arrange shop-wide or multi-PC licensing outside the single-seat checkout.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <div class="contact-strip">
+        <div>
+          <h2>Questions before you buy?</h2>
+          <p>
+            Use the 14-day trial first when launch opens — then single-license checkout via Creem.io.
+            Multi-seat or shop questions:
+            <a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a>
+            · <a href="contact.html">Map &amp; address</a>
+          </p>
+        </div>
+        <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=DoorCut%20inquiry">Contact sales</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions. Custom software for cabinetmakers.</p>
+    <p class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

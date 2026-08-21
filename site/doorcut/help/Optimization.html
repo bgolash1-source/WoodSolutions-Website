@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Wood optimization for cabinet door parts</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Wood Optimization for Cabinet Door Parts</h1>
+
+  <p>Use this tool to compare board sizes, estimate yield, and lay out solid-wood cabinet door parts with less waste. It is intended for straight solid-wood parts cut from boards: stiles, rails, mullions, muntins, and glue-up strips for wider solid-wood panels.</p>
+
+  <h2 id="before">Before You Start</h2>
+  <p>Have your cut list ready, along with the board widths and lengths you expect to buy or already have in the shop. If you rough-mill your own stock, decide how much edge trim, end trim, and planer snipe to allow for before you compare options.</p>
+
+  <figure class="help-figure">
+    <img src="images/wood-opto-window.png" alt="Wood Optimization window with the cut list on the left and Quick Compare on the right" />
+    <figcaption>The Wood Optimization window. <em>Drop <code>wood-opto-window.png</code> into <code>Help/images/</code> to replace this placeholder.</em></figcaption>
+  </figure>
+
+  <h2 id="howcut">How the Tool Lays Out Parts</h2>
+  <p>The tool follows the same basic sequence you would use in the shop: rip the board into strips first, then crosscut each strip into parts.</p>
+  <ul>
+    <li>Each board is ripped lengthwise into <strong>rip strips</strong> that run with the grain. Each strip is sized to the finished width of a part.</li>
+    <li>Each rip strip is then crosscut into as many parts of that width as possible, allowing for <strong>saw kerf</strong> between cuts.</li>
+    <li>Rip strips of <strong>different widths</strong> can share the same board to reduce waste. For example, a 6&nbsp;in board might yield one 3&nbsp;in rip strip and one 2&frac14;&nbsp;in rip strip instead of leaving a wide unused section.</li>
+    <li>Parts are <strong>not turned sideways</strong> across the board. Solid-wood parts are cut with the grain running the length of the part, so a 30&nbsp;in stile is never laid across a 6&nbsp;in board.</li>
+    <li>Waste is what is left over: a strip too narrow for another part width, plus the <strong>end offcut</strong> left at the end of each rip strip.</li>
+  </ul>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-label="Board ripped into two rip strips, each crosscut into parts, with leftover strip and end offcuts labeled">
+      <defs>
+        <pattern id="opto-grain" patternUnits="userSpaceOnUse" width="14" height="6">
+          <rect width="14" height="6" fill="#d8a86a"/>
+          <path d="M0 3 Q 3.5 1 7 3 T 14 3" stroke="rgba(80,40,10,0.18)" fill="none" stroke-width="0.8"/>
+        </pattern>
+        <pattern id="opto-waste" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#efe3cc"/>
+          <path d="M0 6 L6 0" stroke="#b89a6a" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <text x="320" y="18" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#2a1a0a">Board — ripped into 2 rip strips, then each strip crosscut to length</text>
+      <rect x="40" y="40" width="560" height="120" fill="url(#opto-grain)" stroke="#5a3010" stroke-width="1.5"/>
+      <rect x="40" y="40"  width="180" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <rect x="222" y="40" width="130" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <rect x="354" y="40" width="130" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <rect x="486" y="40" width="114" height="50" fill="url(#opto-waste)" stroke="#5a3010"/>
+      <text x="543" y="69" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a">end offcut</text>
+      <rect x="40"  y="92" width="220" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <rect x="262" y="92" width="220" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <rect x="484" y="92" width="116" height="50" fill="url(#opto-waste)" stroke="#5a3010"/>
+      <text x="542" y="121" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a">end offcut</text>
+      <rect x="40" y="142" width="560" height="18" fill="url(#opto-waste)" stroke="#5a3010"/>
+      <text x="320" y="156" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a">leftover strip (too narrow for another part width)</text>
+      <g stroke="#3a1d08" stroke-dasharray="2 2" stroke-width="0.9">
+        <line x1="221" y1="40" x2="221" y2="90"/>
+        <line x1="353" y1="40" x2="353" y2="90"/>
+        <line x1="485" y1="40" x2="485" y2="90"/>
+        <line x1="261" y1="92" x2="261" y2="142"/>
+        <line x1="483" y1="92" x2="483" y2="142"/>
+      </g>
+      <text x="32" y="68"  text-anchor="end" font-family="Segoe UI" font-size="10" fill="#2a1a0a">Rip strip A</text>
+      <text x="32" y="120" text-anchor="end" font-family="Segoe UI" font-size="10" fill="#2a1a0a">Rip strip B</text>
+      <text x="320" y="180" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a" font-style="italic">Dashed lines = saw kerf (blade width) between crosscuts</text>
+    </svg>
+    <figcaption>The board is ripped into width-matched rip strips, then each strip is crosscut into parts with kerf between them. Anything too narrow for another rip strip is leftover strip; anything too short at the end is end offcut.</figcaption>
+  </figure>
+
+  <p>Using <strong>mixed-width rip strips</strong> on one board can keep you from buying another board just because the remaining width is too narrow for a full strip of the same size:</p>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-label="One 6 inch board yielding a 3 inch rip strip, a 2.25 inch rip strip, and a 0.75 inch leftover strip">
+      <defs>
+        <pattern id="mix-grain" patternUnits="userSpaceOnUse" width="14" height="6">
+          <rect width="14" height="6" fill="#d8a86a"/>
+          <path d="M0 3 Q 3.5 1 7 3 T 14 3" stroke="rgba(80,40,10,0.18)" fill="none" stroke-width="0.8"/>
+        </pattern>
+        <pattern id="mix-waste" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#efe3cc"/>
+          <path d="M0 6 L6 0" stroke="#b89a6a" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <text x="260" y="18" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2a1a0a">One 6 in board &rarr; 3 in rip strip + 2&frac14; in rip strip + &frac34; in leftover strip</text>
+      <rect x="40" y="40" width="440" height="100" fill="url(#mix-grain)" stroke="#5a3010" stroke-width="1.5"/>
+      <rect x="40" y="40" width="440" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="260" y="70" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">3 in rip strip</text>
+      <rect x="40" y="92" width="440" height="36" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="260" y="115" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">2&frac14; in rip strip</text>
+      <rect x="40" y="130" width="440" height="10" fill="url(#mix-waste)" stroke="#5a3010"/>
+      <text x="260" y="152" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a">&frac34; in leftover strip</text>
+    </svg>
+    <figcaption>Mixed-width rip strips on a single board.</figcaption>
+  </figure>
+
+  <h2 id="sheet-goods">For Sheet Goods, Use Sheet Optimization</h2>
+  <p><strong>Plywood, MDF, melamine, slab panels, and edge banding</strong> should be planned in <strong>Sheet Optimization</strong>. That tool lays parts out on full sheets and accounts for blade width, edge trim, and grain direction for sheet goods.</p>
+
+  <h2 id="modes">Planning vs. Shop Layout</h2>
+  <p>Use these features one way before you buy lumber and another once the boards are in the shop:</p>
+  <dl>
+    <dt>Quick Compare</dt>
+    <dd>Use this <strong>before you buy</strong>. It compares common board widths at a standard length, usually 8&nbsp;ft unless you enter a custom length. It estimates board count, expected waste, and board feet so you can compare options side by side.</dd>
+    <dt>Preview Layout</dt>
+    <dd>Use this to review the <strong>best-yield</strong> choice or a specific board width if your supplier does not stock the ideal size.</dd>
+    <dt>Custom Board Previews</dt>
+    <dd>Use this to test a board width and length in your own units, such as <code>7.25 &times; 120</code> for a 10&nbsp;ft board. These preview rows are separate from the stock-board list.</dd>
+    <dt>OPTIMIZE CUT LAYOUT</dt>
+    <dd>Use this <strong>after the boards are in the shop</strong>. Enter the actual stock-board widths, lengths, quantities, trim allowances, and blade width. This is the layout to trust because it is based on your real stock.</dd>
+  </dl>
+
+  <figure class="help-figure">
+    <img src="images/wood-opto-quickcompare.png" alt="Quick Compare table with mini-layouts and board-comparison columns" />
+    <figcaption>Quick Compare with mini-layouts and the board-comparison columns. <em>Drop <code>wood-opto-quickcompare.png</code> into <code>Help/images/</code>.</em></figcaption>
+  </figure>
+
+  <figure class="help-figure">
+    <img src="images/wood-opto-optimize.png" alt="Available stock boards grid filled in, with the OPTIMIZE CUT LAYOUT button" />
+    <figcaption>Available stock boards filled in, plus the OPTIMIZE CUT LAYOUT button. <em>Drop <code>wood-opto-optimize.png</code> into <code>Help/images/</code>.</em></figcaption>
+  </figure>
+
+  <h2 id="example">Worked Example</h2>
+  <p>Suppose your cut list is for <strong>four 18 &times; 30&nbsp;in cope-and-stick doors</strong> with 2&frac14;&nbsp;in stiles and rails and a &frac12;&nbsp;in tongue on each end. Here is one way to work through it:</p>
+  <ol>
+    <li>That cut list gives you <strong>eight stiles at 2.25 &times; 30&nbsp;in</strong> and <strong>eight rails at 2.25 &times; 14.5&nbsp;in</strong>.</li>
+    <li>The total finished part length is <strong>356&nbsp;in</strong>, all at 2&frac14;&nbsp;in wide.</li>
+    <li>Now try a <strong>1&times;6 &times; 8&nbsp;ft</strong> board (actual 5.5 &times; 96) with <strong>&frac18;&nbsp;in edge trim</strong>, <strong>2&nbsp;in of snipe</strong> cut off each end, and a <strong>&frac18;&nbsp;in kerf</strong>. That leaves a usable face of <strong>5.25 &times; 92&nbsp;in</strong>.</li>
+    <li>From that board, you can get <strong>two 2&frac14;&nbsp;in rip strips</strong> side by side, with a <strong>&frac34;&nbsp;in leftover strip</strong>.</li>
+    <li>Those two rip strips give you <strong>184&nbsp;in of usable length per board</strong>, so <strong>two boards</strong> cover the job.</li>
+    <li>One rip strip can hold <strong>three stiles</strong>, while the other can hold <strong>one stile plus four rails</strong>, with only a small end offcut left over.</li>
+    <li>In Quick Compare, a <strong>1&times;6 &times; 8&nbsp;ft</strong> board comes out ahead of a 1&times;4 or 1&times;8 because it gives you two clean rip strips with less waste and fewer total board feet purchased.</li>
+  </ol>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-label="Worked example: one 1x6 x 8 ft board with stiles and rails placed in two rip strips">
+      <defs>
+        <pattern id="we-grain" patternUnits="userSpaceOnUse" width="14" height="6">
+          <rect width="14" height="6" fill="#d8a86a"/>
+          <path d="M0 3 Q 3.5 1 7 3 T 14 3" stroke="rgba(80,40,10,0.18)" fill="none" stroke-width="0.8"/>
+        </pattern>
+        <pattern id="we-waste" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#efe3cc"/>
+          <path d="M0 6 L6 0" stroke="#b89a6a" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <text x="320" y="18" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2a1a0a">Worked example &mdash; one 1&times;6 &times; 8 ft board, 2 rip strips of 2&frac14; in, kerf &frac18; in</text>
+      <rect x="50" y="40" width="540" height="120" fill="url(#we-grain)" stroke="#5a3010" stroke-width="1.5"/>
+      <rect x="50"  y="40" width="176" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="138" y="69" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">stile 30</text>
+      <rect x="227" y="40" width="176" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="315" y="69" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">stile 30</text>
+      <rect x="404" y="40" width="176" height="50" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="492" y="69" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">stile 30</text>
+      <text x="585" y="69" text-anchor="end" font-family="Segoe UI" font-size="9" fill="#2a1a0a" font-style="italic">end offcut 1.75</text>
+      <rect x="50"  y="92" width="176" height="40" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="138" y="116" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">stile 30</text>
+      <rect x="227" y="92" width="85" height="40" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="269" y="116" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#fff">rail 14.5</text>
+      <rect x="313" y="92" width="85" height="40" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="355" y="116" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#fff">rail 14.5</text>
+      <rect x="399" y="92" width="85" height="40" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="441" y="116" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#fff">rail 14.5</text>
+      <rect x="485" y="92" width="85" height="40" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="527" y="116" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#fff">rail 14.5</text>
+      <text x="585" y="116" text-anchor="end" font-family="Segoe UI" font-size="9" fill="#2a1a0a" font-style="italic">end offcut 3.5</text>
+      <rect x="50" y="134" width="540" height="26" fill="url(#we-waste)" stroke="#5a3010"/>
+      <text x="320" y="151" text-anchor="middle" font-family="Segoe UI" font-size="10" fill="#2a1a0a">leftover strip &mdash; &frac34; in &times; 92 in</text>
+      <text x="42" y="68"  text-anchor="end" font-family="Segoe UI" font-size="10" fill="#2a1a0a">Rip strip A</text>
+      <text x="42" y="116" text-anchor="end" font-family="Segoe UI" font-size="10" fill="#2a1a0a">Rip strip B</text>
+    </svg>
+    <figcaption>One board of the worked example. The second board packs identically.</figcaption>
+  </figure>
+
+  <h2 id="glueup">Solid-Wood Panel Glue-Ups</h2>
+  <p>For solid-wood panels wider than a single board, DoorCut can help you plan how many glue-up strips to rip and how to batch them for glue-up. Use these settings when you are gluing up a raised panel or any other solid-wood panel wider than a single board:</p>
+  <ul>
+    <li><strong>Glue strip length:</strong> Leave this blank if your glue-up strips will be the same length as your frame stock, or enter the length you will rip them from if you are using longer boards.</li>
+    <li><strong>Per panel</strong> vs. <strong>wide blank:</strong> Plan each panel separately, or glue up one long blank and cut the finished panels from it afterward.</li>
+  </ul>
+
+  <h2 id="approximate">Estimates vs. Actual Yield</h2>
+  <p>Lumber is sold by nominal names such as <code>1&times;</code> or <code>8/4 &times; 10</code>, but actual boards vary after milling, even within the same grade. This tool works from the finished part sizes in your cut list and the board dimensions you enter.</p>
+  <p>Because of that, any <strong>board-feet total</strong>, <strong>waste percentage</strong>, or <strong>board count</strong> shown in Quick Compare is only a <strong>planning estimate</strong>. It assumes clean rectangular boards, fixed trim allowances, a fixed blade width, and one board length per row unless you enter a custom length. Real boards may be crowned, tapered, or have wane. Use Quick Compare to compare buying options. Once you know what actually came off the truck, use <strong>OPTIMIZE CUT LAYOUT</strong> with your real stock boards for a more accurate layout and yield.</p>
+
+  <h2 id="trims">Trim Allowances</h2>
+  <p>Trim allowances reduce a rough or nominal board to a clean, workable size <em>before</em> any parts are placed. These allowances come off the whole board once, not from each individual part. These settings affect the usable size of the stock board before any parts are laid out:</p>
+  <ul>
+    <li><strong>Edge trim:</strong> The amount jointed off each long edge to make the board straight and square. It reduces the board <strong>width</strong> by twice that amount.</li>
+    <li><strong>End trim / snipe:</strong> The amount cut from each end to square the board and remove planer snipe. It reduces the board <strong>length</strong> by twice that amount.</li>
+    <li><strong>About snipe:</strong> When rough lumber goes through a thickness planer, the first and last few inches often cut a little deeper. If you surface your own stock, enter that loss here, commonly <strong>2&ndash;4&nbsp;in per end</strong>. If your boards are already surfaced (S4S), you can usually leave this at 0.</li>
+  </ul>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" role="img" aria-label="Diagram showing edge trim, end trim, kerf between parts, and extra crosscut allowance">
+      <defs>
+        <pattern id="tr-grain" patternUnits="userSpaceOnUse" width="14" height="6">
+          <rect width="14" height="6" fill="#d8a86a"/>
+          <path d="M0 3 Q 3.5 1 7 3 T 14 3" stroke="rgba(80,40,10,0.18)" fill="none" stroke-width="0.8"/>
+        </pattern>
+        <pattern id="tr-trim" patternUnits="userSpaceOnUse" width="5" height="5">
+          <rect width="5" height="5" fill="#f4c674"/>
+          <path d="M0 5 L5 0" stroke="#a76a1a" stroke-width="0.8"/>
+        </pattern>
+        <pattern id="tr-gap" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#efe3cc"/>
+          <path d="M0 0 L6 6" stroke="#b89a6a" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <text x="320" y="18" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2a1a0a">Edge trim and end trim come off the whole board &middot; kerf and extra crosscut allowance sit between parts</text>
+      <rect x="40" y="40" width="560" height="90" fill="url(#tr-grain)" stroke="#5a3010" stroke-width="1.5"/>
+      <rect x="40" y="40"  width="560" height="8" fill="url(#tr-trim)"/>
+      <rect x="40" y="122" width="560" height="8" fill="url(#tr-trim)"/>
+      <rect x="40" y="40" width="22" height="90" fill="url(#tr-trim)"/>
+      <rect x="578" y="40" width="22" height="90" fill="url(#tr-trim)"/>
+      <rect x="62" y="48" width="120" height="74" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="122" y="89" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">part</text>
+      <rect x="183" y="48" width="3" height="74" fill="#3a1d08"/>
+      <rect x="187" y="48" width="120" height="74" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="247" y="89" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">part</text>
+      <rect x="308" y="48" width="20" height="74" fill="url(#tr-gap)" stroke="#5a3010"/>
+      <text x="318" y="138" text-anchor="middle" font-family="Segoe UI" font-size="9" fill="#2a1a0a">extra crosscut allowance</text>
+      <rect x="329" y="48" width="120" height="74" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="389" y="89" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">part</text>
+      <rect x="450" y="48" width="3" height="74" fill="#3a1d08"/>
+      <rect x="454" y="48" width="120" height="74" fill="#b07a3a" stroke="#5a3010"/>
+      <text x="514" y="89" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#fff">part</text>
+      <text x="51" y="153" text-anchor="middle" font-family="Segoe UI" font-size="9" fill="#a76a1a">end trim</text>
+      <text x="589" y="153" text-anchor="middle" font-family="Segoe UI" font-size="9" fill="#a76a1a">end trim</text>
+      <text x="320" y="32" text-anchor="middle" font-family="Segoe UI" font-size="9" fill="#a76a1a">edge trim (top &amp; bottom)</text>
+      <text x="185" y="155" text-anchor="middle" font-family="Segoe UI" font-size="9" fill="#3a1d08">kerf</text>
+    </svg>
+    <figcaption>Edge trim and end trim come off the board once; saw kerf and the optional extra crosscut allowance sit between every pair of parts down the rip strip.</figcaption>
+  </figure>
+
+  <h2 id="tips">Practical Tips</h2>
+  <ul>
+    <li>The <strong>Narrow</strong>, <strong>Medium</strong>, and <strong>Wide</strong> buttons under <em>Board Width Reference</em> are legacy labels and do not currently affect Quick Compare or OPTIMIZE CUT LAYOUT.</li>
+    <li><strong>Saw kerf:</strong> the width of your blade, counted between cuts. This is different from edge trim or end trim, which come off the board before any parts are placed.</li>
+    <li><strong>Extra crosscut allowance:</strong> extra length left between crosscuts in addition to the kerf. Use it if you rough-cut blanks a little long and trim them to final length later. Leave it at <strong>0</strong> if you cut straight to finished length.</li>
+    <li>If you want extra material on each <em>part</em> for final milling, add that extra length or width in the cut list itself. The trim settings here apply only to the stock board.</li>
+  </ul>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

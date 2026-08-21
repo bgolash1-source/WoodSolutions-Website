@@ -1,0 +1,20 @@
+QUICK FRACTION CALCULATOR — site/calculator/
+============================================
+
+Page:   site/calculator/index.html
+Upload: www.woodsolutions.com/calculator/
+
+BEFORE PUBLISH
+--------------
+1. Creem.io checkout URL in index.html (Buy license button)
+2. sales@woodsolutions.com in footer (already set)
+3. Copy installers to site/calculator/downloads/
+
+BUILD INSTALLERS (MauiApp2 repo)
+--------------------------------
+  Windows:  MauiApp2\build-installer.bat
+  Android:  MauiApp2\build-android-apk.bat
+
+Images: site/calculator/images/new-release-android-banner.png (add from MauiApp2\docs\website\images when available)
+
+See also: docs/xara-fraction-calculator-update.txt if you keep editing the legacy Xara page instead.

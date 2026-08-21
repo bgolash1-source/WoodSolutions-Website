@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Layout tab</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Layout tab</h1>
+  <p>After you run <strong>Optimize sheet layout</strong> on the Setup tab, DoorCut jumps over here so you can look at how the parts fall on each sheet.</p>
+
+  <figure class="help-figure">
+    <img src="images/sheet-opto-layout-tab.png" alt="Layout tab with sheet thumbnails, status bar, and the Prev/Next sheet buttons" />
+    <figcaption>The Layout tab after a successful run. <em>Drop <code>sheet-opto-layout-tab.png</code> into <code>Help/images/</code>.</em></figcaption>
+  </figure>
+
+  <h2>Reading the picture</h2>
+  <ul>
+    <li>The big outer rectangle is the whole sheet.</li>
+    <li>The orange strips are edge trim — parts fit inside the area left over.</li>
+    <li>Each colored block is one part; the label is its width &times; length.</li>
+    <li><strong>Click a sheet</strong> to blow it up so the small parts are easier to read.</li>
+    <li><strong>Right-click a sheet</strong> for the enlarged view and thumbnail zoom.</li>
+    <li>Use the <strong>Zoom</strong> slider to size all the sheet thumbnails at once.</li>
+  </ul>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" role="img" aria-label="Annotated sheet diagram showing edge trim, kerf, placed parts, and waste">
+      <defs>
+        <pattern id="lay-trim" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#f4c674"/>
+          <path d="M0 6 L6 0" stroke="#a76a1a" stroke-width="0.9"/>
+        </pattern>
+        <pattern id="lay-waste" patternUnits="userSpaceOnUse" width="7" height="7">
+          <rect width="7" height="7" fill="#efe3cc"/>
+          <path d="M0 7 L7 0" stroke="#b89a6a" stroke-width="0.7"/>
+        </pattern>
+      </defs>
+      <text x="270" y="20" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2a1a0a">Annotated sheet &mdash; what each region means</text>
+
+      <rect x="40" y="36" width="460" height="220" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+      <rect x="40" y="36" width="460" height="12" fill="url(#lay-trim)"/>
+      <rect x="40" y="244" width="460" height="12" fill="url(#lay-trim)"/>
+      <rect x="40" y="36" width="12" height="220" fill="url(#lay-trim)"/>
+      <rect x="488" y="36" width="12" height="220" fill="url(#lay-trim)"/>
+
+      <rect x="56" y="52" width="200" height="100" fill="#8fbcd9" stroke="#27506e"/>
+      <text x="156" y="106" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#0e2e44">24 &times; 12</text>
+
+      <rect x="262" y="52" width="120" height="100" fill="#b1d6a3" stroke="#3e6e2e"/>
+      <text x="322" y="106" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#1c3a14">15 &times; 12</text>
+
+      <rect x="388" y="52" width="96" height="100" fill="#e6b894" stroke="#7a4a23"/>
+      <text x="436" y="106" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#3a1a05">12 &times; 12</text>
+
+      <rect x="56" y="158" width="248" height="80" fill="#cba8de" stroke="#5b3877"/>
+      <text x="180" y="202" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2c1340">30 &times; 10</text>
+
+      <rect x="310" y="158" width="174" height="80" fill="url(#lay-waste)" stroke="#999"/>
+      <text x="397" y="202" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#5a3010">leftover</text>
+
+      <!-- Callouts -->
+      <g font-family="Segoe UI" font-size="10" fill="#2a1a0a">
+        <line x1="40" y1="42" x2="14" y2="30" stroke="#a76a1a"/>
+        <text x="12" y="26" text-anchor="end">orange band = edge trim</text>
+
+        <line x1="262" y1="106" x2="520" y2="98" stroke="#27506e"/>
+        <text x="522" y="100">labeled part (w &times; l)</text>
+
+        <line x1="310" y1="200" x2="520" y2="216" stroke="#5a3010"/>
+        <text x="522" y="220">drop / waste</text>
+
+        <line x1="260" y1="52" x2="260" y2="14" stroke="#444" stroke-dasharray="3 2"/>
+        <text x="260" y="12" text-anchor="middle" fill="#444">kerf between parts</text>
+      </g>
+    </svg>
+    <figcaption>Same legend on every sheet. The bar above the tabs tells you how much of the sheet is used, how many sheets the job took, and whether anything was left unplaced.</figcaption>
+  </figure>
+
+  <h2>Moving between sheets</h2>
+  <p><strong>Prev sheet</strong> and <strong>Next sheet</strong> walk you through every sheet the job used. The bar above the tabs shows how much of the sheet you are using, how many sheets it took, and anything that did not fit.</p>
+
+  <h2>If something looks off</h2>
+  <ol>
+    <li>Double-check the part sizes on the main cut list (the Parts tab is read-only).</li>
+    <li>Check the sheet width, length, blade width, and trim on Setup.</li>
+    <li>Try the other cut workflow if parts did not fit or the cuts look awkward. <strong>Strict guillotine</strong> keeps every cut straight across; <strong>Rip-first</strong> chases the best yield on mixed jobs.</li>
+    <li>Bump up the sheet quantity if the job just needs more stock.</li>
+  </ol>
+
+  <h2>Print and save</h2>
+  <p>Once it has run, use the buttons on the Layout toolbar:</p>
+  <ul>
+    <li><strong>Export report</strong> — saves a plain text file with a parts table and a simple picture of each sheet, good for taping to the wall or filing.</li>
+    <li><strong>Print report</strong> — shows a preview, then prints a plain-text parts table and ASCII diagram on letter paper.</li>
+    <li><strong>Print layouts</strong> — landscape, one sheet per page. The diagram scales to fill the left side; a numbered part list on the right shows every cut size (including narrow parts like 2.5&quot; wide). Match the number on each part to the list. Print at <strong>100% scale</strong> with landscape orientation in your printer dialog.</li>
+    <li><strong>Print labels</strong> — 30 labels to a letter-size page (Avery 5160 / 5260 style). Pick which info goes on them; the sheet numbers come from the last layout you ran.</li>
+  </ul>
+
+  <figure class="help-figure">
+    <img src="images/sheet-opto-print-labels.png" alt="Print labels dialog with Avery 5160 layout preview" />
+    <figcaption>Label dialog laid out for Avery 5160 / 5260. <em>Drop <code>sheet-opto-print-labels.png</code> into <code>Help/images/</code>.</em></figcaption>
+  </figure>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

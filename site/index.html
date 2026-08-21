@@ -1,0 +1,967 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wood Solutions — Software for Cabinetmakers</title>
+  <meta name="description" content="Practical software for cabinetmakers from Wood Solutions. DoorCut 3.0 releases soon — layout, cut planning, and shop workflow tools. TimberTally and more available now.">
+  <style>
+    :root {
+      --walnut: #3d2e24;
+      --walnut-soft: #5c4a3a;
+      --cream: #f7f3ed;
+      --cream-dark: #ebe4d8;
+      --amber: #c4923a;
+      --amber-light: #e8b86a;
+      --text: #2a221c;
+      --muted: #6b5f54;
+      --card: #ffffff;
+      --border: #ddd5c8;
+      --shadow: 0 8px 28px rgba(61, 46, 36, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: var(--walnut-soft); }
+    a:hover { color: var(--amber); }
+
+    .site-header {
+      background: #000;
+      color: #fff;
+      padding: 14px 20px;
+      border-bottom: 3px solid var(--amber);
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-wordmark {
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .brand-wordmark span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0.82;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--amber-light); }
+    nav a[aria-current="page"] { color: var(--amber-light); }
+
+    .nav-group:has(.nav-submenu a[aria-current="page"]) > a {
+      color: var(--amber-light);
+    }
+
+    .nav-group {
+      position: relative;
+    }
+
+    .nav-group > a::after {
+      content: " ▾";
+      font-size: 0.72em;
+      opacity: 0.65;
+    }
+
+    .nav-submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 148px;
+      padding-top: 6px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      z-index: 20;
+    }
+
+    .nav-group:hover .nav-submenu,
+    .nav-group:focus-within .nav-submenu {
+      display: block;
+    }
+
+    .nav-submenu a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-submenu a::after { content: none; }
+
+    .nav-submenu a[aria-current="page"] {
+      background: rgba(196, 146, 58, 0.14);
+    }
+
+    @media (max-width: 820px) {
+      .nav-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .nav-group > a::after { content: none; }
+
+      .nav-submenu {
+        display: block;
+        position: static;
+        min-width: 0;
+        padding: 0 0 0 12px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        border-left: 2px solid var(--amber);
+      }
+
+      .nav-submenu a {
+        padding: 4px 0 4px 8px;
+        font-size: 0.88rem;
+        opacity: 0.88;
+      }
+
+      .nav-submenu a[aria-current="page"] {
+        background: transparent;
+        opacity: 1;
+      }
+    }
+
+    main { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      padding: 72px 0 48px;
+    }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding-top: 44px; }
+    }
+
+    .hero-logo {
+      display: block;
+      width: 200px;
+      height: auto;
+      margin: 0 0 26px;
+    }
+
+    @media (max-width: 820px) {
+      .hero-logo { width: 168px; margin-bottom: 22px; }
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(1.85rem, 4vw, 2.65rem);
+      line-height: 1.15;
+      color: var(--walnut);
+      font-weight: 750;
+    }
+
+    .hero-lead {
+      margin: 0 0 24px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 36em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 650;
+      text-decoration: none;
+      font-size: 0.98rem;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--walnut);
+      box-shadow: 0 4px 14px rgba(196, 146, 58, 0.35);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); color: var(--walnut); }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--walnut);
+      border: 1px solid var(--border);
+    }
+
+    .hero-note {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .sys-req {
+      margin: 10px 0 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .sys-req strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .hero .sys-req {
+      margin-top: 18px;
+      max-width: 38em;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .hero .sys-req strong {
+      color: var(--walnut);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      color: var(--walnut);
+    }
+
+    .hero-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: var(--walnut);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 42em;
+    }
+
+    .philosophy {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .philosophy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .philosophy strong { color: var(--walnut); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-card.featured {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 1px rgba(196, 146, 58, 0.2), var(--shadow);
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .product-card.featured { grid-template-columns: 1fr; }
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+
+    .status-live {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .status-soon {
+      background: var(--cream-dark);
+      color: var(--muted);
+    }
+
+    .status-release-soon {
+      background: rgba(196, 146, 58, 0.22);
+      color: #7a5210;
+    }
+
+    .release-notice {
+      margin: 0 0 24px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(196, 146, 58, 0.45);
+      background: rgba(196, 146, 58, 0.1);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .release-notice strong {
+      color: var(--walnut);
+    }
+
+    .release-notice a {
+      font-weight: 650;
+    }
+
+    .product-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--walnut);
+    }
+
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .product-card .btn {
+      align-self: start;
+      padding: 10px 16px;
+      font-size: 0.92rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .project-card-thumb {
+      display: block;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-card h3,
+    .project-card p,
+    .project-card .arrow {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .project-card h3 {
+      padding-top: 16px;
+    }
+
+    .project-card .arrow {
+      padding-bottom: 18px;
+    }
+
+    .project-card:hover {
+      border-color: var(--amber);
+      box-shadow: var(--shadow);
+      color: inherit;
+    }
+
+    .project-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: var(--walnut);
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .project-card .arrow {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--amber);
+    }
+
+    .doorcut-expand {
+      border: 1px solid var(--amber);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: 0 0 0 1px rgba(196, 146, 58, 0.15), var(--shadow);
+      overflow: hidden;
+    }
+
+    .doorcut-expand summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      user-select: none;
+    }
+
+    .doorcut-expand summary::-webkit-details-marker { display: none; }
+
+    .doorcut-expand[open] summary {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #fffdf8 0%, var(--card) 100%);
+    }
+
+    .summary-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      color: var(--walnut);
+    }
+
+    .summary-main strong { font-size: 1.15rem; }
+
+    .summary-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .expand-hint {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .expand-hint::after { content: " ▾"; color: var(--amber); }
+
+    .doorcut-expand[open] .expand-hint::after { content: " ▴"; }
+
+    .doorcut-expand-body {
+      padding: 24px 22px 26px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) {
+      .doorcut-expand-body { grid-template-columns: 1fr; }
+    }
+
+    .doorcut-shot {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .doorcut-expand-body h3 {
+      margin: 0 0 10px;
+      color: var(--walnut);
+      font-size: 1.2rem;
+    }
+
+    .doorcut-expand-body p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .doorcut-expand-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-strip {
+      background: var(--walnut);
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .contact-strip h2 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+
+    .contact-strip p {
+      margin: 0;
+      opacity: 0.88;
+      max-width: 28em;
+    }
+
+    .contact-strip a {
+      color: var(--amber-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-strip a:hover { text-decoration: underline; }
+
+    .site-footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .site-footer p { margin: 6px 0; }
+
+    .site-footer .footer-links a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .site-footer .footer-email a {
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .site-footer .footer-mor {
+      font-size: 0.82rem;
+      max-width: 28em;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+
+    .site-footer .footer-mor a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-wordmark">
+          Wood Solutions
+          <span>Applications for cabinetmakers</span>
+        </span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="doorcut.html">DoorCut</a>
+          <div class="nav-submenu">
+            <a href="doorcut/help/index.html">Help</a>
+          </div>
+        </div>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="calculator/index.html">Fraction calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="release-notice" role="status">
+      <strong>DoorCut 3.0 releases soon.</strong>
+      Trial download and Creem.io checkout open when payment verification completes.
+      <a href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Email sales@woodsolutions.com</a> for launch updates.
+    </p>
+
+    <section class="hero">
+      <div>
+        <img class="hero-logo"
+             src="images/wood-solutions-logo.png"
+             alt="Wood Solutions"
+             width="200"
+             height="200">
+        <span class="hero-eyebrow">Built for the shop floor</span>
+        <h1>Wood Solutions — software for cabinetmakers</h1>
+        <p class="hero-lead">
+          Practical, dependable tools that support the day-to-day work of cabinetmakers, shop owners,
+          and woodworking professionals. Layout, cut planning, and production software with the precision
+          and visual clarity needed for real work — not glossy sales presentations.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="doorcut.html">DoorCut 3.0 — details &amp; pricing</a>
+          <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com">Contact sales</a>
+        </div>
+        <p class="hero-note">Questions about licensing, trials, or shop deployment? We’re happy to help.</p>
+        <p class="sys-req">
+          <strong>DoorCut 3.0 — system requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+          Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+        </p>
+      </div>
+
+      <aside class="hero-card" id="doorcut">
+        <div class="hero-card-label">Releasing soon</div>
+        <h2>DoorCut 3.0</h2>
+        <p>
+          Design and production software for cabinet doors — accurate layout, joinery math,
+          cut lists, and material planning for the shop.
+        </p>
+        <ul class="check-list">
+          <li>Rails, stiles, panels, and muntins with full sizing control</li>
+          <li>Joinery details calculated for your machining allowances</li>
+          <li>Cut lists ready for the table saw and CNC</li>
+          <li>Sheet Logic optimizer — sheet goods and solid wood (shared across the product line)</li>
+        </ul>
+        <div class="hero-actions" style="margin-top: 18px; margin-bottom: 0;">
+          <a class="btn btn-primary" href="doorcut.html">Details &amp; pricing</a>
+          <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Launch updates</a>
+        </div>
+        <p class="hero-note" style="margin-top: 12px;">14-day free trial and checkout opening at launch — full features, no credit card for the trial.</p>
+        <p class="sys-req">
+          <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+          Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section" id="doorcut-details">
+      <details class="doorcut-expand">
+        <summary>
+          <span class="summary-main">
+            <span class="status status-release-soon">Releasing soon</span>
+            <strong>DoorCut 3.0</strong>
+            <span style="font-weight:400;color:var(--muted);">— door layout, joinery, cut lists</span>
+          </span>
+          <span class="summary-actions">
+            <a class="btn btn-primary" href="doorcut.html" onclick="event.stopPropagation()">Details &amp; pricing</a>
+            <span class="expand-hint">Screenshot &amp; details</span>
+          </span>
+        </summary>
+        <div class="doorcut-expand-body">
+          <div>
+            <img class="doorcut-shot"
+                 src="images/doorcut-screenshot.webp"
+                 alt="DoorCut — cabinet door layout and cut list screen"
+                 width="1246"
+                 height="648"
+                 loading="lazy">
+          </div>
+          <div>
+            <h3>Built for the door shop</h3>
+            <p>
+              DoorCut calculates every part in a typical cabinet door — stiles, rails, panels, and muntins —
+              with full control over machining allowances and panel placement within each style.
+            </p>
+            <p>
+              Originally developed in Borland Delphi and now modernized in C#, with sheet and solid-wood
+              optimization on the way through Sheet Logic.
+            </p>
+            <ul class="check-list">
+              <li>All stile, rail, and muntin widths definable</li>
+              <li>Custom panel placement — new looks from the same base style</li>
+              <li>Cut lists for the table saw and CNC</li>
+              <li>Label printing for the shop floor</li>
+            </ul>
+            <div class="doorcut-expand-actions">
+              <a class="btn btn-primary" href="doorcut.html">Details &amp; pricing</a>
+              <a class="btn btn-secondary" href="doorcut/help/index.html">Help guide</a>
+              <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Launch updates</a>
+            </div>
+            <p class="sys-req">
+              <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
+              Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
+            </p>
+            <p style="margin:14px 0 0;font-size:0.9rem;color:var(--muted);">
+              Trial and purchase open at launch — run real jobs in your shop first.
+            </p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section" id="about">
+      <div class="philosophy">
+        <p>
+          After a career in woodworking and a long-standing interest in programming, I’m building
+          software that solves <strong>practical shop problems</strong>: organizing layouts,
+          improving material use, supporting better planning, and making production decisions
+          with more confidence. Every product is designed for cabinetmakers, shop owners, and
+          professionals who live in fractions, clearances, and cut lists — not rendering packages
+          for the showroom alone.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <h2>Product line</h2>
+        <p>
+          <strong>DoorCut 3.0</strong> releases soon — expand the section above for a screenshot and details.
+          <strong>Sheet Logic</strong> is the shared sheet-goods and solid-wood optimizer behind the line.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <a class="product-card" href="sheet-logic.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-soon">In development</span>
+          <h3>Sheet Logic</h3>
+          <p>
+            Sheet-goods and solid-wood optimization — compare layouts, reduce waste, and plan cuts before production.
+            Shared engine for DoorCut, DrawerCut, and CabinetLogic.
+          </p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+        </a>
+
+        <a class="product-card" href="drawer-cut.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-soon">In development</span>
+          <h3>DrawerCut</h3>
+          <p>Drawer boxes and fronts — same practical workflow as DoorCut, tuned for drawer banks and slide clearances.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+        </a>
+
+        <a class="product-card" href="cabinet-logic.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-soon">In development</span>
+          <h3>CabinetLogic</h3>
+          <p>Integrates doors, drawers, and cabinet parts into one project cut list — the shop-floor hub for full casework.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+        </a>
+
+        <a class="product-card" href="calculator/index.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-release-soon">Releasing soon</span>
+          <h3>Quick Fraction Calculator</h3>
+          <p>Fractions for the shop floor — Windows and Android. Waiting on Creem merchant verification.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+        </a>
+
+        <a class="product-card" href="timbertally.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-live" style="background:#e8f5e9;color:#2e7d32;">Freeware</span>
+          <h3>TimberTally</h3>
+          <p>Board-foot calculator and lumber costing — free for Windows 10 or 11. No license key.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Download →</span>
+        </a>
+      </div>
+      <p style="margin:18px 0 0;text-align:center;">
+        <a href="products.html" style="font-weight:600;">View full product list →</a>
+      </p>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2>Workshop &amp; build projects</h2>
+        <p>
+          Beyond software — custom machinery and shop projects from a retired cabinetmaker.
+          <a href="projects.html">Full projects page →</a>
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <a class="project-card" href="projects/diy-cnc-router.html">
+          <img class="project-card-thumb" src="images/projects/141.webp" alt="" width="362" height="160" loading="lazy">
+          <h3>DIY CNC router</h3>
+          <p>A fully functional 3-axis CNC router — design, build, and shop use.</p>
+          <div class="arrow">View project →</div>
+        </a>
+        <a class="project-card" href="projects/diy-sander-planer.html">
+          <img class="project-card-thumb" src="images/projects/92.webp" alt="" width="400" height="160" loading="lazy">
+          <h3>DIY sander / planer</h3>
+          <p>Combination wide-belt sander and planer built for the home shop.</p>
+          <div class="arrow">View project →</div>
+        </a>
+        <a class="project-card" href="projects/violin.html">
+          <img class="project-card-thumb" src="images/projects/311.webp" alt="" width="400" height="160" loading="lazy">
+          <h3>Violin build project</h3>
+          <p>Fine woodworking outside the cabinet shop — build notes and progress.</p>
+          <div class="arrow">View project →</div>
+        </a>
+        <a class="project-card" href="projects/gallery.html">
+          <img class="project-card-thumb" src="images/projects/3048.webp" alt="" width="400" height="160" loading="lazy">
+          <h3>Gallery</h3>
+          <p>Photos from the shop, projects, and machinery.</p>
+          <div class="arrow">View gallery →</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-strip">
+        <div>
+          <h2>Get in touch</h2>
+          <p>
+            Sales, licensing, and product questions —
+            <a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a>
+            · <a href="contact.html" style="color: var(--amber-light);">Map &amp; address</a>
+          </p>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Contact page</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions. Custom software for cabinetmakers.</p>
+    <p class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

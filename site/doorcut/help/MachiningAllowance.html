@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Machining allowances</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Machining allowances — leaving a little extra for the shop</h1>
+  <p>In a perfect world every saw stops dead on the line and nothing needs touching up. In a real shop you often want to cut a part a little fat so you can joint it, trim it, or sneak up on a final fit. This section lets your cut list show "cut this one a bit oversize" on the frame parts, so nobody has to do that math in their head on every line.</p>
+
+  <h2>Two ways to run it</h2>
+  <p><strong>Net cut sizes on cutlist</strong> — the grid shows finished sizes only. No extra added on, and the prep columns stay out of the way.</p>
+  <p><strong>Apply machining allowances below</strong> — DoorCut adds your extra to the parts that are allowed to have it (see below). Two new columns, <strong>Prep width</strong> and <strong>Prep length</strong>, show up so you can read the finished size and the rough size side by side.</p>
+
+  <h2>The three settings (each has its own checkbox)</h2>
+  <p><strong>Rail length</strong> — adds to the <em>length</em> of rails only. Handy for leaving a touch on the ends before final trim or cope work.</p>
+  <p><strong>Rail and stile width</strong> — adds to the <em>face width</em> of rails and stiles (how wide they read on the face of the door). This is your general oversize on frame width.</p>
+  <p><strong>Center, lock stiles, muntin width</strong> — when its box is checked, center / mid / lock stiles can use this amount on width instead of the rail-and-stile value. Useful when those parts get different tooling or sanding than the outside frame.</p>
+
+  <h2>Where extra is NOT added (important)</h2>
+  <p><strong>Panels</strong> are always treated as finished size — DoorCut never pads a panel. When allowances are on, the prep cells for panels stay blank on purpose so nobody rough-cuts a panel off the same numbers as frame stock.</p>
+  <p><strong>Outer stiles</strong> get the width add like the rest, but their prep <em>length</em> cell is left blank because the length is kept at finished size for the way this list lays out.</p>
+
+  <h2>Once the job is going</h2>
+  <p>After you have added lines to the list, these settings lock so the math cannot change underneath an active job. Decide how you want to run it before you build the grid.</p>
+
+  <h2>One bit of advice</h2>
+  <p>If you are not sure, start on <strong>net only</strong> until you trust the numbers. Then turn allowances on and tune one checkbox at a time. Small, honest extra beats a big guess.</p>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+================================================================================
+  WOODSOLUTIONS.COM — UPLOAD INSTRUCTIONS
+  (Keep this file on your computer — do not upload it.)
+================================================================================
+
+PREFERRED (after one-time setup):
+  See docs\cpanel-git-deploy.md
+  → Push from PC, then cPanel → Git Version Control → Deploy HEAD Commit
+  → Copies the whole site\ folder correctly every time.
+
+MANUAL (below): zip or File Manager when Git is not set up yet.
+
+================================================================================
+
+WHAT YOU ARE DOING (manual upload)
+  Copy everything inside the "site" folder to your web host.
+  One upload. All the new pages, photos, and fixes go live together.
+
+WHERE THE FILES ARE (your computer)
+  C:\Users\bgola\source\repos\WoodSolutions-Website\site\
+
+WHERE THEY GO (the web server)
+  public_html\
+
+================================================================================
+BEFORE YOU START — 2-MINUTE CHECKLIST
+================================================================================
+
+  [ ] WinSCP is installed (you used it before — you're good)
+  [ ] You know your cPanel password for user woodso9
+  [ ] Optional: close extra browser tabs so you can check the site after
+
+  You do NOT need to:
+  - Delete anything on the server first
+  - Download photos separately (they are already in site\images\projects\)
+  - Set up Creem tonight (DoorCut stays "releasing soon" until they approve you)
+
+================================================================================
+STEP 1 — OPEN WINSCP AND LOG IN
+================================================================================
+
+  1. Start WinSCP
+
+  2. If you saved a session, click it. Otherwise enter:
+
+       Host name:   ehub68.webhostinghub.com
+                    (woodsolutions.com also works)
+
+       User name:   woodso9
+
+       Password:    your cPanel password
+
+  3. Click Login
+
+  4. If it asks about a host key / certificate — click Yes or Accept
+
+  You should see TWO panels:
+    LEFT  = your computer
+    RIGHT = the web server
+
+================================================================================
+STEP 2 — GO TO THE RIGHT FOLDERS
+================================================================================
+
+  LEFT side (your computer):
+    Navigate to:
+    C:\Users\bgola\source\repos\WoodSolutions-Website\site\
+
+    You should see folders like: css, images, projects, calculator, downloads
+    And files like: index.html, doorcut.html, projects.html
+
+  RIGHT side (server):
+    Navigate to:
+    public_html\
+
+    (This is your website root. Old Xara files may still be here — that is OK.)
+
+================================================================================
+STEP 3 — UPLOAD EVERYTHING
+================================================================================
+
+  1. Click inside the LEFT panel (the site folder)
+
+  2. Press Ctrl+A to select ALL files and folders
+
+  3. Drag the selection to the RIGHT panel (public_html)
+
+  4. When WinSCP asks "Overwrite?" — click YES TO ALL
+
+  5. Wait until the transfer queue at the bottom finishes (no spinning jobs)
+
+  TIP: If you see a folder named _legacy-scrape — you can skip it (old scrape
+  files). It will not break anything if it uploads, but you do not need it.
+
+  IMPORTANT FOLDERS THAT MUST UPLOAD:
+    images\projects\     ← all CNC, violin, gallery photos (19 files)
+    projects\            ← CNC, sander/planer, violin, gallery pages
+    css\                 ← styles including photo sizes we fixed
+    calculator\          ← fraction calculator page
+    api\license\         ← for DoorCut later (Creem)
+
+================================================================================
+STEP 4 — CHECK THE SITE (5 MINUTES)
+================================================================================
+
+  Open these links in Chrome or Edge. Use Ctrl+F5 (hard refresh) on each page
+  so you see the new version, not an old cached copy.
+
+  1. HOMEPAGE
+     https://www.woodsolutions.com/
+     - New Wood Solutions design (not old Xara homepage)
+     - DoorCut section says "Releasing soon"
+     - Scroll down: 4 project cards WITH photos (CNC, sander, violin, gallery)
+
+  2. PROJECTS HUB
+     https://www.woodsolutions.com/projects.html
+     - Should NOT be a 404
+     - Four project cards with thumbnails
+
+  3. CNC ROUTER
+     https://www.woodsolutions.com/projects/diy-cnc-router.html
+     - Real CNC photo at top (NO cartoon graphic)
+     - Control box photo is smaller, not stretched fuzzy
+
+  4. VIOLIN
+     https://www.woodsolutions.com/projects/violin.html
+     - Violin photo at top is smaller and sharper
+
+  5. GALLERY
+     https://www.woodsolutions.com/projects/gallery.html
+     - TWO images only (shop photos + cabinet collage)
+     - NO duplicate column of the same photos
+
+  6. FRACTION CALCULATOR (nav link)
+     https://www.woodsolutions.com/calculator/index.html
+     - "Releasing soon" banner (waiting on Creem merchant verification)
+     - "Get launch updates" buttons — NOT download links yet
+
+  7. DOORCUT
+     https://www.woodsolutions.com/doorcut.html
+     - "Releasing soon" banner (correct until Creem approves)
+
+================================================================================
+WHAT IS NEW IN THIS UPLOAD (everything we did together)
+================================================================================
+
+  - Brand-new homepage and site design
+  - Personal projects rebuilt: CNC, sander/planer, violin, gallery
+  - Project photos bundled in images\projects\ (self-contained)
+  - Gallery duplicate photos removed
+  - CNC cartoon graphic removed; photo sizes fixed
+  - Calculator links fixed
+  - Privacy, Terms, Contact, Creem footer on pages
+  - Old Xara project URLs redirect to new pages (via .htaccess)
+
+================================================================================
+IF SOMETHING LOOKS WRONG
+================================================================================
+
+  Still see the OLD Xara homepage?
+    → Press Ctrl+F5. If still old, check that index.html uploaded to
+      public_html (not inside a subfolder).
+
+  Project photos missing (broken image icons)?
+    → Confirm public_html\images\projects\ has .webp files on the server.
+      Re-upload the images\projects folder if needed.
+
+  projects.html shows 404?
+    → projects.html did not upload. Drag it from site\ to public_html again.
+
+  Calculator shows a folder list?
+    → Use the full link: .../calculator/index.html
+      (Nav links should work after this upload.)
+
+  Ask your AI helper in Cursor — describe what you see and which URL.
+
+================================================================================
+LATER — WHEN CREEM APPROVES (NOT TONIGHT)
+================================================================================
+
+  DoorCut AND Quick Fraction Calculator:
+  1. Paste real Creem checkout URLs into doorcut.html and calculator/index.html
+  2. Change "Releasing soon" back to live download / buy buttons
+  3. Upload the changed HTML files again
+  4. One-time: create api\license\config.php on server with your Creem API key
+     (see site\api\license\README.md)
+
+================================================================================
+
+  You built something worth showing off. Upload tomorrow when you're fresh.
+  sales@woodsolutions.com
+
+================================================================================

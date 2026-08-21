@@ -1,0 +1,40 @@
+html {
+  background: #f7f3ed;
+}
+
+body {
+  max-width: 52em;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+  background: #fff;
+  border-left: 1px solid #ddd5c8;
+  border-right: 1px solid #ddd5c8;
+  min-height: 100vh;
+}
+
+.help-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 -20px 20px;
+  padding: 12px 20px;
+  background: #3d2e24;
+  color: #fff;
+  font-size: 0.88rem;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.help-topbar a {
+  color: #e8b86a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.help-topbar a:hover {
+  text-decoration: underline;
+}
+
+.help-topbar span {
+  opacity: 0.55;
+}

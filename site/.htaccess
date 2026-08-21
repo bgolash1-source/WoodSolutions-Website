@@ -1,0 +1,8 @@
+DirectoryIndex index.html
+Options -Indexes
+
+# Legacy Xara project URLs → new project pages
+Redirect 301 "/diy cnc router.html" "/projects/diy-cnc-router.html"
+Redirect 301 "/diy sander planer.html" "/projects/diy-sander-planer.html"
+Redirect 301 "/violin project.html" "/projects/violin.html"
+Redirect 301 "/gallery.html" "/projects/gallery.html"

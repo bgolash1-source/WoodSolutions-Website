@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Fraction Calculator — Wood Solutions</title>
+  <meta name="description" content="Quick Fraction Calculator for Windows PC and Android — releasing soon. Fraction math for the shop from Wood Solutions.">
+  <link rel="stylesheet" href="../css/site.css">
+  <style>
+    .release-notice {
+      margin: 0 0 28px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(196, 146, 58, 0.45);
+      background: rgba(196, 146, 58, 0.1);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .release-notice strong { color: var(--walnut); }
+    .release-notice a { font-weight: 650; }
+
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 820px) {
+      .product-hero { grid-template-columns: 1fr; }
+    }
+
+    .product-hero h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(1.85rem, 4vw, 2.35rem);
+      line-height: 1.12;
+      color: var(--walnut);
+    }
+
+    .product-version {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+
+    .product-lead {
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 38em;
+    }
+
+    .product-shot {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+      margin-top: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .hero-highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-highlight strong {
+      display: block;
+      color: var(--walnut);
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-highlight span {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .pricing-card {
+      background: var(--walnut);
+      color: #fff;
+      border-radius: 14px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 16px;
+    }
+
+    .pricing-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 12px 0 4px;
+    }
+
+    .price-current {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .price-note {
+      margin: 0 0 18px;
+      font-size: 0.92rem;
+      opacity: 0.9;
+    }
+
+    .price-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .price-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--amber-light);
+    }
+
+    .price-badge-trial {
+      background: rgba(232, 184, 106, 0.22);
+      color: #ffe9c4;
+    }
+
+    .trial-notice {
+      margin: 0 0 18px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(232, 184, 106, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .trial-notice strong { color: var(--amber-light); }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 0 0 22px;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .pricing-card li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 8px;
+      opacity: 0.92;
+    }
+
+    .pricing-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber-light);
+      font-weight: 700;
+    }
+
+    .pricing-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-card .btn-primary {
+      background: var(--amber);
+      color: var(--walnut);
+      box-shadow: 0 4px 14px rgba(196, 146, 58, 0.35);
+    }
+
+    .pricing-card .btn-primary:hover {
+      filter: brightness(1.05);
+      color: var(--walnut);
+    }
+
+    .pricing-card .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .pricing-card .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+    }
+
+    .checkout-via {
+      margin: 14px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.84rem;
+      opacity: 0.82;
+      line-height: 1.45;
+    }
+
+    .checkout-via a {
+      color: var(--amber-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .checkout-via a:hover { text-decoration: underline; }
+
+    .section-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 42em;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--walnut);
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .platform-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .platform-panel h2 {
+      margin: 0 0 8px;
+      color: var(--walnut);
+    }
+
+    .platform-panel .platform-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(196, 146, 58, 0.15);
+      color: #7a5210;
+      margin-bottom: 12px;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      text-align: left;
+      padding: 10px 0;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-table th {
+      width: 34%;
+      color: var(--muted);
+      font-weight: 600;
+      padding-right: 14px;
+    }
+
+    .spec-table td strong { color: var(--walnut); }
+
+    .spec-table code {
+      font-size: 0.88em;
+      background: var(--cream);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--walnut);
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steps strong { color: var(--walnut); }
+
+    .panel-walnut {
+      background: var(--walnut);
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel-walnut h2 {
+      margin: 0 0 10px;
+      color: var(--amber-light);
+    }
+
+    .panel-walnut p {
+      margin: 0 0 14px;
+      opacity: 0.92;
+      max-width: 42em;
+    }
+
+    .panel-walnut p:last-child { margin-bottom: 0; }
+
+    .panel-walnut a {
+      color: var(--amber-light);
+      font-weight: 600;
+    }
+
+    .faq-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .faq-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .faq-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .faq-list strong { color: var(--walnut); }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-wordmark">Wood Solutions<span>Applications for cabinetmakers</span></span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="../doorcut.html">DoorCut</a>
+          <div class="nav-submenu"><a href="../doorcut/help/index.html">Help</a></div>
+        </div>
+        <a href="../products.html">Products</a>
+        <a href="../projects.html">Projects</a>
+        <a href="index.html" aria-current="page">Fraction calculator</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="release-notice" role="status">
+      <strong>Releasing soon.</strong>
+      Windows and Android downloads and Creem.io checkout open when our Merchant of Record verification completes.
+      <a href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Email sales@woodsolutions.com</a>
+      for launch updates.
+    </p>
+
+    <div class="product-hero">
+      <div>
+        <span class="status status-release-soon">Releasing soon</span>
+        <h1>
+          <span class="product-version">Version 1.0</span>
+          Quick Fraction Calculator
+        </h1>
+        <p class="product-lead">
+          Fraction math built for the shop floor — add, subtract, multiply, and divide in sixteenths
+          without reaching for a pencil. Windows PC and Android from one Wood Solutions license.
+        </p>
+        <div class="hero-highlights">
+          <div class="hero-highlight">
+            <strong>Shop fractions</strong>
+            <span>Sixteenths, thirty-seconds, and mixed numbers the way cabinetmakers think.</span>
+          </div>
+          <div class="hero-highlight">
+            <strong>Two platforms</strong>
+            <span>One license key for Windows and Android when checkout goes live.</span>
+          </div>
+          <div class="hero-highlight">
+            <strong>Door Rail Calculator</strong>
+            <span>Included on Windows — rail lengths from opening size and stile width.</span>
+          </div>
+        </div>
+        <img class="product-shot"
+             src="images/quick-fraction-calculator-screenshot.png"
+             alt="Quick Fraction Calculator — fraction keys and Door Rail Calculator on Windows"
+             width="340"
+             height="auto"
+             loading="eager">
+      </div>
+
+      <aside class="pricing-card" id="purchase">
+        <h2>Licensed app</h2>
+        <div class="price-row">
+          <span class="price-current">14-day trial</span>
+        </div>
+        <p class="price-note">Full app before you buy — checkout opens after Creem verification.</p>
+        <div class="price-badges">
+          <span class="price-badge price-badge-trial">Free trial</span>
+          <span class="price-badge">Windows</span>
+          <span class="price-badge">Android</span>
+          <span class="price-badge">One license</span>
+        </div>
+        <p class="trial-notice">
+          <strong>Try before you buy.</strong> When downloads go live, run the full app for
+          <strong>14 days</strong> — tap <strong>Continue to app</strong> on the license screen.
+          Same features as the paid license.
+        </p>
+        <ul>
+          <li>Quick Fraction Calculator on PC and phone</li>
+          <li>Door Rail Calculator (Windows only)</li>
+          <li>One Creem.io license key — both platforms</li>
+          <li>Downloads always from this website</li>
+        </ul>
+        <div class="pricing-actions">
+          <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Get launch updates</a>
+          <a class="btn btn-secondary" href="../products.html">All products</a>
+        </div>
+        <p class="checkout-via">
+          <strong>Releasing soon.</strong> Secure checkout and license delivery through
+          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>
+          opens when merchant verification completes.
+        </p>
+      </aside>
+    </div>
+
+    <section class="section">
+      <h2>What it does</h2>
+      <p class="section-intro">
+        A standalone utility for woodworkers who measure in fractions — not a general-purpose calculator
+        with a fraction mode bolted on.
+      </p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Fraction arithmetic</h3>
+          <p>Add, subtract, multiply, and divide in shop-friendly fractional units without decimal drift.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Mixed numbers</h3>
+          <p>Work in feet, inches, and fractions the way you mark a stick in the shop.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Door Rail Calculator</h3>
+          <p>Windows bonus tool — rail cut lengths from opening width and stile width. Not on Android.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Phone or PC</h3>
+          <p>Same license on your shop computer and your phone — one purchase, two places to use it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Downloads by platform</h2>
+      <p class="section-intro">
+        Installers will appear on this page when Creem.io verification completes. Until then, read the requirements below.
+      </p>
+      <div class="platform-grid">
+        <div class="platform-panel" id="windows">
+          <span class="platform-tag">Windows</span>
+          <h2>PC download</h2>
+          <table class="spec-table">
+            <tr><th>Platform</th><td><strong>Windows 10 or 11</strong>, 64-bit</td></tr>
+            <tr><th>Installer</th><td><code>QuickFractionCalculator-Setup-1.0.exe</code></td></tr>
+            <tr><th>Runtime</th><td>Installer adds <strong>.NET 10 Desktop Runtime</strong> if needed</td></tr>
+            <tr><th>Trial</th><td><strong>14 days</strong> — tap <strong>Continue to app</strong></td></tr>
+            <tr><th>License</th><td>Paste your <strong>Creem.io</strong> key from the receipt email</td></tr>
+          </table>
+          <ol class="steps">
+            <li><strong>Download</strong> and run the Windows installer when it goes live.</li>
+            <li><strong>Allow</strong> the one-time .NET Desktop Runtime install if prompted.</li>
+            <li><strong>Open</strong> from the Start menu — trial or license key on first launch.</li>
+          </ol>
+          <div class="actions" style="margin-top:18px;margin-bottom:0;">
+            <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Get launch updates</a>
+          </div>
+        </div>
+
+        <div class="platform-panel" id="android">
+          <span class="platform-tag">Android</span>
+          <h2>Phone &amp; tablet</h2>
+          <table class="spec-table">
+            <tr><th>Platform</th><td><strong>Android 8+</strong> phone or tablet</td></tr>
+            <tr><th>Download</th><td><code>QuickFractionCalculator-Android-1.0.apk</code> from this site</td></tr>
+            <tr><th>Not from</th><td>Google Play — website edition only</td></tr>
+            <tr><th>Trial</th><td><strong>14 days</strong> — same license key as Windows</td></tr>
+            <tr><th>License</th><td>Same <strong>Creem.io</strong> key as your PC purchase</td></tr>
+          </table>
+          <ol class="steps">
+            <li><strong>Download</strong> the .apk from this page when available.</li>
+            <li><strong>Allow</strong> install from your browser or Files app if Android asks.</li>
+            <li><strong>Install</strong>, open, and tap <strong>Continue to app</strong> for the trial.</li>
+          </ol>
+          <div class="actions" style="margin-top:18px;margin-bottom:0;">
+            <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Get launch updates</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel-walnut">
+        <h2>Purchase &amp; licensing</h2>
+        <p>
+          <strong>14-day free trial</strong> when downloads go live — no purchase needed to start.
+          One license key works on <strong>Windows and Android</strong> up to your activation limit.
+        </p>
+        <p>
+          Downloads stay on <strong>this website</strong> — never from Creem.io.
+          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a> handles payment as our Merchant of Record
+          and emails your license key once checkout is enabled.
+        </p>
+        <p style="margin-bottom:0;">
+          <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch" style="display:inline-block;margin-top:4px;">Get launch updates</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>FAQ</h2>
+        <ul class="faq-list">
+          <li><strong>When can I download?</strong> Installers open on this page when Creem.io merchant verification completes. <a href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Email us</a> for launch updates.</li>
+          <li><strong>Which Windows?</strong> Windows 10 or 11, 64-bit. Not Mac.</li>
+          <li><strong>Which Android?</strong> Android 8+. Install only from this website.</li>
+          <li><strong>One purchase, two devices?</strong> Yes — one license key for PC and phone (see activation limit in your receipt).</li>
+          <li><strong>Where do I download?</strong> Always from this page — not from Creem.io.</li>
+          <li><strong>SmartScreen (Windows)?</strong> More info → Run anyway if you trust this site.</li>
+          <li><strong>New phone or PC?</strong> Re-download here and enter the same license key.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="contact-strip">
+        <div>
+          <h2>Want a heads-up at launch?</h2>
+          <p>
+            We will post download links here as soon as Creem verification completes.
+            <a href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">sales@woodsolutions.com</a>
+          </p>
+        </div>
+        <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=Quick%20Fraction%20Calculator%20launch">Get launch updates</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions</p>
+    <p class="footer-links">
+      <a href="../privacy.html">Privacy Policy</a> ·
+      <a href="../terms.html">Terms of Service</a> ·
+      <a href="../contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

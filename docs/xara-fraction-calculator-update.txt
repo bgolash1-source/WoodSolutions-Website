@@ -1,0 +1,208 @@
+WOOD SOLUTIONS — UPDATE fractional calculator.html (Xara)
+========================================================
+
+Live page: https://www.woodsolutions.com/fractional%20calculator.html
+
+You are editing THIS page in Xara — not replacing the whole site with product-page.html.
+Keep your intro text, menu, and Wood Solutions look. Change the sections below.
+
+
+WHAT IS OUT OF DATE ON THE LIVE PAGE
+------------------------------------
+  [X]  "Not supported … Android"  — Android is now available
+  [X]  "Unlock phrase"            — use Creem.io LICENSE KEY
+  [X]  "Trial opens directly"     — purple screen → tap Continue to app
+  [X]  Footer "Windows PCs only" / phone users use Windows PC
+  [X]  No Buy button              — add Creem.io checkout link
+  [X]  No Android download block
+
+
+SUGGESTED PAGE ORDER (top to bottom)
+------------------------------------
+  1.  Short intro (woodworking fractions — use text below)
+  2.  NEW: New Release banner image (click → jumps to Android section)
+  3.  Windows download box (UPDATE text below)
+  4.  NEW: Buy license button → Creem.io checkout
+  5.  NEW: Android download box (anchor target for banner)
+  6.  REMOVE or REPLACE footer line about "Windows PCs only"
+
+
+STEP 1 — UPLOAD FILES TO YOUR XARA / HOST
+-----------------------------------------
+Upload to your site (same place as the Windows .exe):
+
+  new-release-android-banner.png   (from MauiApp2\docs\website\images\)
+  android-calculator-screenshot.png   (phone screenshot for Android section)
+  QuickFractionCalculator-Android-1.0.apk   (after build-android-apk.bat)
+
+Keep QuickFractionCalculator-Setup-1.0.exe where it is now.
+
+
+INTRO PARAGRAPH (paste at top of page)
+--------------------------------------
+Built for woodworkers who measure in fractions every day. Enter tape-measure
+math in real inch fractions — not decimals — with one-tap keys for common
+values like 1/16. Windows edition also includes a Door Rail Calculator for
+cope-and-stick and mortise-and-tenon cabinet work.
+
+
+STEP 2 — ADD THE NEW RELEASE BANNER (top, under intro)
+--------------------------------------------------------
+  • Insert → Picture → new-release-android-banner.png
+  • Resize to fit your column (about 500–520 px wide looks good)
+  • Right-click image → Web properties → Link:
+      Link type: Place on this page (or "Bookmark on this page")
+      Bookmark / anchor name: android
+  • If Xara asks you to create the bookmark first, skip to Step 4,
+    add the Android section, set bookmark name "android", then come
+    back and link the banner.
+
+
+STEP 3 — UPDATE WINDOWS BOX (replace old Windows-only table text)
+-----------------------------------------------------------------
+
+Heading:
+  Quick Fraction Calculator — Windows
+
+Platform
+  Windows 10 or Windows 11, 64-bit PC
+
+Not supported
+  Mac, Chromebook, Linux
+
+Download
+  QuickFractionCalculator-Setup-1.0.exe (~90 MB installer)
+
+Also needs
+  Installer adds .NET 10 Desktop Runtime automatically if your PC
+  needs it (one-time, from Microsoft).
+
+Trial
+  14 days from first launch — on the purple screen tap Continue to app
+  (no purchase needed to try).
+
+After purchase
+  Paste your Creem.io license key from the receipt email on the
+  purple screen (long key with dashes — not a single-word passcode).
+
+Offline
+  Works without internet after install.
+
+Support
+  Contact us via our contact page at Wood Solutions.
+
+Install in 3 steps
+  1. Download and run QuickFractionCalculator-Setup-1.0.exe.
+  2. If prompted, allow the one-time .NET Desktop Runtime install.
+  3. Open Quick Fraction Calculator from the Start menu. During trial,
+     tap Continue to app. After purchase, paste your license key.
+
+Also includes Door Rail Calculator (Windows only).
+
+Sold by Wood Solutions — not the Microsoft Store.
+
+
+STEP 4 — ADD BUY LICENSE BUTTON (between Windows and Android)
+-------------------------------------------------------------
+  • Insert a button or text link:  Buy license
+  • Link URL: your Creem.io checkout link
+    (Creem dashboard → Products → Share / Checkout)
+
+Optional short text above button:
+  Try free for 14 days — download above first. One license works on
+  Windows and Android. Downloads are always from this website; Creem.io
+  handles payment as Merchant of Record and emails your license key.
+
+
+STEP 5 — ADD ANDROID SECTION (below Buy button)
+-----------------------------------------------
+  • Insert a heading:  Quick Fraction Calculator — Android
+  • Insert picture: android-calculator-screenshot.png (shows app on phone)
+  • Web properties on that heading (or a line above it):
+      Bookmark name: android    ← banner links here
+
+Platform
+  Android 8+ phone or tablet
+
+Download
+  QuickFractionCalculator-Android-1.0.apk from this page only
+
+Not from
+  Google Play (website edition)
+
+Trial
+  14 days — tap Continue to app on the purple screen
+
+After purchase
+  Same Creem.io license key as Windows
+
+Install in 4 steps
+  1. On your phone, download QuickFractionCalculator-Android-1.0.apk
+     from this page.
+  2. Open the file. If Android asks, allow Install unknown apps for
+     your browser or Files app.
+  3. Tap Install, then Open.
+  4. Purple screen: trial → Continue to app. Purchased → paste license
+     key from your receipt email.
+
+Door Rail Calculator is not included on Android.
+
+  • Add Download button → link to QuickFractionCalculator-Android-1.0.apk
+
+
+STEP 6 — REMOVE OLD FOOTER LINE
+-------------------------------
+Delete this (or replace):
+
+  "This software runs on Windows PCs only. If you're on a phone or
+   tablet, please download on your Windows computer."
+
+Replace with:
+
+  Downloads for Windows and Android are on this page. Questions?
+  Send a request via our contact web page.
+
+
+CREEM.IO RECEIPT EMAIL (optional edit in Creem dashboard)
+----------------------------------------------------------------
+Add to confirmation email:
+
+  Download Windows and Android installers from:
+  https://www.woodsolutions.com/fractional%20calculator.html
+
+  Your license key is below — paste it on the purple startup screen.
+  During the 14-day trial you can tap Continue without a key.
+
+
+REFUND POLICY (add near Buy button or page footer)
+--------------------------------------------------
+Refund policy — Quick Fraction Calculator ($35)
+
+One purchase ($35) includes a lifetime license key for both Windows and
+Android (within your activation limit).
+
+License keys are delivered instantly by email after checkout. All sales
+are final.
+
+We do not offer refunds if you buy without first confirming the app works
+on your computer or phone. Download the free 14-day trial from this page
+before you purchase — tap Continue to app on the purple screen; no license
+key is required during the trial.
+
+Questions before you buy? Contact us via our contact page at Wood Solutions.
+
+Also add the same policy in Creem.io product settings (if available),
+so checkout and your site match.
+
+
+QUICK CHECKLIST BEFORE YOU PUBLISH
+----------------------------------
+  [ ] Banner image uploaded and linked to bookmark "android"
+  [ ] Windows text no longer says Android is unsupported
+  [ ] "Unlock phrase" changed to "license key" everywhere
+  [ ] Buy button has real Creem.io checkout URL
+  [ ] Android .apk uploaded and download button works
+  [ ] Old "Windows PCs only" footer removed
+  [ ] Republish site in Xara
+
+END OF FILE

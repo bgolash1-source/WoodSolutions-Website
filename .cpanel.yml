@@ -1,0 +1,7 @@
+---
+# cPanel Git deploy — copies site/ to public_html for woodsolutions.com
+# Trigger: cPanel → Git Version Control → Manage → Deploy HEAD Commit
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/woodso9/public_html/
+    - /bin/rsync -av --exclude '_legacy-scrape' --exclude '_tmp_*' site/ $DEPLOYPATH

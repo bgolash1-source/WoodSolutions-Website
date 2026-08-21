@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sheet optimization</title>
+  <link rel="stylesheet" href="help.css" />
+  <link rel="stylesheet" href="web-help.css" />
+</head>
+<body>
+  <nav class="help-topbar" aria-label="Help navigation">
+    <a href="index.html">All topics</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../doorcut.html">Product &amp; pricing</a>
+    <span aria-hidden="true">·</span>
+    <a href="../../index.html">Home</a>
+  </nav>
+
+  <h1>Sheet optimization</h1>
+  <p>This window figures out how to lay your <strong>sheet-good</strong> parts on full sheets with the least waste — plywood, MDF, melamine, slab panels, and the like, straight from your cut list. Solid frame parts stay over in <strong>Advanced wood optimization</strong>.</p>
+
+  <figure class="help-figure">
+    <img src="images/sheet-opto-window.png" alt="Sheet optimization window showing the Layout, Setup, and Parts tabs" />
+    <figcaption>The Sheet optimization window with its three tabs. <em>Drop <code>sheet-opto-window.png</code> into <code>Help/images/</code>.</em></figcaption>
+  </figure>
+
+  <h2>The tabs</h2>
+  <dl>
+    <dt>Layout</dt>
+    <dd>The sheet-by-sheet pictures of how parts fall on each sheet, plus buttons to print or save once you have run it.</dd>
+    <dt>Setup</dt>
+    <dd>Sheet width and length, how many sheets, blade width, edge trim, and how you want to cut. These start from your Materials Library settings.</dd>
+    <dt>Parts</dt>
+    <dd>A read-only list of the sheet parts DoorCut pulled from your cut list. To change a size, edit it on the main cut list and reopen this window.</dd>
+  </dl>
+
+  <h2>How to read a sheet diagram</h2>
+  <p>Every layout picture follows the same legend &mdash; orange border for the trim you can't place on, kerf gaps between parts, and a labeled color block for each placed part:</p>
+
+  <figure class="help-figure">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" role="img" aria-label="Sheet layout legend showing edge trim, kerf gaps, and labeled parts">
+      <defs>
+        <pattern id="sheet-trim" patternUnits="userSpaceOnUse" width="6" height="6">
+          <rect width="6" height="6" fill="#f4c674"/>
+          <path d="M0 6 L6 0" stroke="#a76a1a" stroke-width="0.9"/>
+        </pattern>
+        <pattern id="sheet-waste" patternUnits="userSpaceOnUse" width="7" height="7">
+          <rect width="7" height="7" fill="#efe3cc"/>
+          <path d="M0 7 L7 0" stroke="#b89a6a" stroke-width="0.7"/>
+        </pattern>
+      </defs>
+
+      <text x="270" y="20" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#2a1a0a">Sheet legend &mdash; trim band, kerf between parts, drop area</text>
+
+      <!-- sheet -->
+      <rect x="40" y="36" width="460" height="260" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+
+      <!-- edge trim band (orange) -->
+      <rect x="40" y="36" width="460" height="12" fill="url(#sheet-trim)"/>
+      <rect x="40" y="284" width="460" height="12" fill="url(#sheet-trim)"/>
+      <rect x="40" y="36" width="12" height="260" fill="url(#sheet-trim)"/>
+      <rect x="488" y="36" width="12" height="260" fill="url(#sheet-trim)"/>
+
+      <!-- parts -->
+      <rect x="56" y="52" width="200" height="100" fill="#8fbcd9" stroke="#27506e"/>
+      <text x="156" y="106" text-anchor="middle" font-family="Segoe UI" font-size="12" fill="#0e2e44">Panel A &mdash; 24 &times; 12</text>
+
+      <rect x="262" y="52" width="120" height="100" fill="#b1d6a3" stroke="#3e6e2e"/>
+      <text x="322" y="106" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#1c3a14">Panel B</text>
+
+      <rect x="388" y="52" width="96" height="100" fill="#e6b894" stroke="#7a4a23"/>
+      <text x="436" y="106" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#3a1a05">Panel C</text>
+
+      <rect x="56" y="158" width="120" height="60" fill="#cba8de" stroke="#5b3877"/>
+      <text x="116" y="192" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#2c1340">Panel D</text>
+
+      <rect x="182" y="158" width="120" height="60" fill="#cba8de" stroke="#5b3877"/>
+      <text x="242" y="192" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#2c1340">Panel D</text>
+
+      <rect x="308" y="158" width="176" height="60" fill="#e0e0a0" stroke="#7a7a23"/>
+      <text x="396" y="192" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#3a3a05">Panel E &mdash; 22 &times; 7</text>
+
+      <!-- drop area at the bottom -->
+      <rect x="56" y="224" width="428" height="56" fill="url(#sheet-waste)" stroke="#999"/>
+      <text x="270" y="256" text-anchor="middle" font-family="Segoe UI" font-size="11" fill="#5a3010">leftover &mdash; counts toward waste</text>
+
+      <!-- kerf indicators (dashed thin lines between parts) -->
+      <g stroke="#444" stroke-dasharray="3 2" stroke-width="0.8">
+        <line x1="259" y1="52" x2="259" y2="152"/>
+        <line x1="385" y1="52" x2="385" y2="152"/>
+        <line x1="179" y1="158" x2="179" y2="218"/>
+        <line x1="305" y1="158" x2="305" y2="218"/>
+        <line x1="56" y1="155" x2="484" y2="155"/>
+        <line x1="56" y1="221" x2="484" y2="221"/>
+      </g>
+
+      <!-- legend captions -->
+      <text x="44" y="312" font-family="Segoe UI" font-size="10" fill="#a76a1a">&#9632; orange band = edge trim</text>
+      <text x="260" y="312" font-family="Segoe UI" font-size="10" fill="#444">&#9632; dashed = kerf (blade width)</text>
+      <text x="44" y="328" font-family="Segoe UI" font-size="10" fill="#5a3010">&#9632; hatched = drop / waste</text>
+    </svg>
+    <figcaption>Each placed part shows its label (&times; size). The orange border is the edge trim &mdash; nothing is placed on it. The dashed line is the kerf left between parts; the hatched area is whatever the packer could not fill.</figcaption>
+  </figure>
+
+  <h2>How to run it</h2>
+  <ol>
+    <li>Build your cut list on the main screen (frame panels, slab + edgeband, and so on).</li>
+    <li>Click <strong>Sheet optimization</strong>.</li>
+    <li>Look over the parts, fix the setup if you need to, then run <strong>Optimize sheet layout</strong>.</li>
+    <li>Check the layouts on the Layout tab.</li>
+  </ol>
+
+  <h2>Keep jobs separate</h2>
+  <p>When you can, keep <strong>slab edgeband</strong> jobs apart from <strong>solid frame</strong> jobs. Mixing them in one list can muddle the materials and columns — DoorCut will warn you if you try.</p>
+
+  <h2>Where the defaults come from</h2>
+  <p>Set your usual sheet size, blade width, and edge trim on each <strong>Sheet Stock</strong> row in the Materials Library. The Setup tab loads those for the job, and you can override them here without touching the library.</p>
+
+  <h2>Help on the Setup tab</h2>
+  <p>Every box on Setup has its own <strong>?</strong> button — sheet size, blade width, edge trim, cut workflow, and grain. Click whichever one you have a question about.</p>
+
+  <h2>Which tool for which parts</h2>
+  <p><strong>Advanced wood optimization</strong> is for solid frame parts and glue-up planning. <strong>Sheet optimization</strong> (this window) is for plywood, MDF, melamine, slab panels, and edge band. Run the one that matches the parts in your list.</p>
+
+  <p><strong>MDF reminder:</strong> MDF dulls steel-tipped blades quickly. Use a <em>carbide</em> blade for sheet stock if you cut MDF or melamine regularly, and reset the kerf on this tab to match it &mdash; thin-kerf carbide is typically <code>0.09&ndash;0.11&nbsp;in</code>, full-kerf carbide closer to <code>0.125&nbsp;in</code>.</p>
+
+  <!-- Extreme Tracking: https://extremetracking.com/ -->
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>
