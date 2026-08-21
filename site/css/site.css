@@ -170,6 +170,15 @@ main {
   box-shadow: var(--shadow);
 }
 
+.product-version {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--amber);
+  margin: 0 0 8px;
+}
+
 .product-tagline {
   display: block;
   margin: 0 0 16px;
