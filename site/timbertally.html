@@ -4,10 +4,99 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TimberTally — Wood Solutions</title>
-  <meta name="description" content="TimberTally — free board-foot calculator and lumber costing for woodworkers. Windows 10 or 11, no license key required.">
+  <meta name="description" content="TimberTally — board-foot calculator and lumber costing for Windows. $10 one-time license. Calculates board feet for solid lumber.">
+  <meta property="og:image" content="images/timbertally-logo.png">
   <link rel="stylesheet" href="css/site.css">
+  <style>
+    .sl-hero {
+      display: grid;
+      grid-template-columns: minmax(160px, 240px) minmax(260px, 1fr);
+      gap: 1.5rem 2rem;
+      align-items: start;
+      margin: 0 0 1.5rem;
+    }
+    .sl-hero-brand { text-align: center; }
+    .sl-hero-brand .status { margin-bottom: 0.75rem; }
+    .sl-hero-logo {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 0.65rem;
+      border-radius: 50%;
+    }
+    .sl-hero-brand .product-tagline {
+      display: block;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--muted, #6b5f54);
+      max-width: 16rem;
+      margin: 0 auto;
+    }
+    .sl-price-card {
+      background: var(--walnut, #3d2914);
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      margin: 0;
+      width: 100%;
+    }
+    .sl-price-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #f0c674;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .sl-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 10px 0 8px;
+      flex-wrap: wrap;
+    }
+    .sl-price-now {
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .sl-price-note { margin: 0 0 12px; font-size: .92rem; opacity: .92; }
+    .sl-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .sl-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #f0c674;
+    }
+    .sl-price-card ul { margin: 0 0 14px; padding-left: 1.1rem; }
+    .sl-price-card li { margin: 0.3rem 0; font-size: .95rem; }
+    .sl-price-card a.btn { margin-right: 8px; margin-bottom: 8px; }
+    .sl-price-card a { color: #f0c674; }
+    .sl-price-fine {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f7f3ea;
+      color: #1a1a1a;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .sl-price-fine a { color: #5c3d1e; font-weight: 600; }
+    main > .page-lead { max-width: none; width: 100%; }
+    @media (max-width: 720px) {
+      .sl-hero { grid-template-columns: 1fr; justify-items: center; }
+      .sl-price-card { max-width: 28rem; }
+      .sl-hero-logo { width: 180px; }
+    }
+  </style>
 </head>
-<body>
+<body data-ws-page-product="timber-tally">
 
   <header class="site-header">
     <div class="header-inner">
@@ -32,39 +121,62 @@
   </header>
 
   <main>
-    <span class="status status-free">Freeware</span>
-    <h1>TimberTally</h1>
+    <div class="sl-hero">
+      <div class="sl-hero-brand">
+        <span class="status status-live" data-ws-product="timber-tally" data-ws-part="statusOnetime">$10 — one-time</span>
+        <img class="sl-hero-logo"
+             src="images/timbertally-logo.png"
+             alt="TimberTally — calculates board feet for solid lumber"
+             width="512"
+             height="512">
+        <span class="product-tagline">Calculates board feet for solid lumber</span>
+      </div>
+
+      <aside class="sl-price-card" id="purchase">
+        <h2>Shop lumber math</h2>
+        <div class="sl-price-row">
+          <span class="sl-price-now" data-ws-product="timber-tally" data-ws-part="price">$10</span>
+        </div>
+        <p class="sl-price-note">
+          One-time license (USD) — no subscription. Priced for small shops, not enterprise bundles.
+        </p>
+        <div class="sl-badges">
+          <span class="sl-badge">Board feet</span>
+          <span class="sl-badge">Lumber costing</span>
+          <span class="sl-badge">Windows 10/11</span>
+        </div>
+        <ul>
+          <li>Board-foot volume from thickness, width, and length</li>
+          <li>Cost estimates from your price per board foot</li>
+          <li>Cut planning helpers for the lumber pile</li>
+          <li>Self-contained Windows installer — no separate .NET download</li>
+        </ul>
+        <p>
+          <a class="btn btn-primary" href="https://www.woodsolutions.com/downloads/TimberTallySetup-1.0.0.zip" download="TimberTallySetup-1.0.0.zip">Download for Windows</a>
+          <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com?subject=TimberTally%20license%20(%2410)" data-ws-product="timber-tally" data-ws-part="buyLabel">Buy license — $10</a>
+        </p>
+        <p class="sl-price-fine">
+          <strong>TimberTally is no longer freeware.</strong> Download from this page only.
+          Checkout through Creem.io (Merchant of Record) — link on this button updates when the store listing is live.
+          Until then, email <a href="mailto:sales@woodsolutions.com?subject=TimberTally%20license">sales@woodsolutions.com</a> for a license key.
+          Installer zip is about <strong>55&nbsp;MB</strong> on the server.
+        </p>
+      </aside>
+    </div>
+
     <p class="page-lead">
-      A free Wood Solutions tool for board-foot calculations and lumber costing —
-      practical math for the lumber pile, not the sales desk.
+      <strong>TimberTally</strong> is a Wood Solutions desktop tool for board-foot calculations and lumber costing —
+      practical math for the lumber pile, not the sales desk. A <strong>$10</strong> one-time license keeps it affordable
+      next to larger production apps in the line.
     </p>
 
     <section class="section">
       <div class="info-panel">
-        <h2>What it does</h2>
-        <ul class="check-list">
-          <li>Board-foot volume from thickness, width, and length</li>
-          <li>Lumber cost estimates from your price per board foot</li>
-          <li>Cut optimization helpers for shop planning</li>
-          <li>Windows desktop app — self-contained installer, no separate .NET download</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="info-panel">
-        <h2>Download</h2>
-        <p>
-          <strong>Windows 10 or 11 (64-bit).</strong> Download the zip, extract, and run the setup inside.
-          No license key — TimberTally is freeware for personal or commercial shop use.
-          Redistribution and resale are not permitted.
+        <h2>System requirements</h2>
+        <p style="margin:0;">
+          <strong>Windows 10 or 11, 64-bit.</strong> Download the zip, extract, and run the setup inside.
+          Personal or commercial shop use on machines you own — redistribution and resale are not permitted.
         </p>
-        <p class="legacy-note" style="margin-top:12px;margin-bottom:0;">
-          Installer size is about <strong>55&nbsp;MB</strong> (compressed zip on the server).
-        </p>
-        <div class="actions" style="margin-top:20px;margin-bottom:0;">
-          <a class="btn btn-primary" href="https://www.woodsolutions.com/downloads/TimberTallySetup-1.0.0.zip" download="TimberTallySetup-1.0.0.zip">Download TimberTallySetup-1.0.0.zip</a>
-        </div>
       </div>
     </section>
 
@@ -90,6 +202,8 @@
     <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
   </footer>
 
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
   <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
 </body>
 </html>

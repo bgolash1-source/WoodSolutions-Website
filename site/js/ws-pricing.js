@@ -234,6 +234,22 @@
             fmt(frac.priceUsd) +
             '</strong> one-time, 14-day trial.';
           break;
+        case 'products-timbertally-blurb':
+          var tt = product('timber-tally');
+          if (!tt) return;
+          html =
+            'Board-foot math and lumber costing for the pile — not the sales desk. Windows 10/11. <strong>' +
+            fmt(tt.priceUsd) +
+            '</strong> one-time license.';
+          break;
+        case 'index-timbertally-blurb':
+          tt = product('timber-tally');
+          if (!tt) return;
+          html =
+            'Calculates board feet for solid lumber — practical costing for the shop. <strong>' +
+            fmt(tt.priceUsd) +
+            '</strong> one-time. Windows 10 or 11.';
+          break;
         default:
           return;
       }

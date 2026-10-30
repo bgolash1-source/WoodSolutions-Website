@@ -63,6 +63,15 @@
         'Quick Fraction Calculator — fractions on the shop floor. Windows and Android. {price} one-time license, 14-day trial.',
       documentTitle: 'Quick Fraction Calculator | Wood Solutions',
     },
+    'timber-tally': {
+      name: 'TimberTally',
+      priceUsd: 10,
+      // Paste Creem Share URL after product is created (see BARRY-CREEM-CHEATSHEET.txt)
+      creemUrl: '',
+      metaDescription:
+        'TimberTally — board-foot calculator and lumber costing for Windows. {price} one-time license. Calculates board feet for solid lumber.',
+      documentTitle: 'TimberTally — {price} board-foot calculator | Wood Solutions',
+    },
   };
 
   global.WS_PRODUCTS = products;
