@@ -1,10 +1,5 @@
-# Block direct web access to secrets and rate-limit storage.
+# Block direct download of the Creem API key.
+# Do not use <DirectoryMatch> here — Apache rejects it in .htaccess and returns 500.
 <Files "config.php">
   Require all denied
 </Files>
-
-<IfModule mod_authz_core.c>
-  <DirectoryMatch "data">
-    Require all denied
-  </DirectoryMatch>
-</IfModule>

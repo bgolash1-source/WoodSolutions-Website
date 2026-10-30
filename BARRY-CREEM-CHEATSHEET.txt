@@ -1,0 +1,78 @@
+================================================================================
+  Wood Solutions — Creem license cheat sheet (keep this)
+  Covers: DoorCut, Sheet Logic, Quick Fraction — ONE server config for all
+================================================================================
+
+You do NOT make a new config.php for each program.
+One file on the server unlocks every Creem product.
+
+
+--------------------------------------------------------------------------------
+THE ONLY SERVER FILE THAT MATTERS
+--------------------------------------------------------------------------------
+
+  Location:  public_html/api/license/config.php
+
+  Get the API key:  creem.io → sign in → Developers → API keys
+
+
+--------------------------------------------------------------------------------
+GOLDEN RULE (memorize this)
+--------------------------------------------------------------------------------
+
+  Buy link mode  =  Creem dashboard mode  =  config.php mode
+
+  All three must match. Mix them and activation fails.
+
+
+  LIVE (real money, even if price is $1)
+  ---------------------------------------
+  • Creem sidebar: Test mode OFF
+  • Buy URL:       https://www.creem.io/payment/...     (NO "/test/")
+  • config.php:
+        creem_api_key  = creem_………          (NOT creem_test_)
+        creem_api_base = https://api.creem.io/v1
+
+
+  TEST / SANDBOX (fake card, no real charge)
+  ------------------------------------------
+  • Creem sidebar: Test mode ON
+  • Buy URL:       https://www.creem.io/test/payment/...
+  • config.php:
+        creem_api_key  = creem_test_………
+        creem_api_base = https://test-api.creem.io/v1
+  • Test card:     4111 1111 1111 1111
+
+
+--------------------------------------------------------------------------------
+WHEN YOU ADD A NEW PROGRAM
+--------------------------------------------------------------------------------
+
+  1. Creem → create product → set price → turn on license keys
+  2. Copy Buy / payment link → put on the website product page
+  3. Rebuild that program's installer if needed
+  4. Do NOT create a new config.php  (reuse the one above)
+
+
+--------------------------------------------------------------------------------
+IF ACTIVATION SAYS "unexpected response"
+--------------------------------------------------------------------------------
+
+  1. Check Buy URL: does it have /test/ or not?
+  2. Open config.php — does api key + api_base match that mode?
+  3. Paste key again in the app after saving config.php
+
+  Sheet Logic / DoorCut / Fraction all call the SAME proxy:
+    https://www.woodsolutions.com/api/license/activate.php
+
+
+--------------------------------------------------------------------------------
+BOOKMARKS
+--------------------------------------------------------------------------------
+
+  Creem dashboard     https://www.creem.io
+  API keys            Creem → Developers (toggle Test mode first!)
+  This folder on PC   Woodsolutions-Website\site\api\license\
+  Example config      config.example.php  (copy → rename to config.php on server)
+
+================================================================================

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DoorCut 3.0 — Cabinet Door Software | Wood Solutions</title>
-  <meta name="description" content="DoorCut 3.0 — cabinet door layout, joinery, cut lists, and shop production for Windows. Releasing soon — $299 one-time, 14-day trial at launch.">
+  <meta name="description" content="DoorCut 3.0 Pro — cabinet door layout, joinery, cut lists, and shop production for Windows. $249 one-time license (reduced from $299), 14-day trial. Checkout through Creem.io.">
   <meta property="og:image" content="images/doorcut-logo.png">
   <style>
     :root {
@@ -36,6 +36,8 @@
     a:hover { color: var(--amber); }
 
     .site-header {
+      position: relative;
+      z-index: 200;
       background: #000;
       color: #fff;
       padding: 14px 20px;
@@ -102,10 +104,10 @@
     .nav-submenu {
       display: none;
       position: absolute;
-      top: 100%;
+      top: calc(100% - 2px);
       left: 0;
-      min-width: 148px;
-      padding-top: 6px;
+      min-width: 168px;
+      padding-top: 4px;
       background: transparent;
       border: none;
       box-shadow: none;
@@ -128,8 +130,11 @@
 
     .nav-submenu a::after { content: none; }
 
-    .nav-submenu a[aria-current="page"] {
-      background: rgba(196, 146, 58, 0.14);
+    nav .nav-submenu a[aria-current="page"] {
+      color: var(--amber-light);
+      background: #141414;
+      border-color: rgba(196, 146, 58, 0.55);
+      font-weight: 600;
     }
 
     @media (max-width: 820px) {
@@ -159,9 +164,12 @@
         opacity: 0.88;
       }
 
-      .nav-submenu a[aria-current="page"] {
+      nav .nav-submenu a[aria-current="page"] {
         background: transparent;
+        border: none;
+        box-shadow: none;
         opacity: 1;
+        font-weight: 600;
       }
     }
 
@@ -622,7 +630,7 @@
     }
   </style>
 </head>
-<body>
+<body data-ws-page-product="doorcut-pro">
 
   <header class="site-header">
     <div class="header-inner">
@@ -634,8 +642,10 @@
       </a>
       <nav aria-label="Main">
         <div class="nav-group">
-          <a href="doorcut.html" aria-current="page">DoorCut</a>
+          <a href="doorcut.html">DoorCut</a>
           <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html" aria-current="page">DoorCut Pro</a>
             <a href="doorcut/help/index.html">Help</a>
           </div>
         </div>
@@ -649,15 +659,14 @@
 
   <main>
     <p class="release-notice" role="status">
-      <strong>DoorCut 3.0 releases soon.</strong>
-      The 14-day trial installer and Creem.io checkout will open when our Merchant of Record verification completes.
-      Until then, explore the product details and help guide below, or
-      <a href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">email sales@woodsolutions.com</a> for launch updates.
+      <strong data-ws-product="doorcut-pro" data-ws-part="releaseBannerPro"></strong>
+      14-day trial. Checkout through Creem.io.
+      Questions: <a href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0">sales@woodsolutions.com</a>
     </p>
 
     <div class="product-hero">
       <div>
-        <span class="status status-release-soon">Releasing soon</span>
+        <span class="status status-release-soon" data-ws-product="doorcut-pro" data-ws-part="statusWas"></span>
         <h1>
           <img class="product-logo"
                src="images/doorcut-logo.png"
@@ -681,10 +690,10 @@
       <aside class="pricing-card" id="purchase">
         <h2>One-time purchase</h2>
         <div class="price-row">
-          <span class="price-current">$299</span>
-          <span class="price-was">$350</span>
+          <span class="price-current" data-ws-product="doorcut-pro" data-ws-part="price"></span>
+          <span class="price-was" data-ws-product="doorcut-pro" data-ws-part="compareAt"></span>
         </div>
-        <p class="price-note">Introductory price — no subscription, no recurring fees.</p>
+        <p class="price-note" data-ws-product="doorcut-pro" data-ws-part="priceNoteReduced"></p>
         <div class="price-badges">
           <span class="price-badge price-badge-trial">14-day free trial</span>
           <span class="price-badge">Standalone app</span>
@@ -708,17 +717,18 @@
           <li>Email support for licensing and setup</li>
         </ul>
         <div class="pricing-actions">
-          <a class="btn btn-primary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Get launch updates</a>
+          <a class="btn btn-primary" href="downloads/DoorCut-Setup-3.0.exe" download="DoorCut-Setup-3.0.exe">Download DoorCut 3.0 (64-bit)</a>
+          <a class="btn btn-secondary" href="#" data-ws-product="doorcut-pro" data-ws-part="buyLabel">Buy license</a>
+          <a class="btn btn-secondary" href="doorcut-lite.html" data-ws-product="doorcut-lite" data-ws-part="ctaLite"></a>
           <a class="btn btn-secondary" href="doorcut/help/index.html">Read the help guide</a>
         </div>
         <p class="checkout-via">
-          <strong>Releasing soon.</strong> One-time purchase at <strong>$299</strong> (introductory).
+          <span data-ws-product="doorcut-pro" data-ws-part="checkoutBlurbPro"></span>
           Secure checkout and license delivery through
-          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>
-          opens at launch.
+          <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>.
         </p>
         <p class="pricing-fine">
-          At launch, the installer starts a 14-day trial automatically — no credit card required.
+          The installer starts a 14-day trial automatically — no credit card required.
           For multi-seat or shop-wide licensing, email
           <a href="mailto:sales@woodsolutions.com" style="color:var(--amber-light);">sales@woodsolutions.com</a>.
         </p>
@@ -790,11 +800,7 @@
           keep the license, and run your door jobs without a monthly bill or cloud dependency.
           Your cut lists and job files stay on your machine.
         </p>
-        <p>
-          The introductory price of <strong>$299</strong> (regularly <strong>$350</strong>) reflects
-          our first public release — we’d rather get DoorCut into real shops and earn your feedback
-          than optimize for list price on day one.
-        </p>
+        <p data-ws-template="doorcut-pricing-para"></p>
         <p>
           <strong>14-day free trial:</strong> Download DoorCut and use every feature for two weeks
           before you pay. Run actual door jobs, check joinery math against your shop standards,
@@ -830,9 +836,9 @@
     </section>
 
     <section class="section">
-      <h2>When DoorCut launches</h2>
+      <h2>How to buy</h2>
       <p class="section-intro">
-        Start with the free trial — then buy a single license through Creem.io when checkout opens.
+        Start with the free trial — then buy a single license through Creem.io.
         Multi-seat or invoice purchases: contact us directly.
       </p>
       <p class="sys-req" style="margin-top:0;margin-bottom:18px;color:var(--text);">
@@ -840,9 +846,9 @@
         Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
       </p>
       <ol class="steps">
-        <li><strong>Download</strong> the installer when we announce launch — your <strong>14-day full trial</strong> starts automatically (no credit card).</li>
+        <li><strong>Download</strong> the installer — your <strong>14-day full trial</strong> starts automatically (no credit card).</li>
         <li><strong>Evaluate</strong> in your shop: door styles, joinery, cut lists, and labels on real work.</li>
-        <li><strong>Buy</strong> on Creem.io when you are satisfied — introductory price <strong>$299</strong> (checkout link posted at launch).</li>
+        <li data-ws-template="doorcut-howto-buy"></li>
         <li><strong>Activate</strong> with the license key emailed from Creem.io — usually within minutes. All sales are final; no refunds after purchase.</li>
         <li><strong>Need several seats?</strong> Email <a href="mailto:sales@woodsolutions.com?subject=DoorCut%20multi-seat%20licensing">sales@woodsolutions.com</a> — we can arrange shop-wide or multi-PC licensing outside the single-seat checkout.</li>
       </ol>
@@ -853,7 +859,7 @@
         <div>
           <h2>Questions before you buy?</h2>
           <p>
-            Use the 14-day trial first when launch opens — then single-license checkout via Creem.io.
+            Use the 14-day trial first — then single-license checkout via Creem.io.
             Multi-seat or shop questions:
             <a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a>
             · <a href="contact.html">Map &amp; address</a>
@@ -876,6 +882,8 @@
   </footer>
 
 
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
   <!-- Extreme Tracking: https://extremetracking.com/ -->
   <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
 </body>

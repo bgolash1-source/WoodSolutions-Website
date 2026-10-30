@@ -16,6 +16,15 @@ Thumbs.db
 *.swp
 .vs/
 
+# Local Cursor (mcp.json may contain Creem API key)
+.cursor/mcp.json
+.cursor/*
+!.cursor/skills/
+!.cursor/skills/**
+
+# Duplicate of site/videos/doorcut-overview.mp4 — deploy from site/videos only
+/doorcut-overview.mp4
+
 # Keep folder placeholders
 !site/downloads/.gitkeep
 !site/downloads/README.txt

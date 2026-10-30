@@ -5,15 +5,15 @@ Desktop apps call these endpoints instead of Creem directly so your **Creem API 
 ## Setup (once per server)
 
 1. Copy `config.example.php` → `config.php` on the server (same folder).
-2. Paste your Creem API key from **Creem → Developers**.
-3. While Creem onboarding is in test mode, keep:
-   - `creem_api_base` = `https://test-api.creem.io/v1`
-   - a `creem_test_…` API key
-4. When live, switch to:
+2. Paste your **live** Creem API key from **Creem → Developers** (Test mode OFF).
+   Key starts with `creem_` — not `creem_test_`.
+3. Keep:
    - `creem_api_base` = `https://api.creem.io/v1`
-   - a live `creem_…` API key
 
 **Never commit `config.php`.** Upload it via FTP/cPanel separately.
+
+Sandbox only (rare): Test mode ON in Creem, Buy URL contains `/test/`, key `creem_test_…`, base `https://test-api.creem.io/v1`. See `BARRY-CREEM-CHEATSHEET.txt`.
+
 
 ## Endpoints
 

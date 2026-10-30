@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -23,8 +23,8 @@
   <p>Have your cut list ready, along with the board widths and lengths you expect to buy or already have in the shop. If you rough-mill your own stock, decide how much edge trim, end trim, and planer snipe to allow for before you compare options.</p>
 
   <figure class="help-figure">
-    <img src="images/wood-opto-window.png" alt="Wood Optimization window with the cut list on the left and Quick Compare on the right" />
-    <figcaption>The Wood Optimization window. <em>Drop <code>wood-opto-window.png</code> into <code>Help/images/</code> to replace this placeholder.</em></figcaption>
+    <img src="images/wood-opto-sidebar-quickcompare.png" alt="Left sidebar of Advanced wood optimization: job details, parts list, Quick Compare options, glue-up presets, and the Quick Compare Retail Widths button" />
+    <figcaption>The left sidebar — job materials, the parts list, then <strong>Quick Compare (pre-shopping)</strong>. Set preview and glue-up options here, then click the orange button at the bottom of this section.</figcaption>
   </figure>
 
   <h2 id="howcut">How the Tool Lays Out Parts</h2>
@@ -106,26 +106,35 @@
   <p><strong>Plywood, MDF, melamine, slab panels, and edge banding</strong> should be planned in <strong>Sheet Optimization</strong>. That tool lays parts out on full sheets and accounts for blade width, edge trim, and grain direction for sheet goods.</p>
 
   <h2 id="modes">Planning vs. Shop Layout</h2>
-  <p>Use these features one way before you buy lumber and another once the boards are in the shop:</p>
+  <p>The left sidebar is two workflows stacked on one another. Set options first, then click the button at the bottom of that section:</p>
   <dl>
-    <dt>Quick Compare</dt>
-    <dd>Use this <strong>before you buy</strong>. It compares common board widths at a standard length, usually 8&nbsp;ft unless you enter a custom length. It estimates board count, expected waste, and board feet so you can compare options side by side.</dd>
-    <dt>Preview Layout</dt>
-    <dd>Use this to review the <strong>best-yield</strong> choice or a specific board width if your supplier does not stock the ideal size.</dd>
-    <dt>Custom Board Previews</dt>
-    <dd>Use this to test a board width and length in your own units, such as <code>7.25 &times; 120</code> for a 10&nbsp;ft board. These preview rows are separate from the stock-board list.</dd>
-    <dt>OPTIMIZE CUT LAYOUT</dt>
-    <dd>Use this <strong>after the boards are in the shop</strong>. Enter the actual stock-board widths, lengths, quantities, trim allowances, and blade width. This is the layout to trust because it is based on your real stock.</dd>
+    <dt>Quick Compare (pre-shopping)</dt>
+    <dd>Use this <strong>before you buy</strong>. Click <strong>QUICK COMPARE RETAIL WIDTHS</strong> to chart common nominal face widths at one stick length (usually 8&nbsp;ft / 96&nbsp;in unless you change it). The right pane shows a shopping-guide table plus a sample board layout.</dd>
+    <dt>Preview layout</dt>
+    <dd>Which retail width drives the sample board diagram. Default is <strong>Best yield (lowest waste)</strong>. If the yard does not stock that width, pick another nominal from the list.</dd>
+    <dt>Extra board previews</dt>
+    <dd>Optional width &times; length in job units, such as <code>7.25 &times; 120</code> for 10&nbsp;ft sticks. These draw extra diagrams. They are not added to the OPTIMIZE stock list.</dd>
+    <dt>In-Shop — OPTIMIZE CUT LAYOUT</dt>
+    <dd>Use this <strong>after the boards are in the shop</strong>. Enter the actual stock widths, lengths, and quantities, then click the green button. This is the layout to trust because it uses your real boards.</dd>
   </dl>
 
   <figure class="help-figure">
-    <img src="images/wood-opto-quickcompare.png" alt="Quick Compare table with mini-layouts and board-comparison columns" />
-    <figcaption>Quick Compare with mini-layouts and the board-comparison columns. <em>Drop <code>wood-opto-quickcompare.png</code> into <code>Help/images/</code>.</em></figcaption>
+    <img src="images/wood-opto-shopping-guide.png" alt="Shopping guide table of nominal board widths with board count, waste, board feet, and Low est. column, plus a sample four-board layout labeled R1 through R5" />
+    <figcaption>After Quick Compare: the shopping guide and a sample board layout for the preview width. Row labels on the boards match the parts list (R1, R2, &hellip;).</figcaption>
   </figure>
 
+  <p>The shopping-guide columns:</p>
+  <ul>
+    <li><strong>Face (nom.)</strong> — the retail face width &times; the stick length used for that row.</li>
+    <li><strong>Boards</strong> — how many sticks the drawn layout needs.</li>
+    <li><strong>Waste</strong> and <strong>Bd ft</strong> — planning estimates for that row (metric jobs show area instead of board feet).</li>
+    <li><strong>Low est.</strong> — an aggressive lower bound from Google OR-Tools. The drawn layout may need one more board; that is normal.</li>
+  </ul>
+  <p>Use <strong>Export buy summary</strong> (top of the right pane) for a plain-text shopping list. <strong>Print layouts</strong> prints the board diagrams after you run OPTIMIZE.</p>
+
   <figure class="help-figure">
-    <img src="images/wood-opto-optimize.png" alt="Available stock boards grid filled in, with the OPTIMIZE CUT LAYOUT button" />
-    <figcaption>Available stock boards filled in, plus the OPTIMIZE CUT LAYOUT button. <em>Drop <code>wood-opto-optimize.png</code> into <code>Help/images/</code>.</em></figcaption>
+    <img src="images/wood-opto-sidebar-optimize.png" alt="In-Shop sidebar: available stock boards, trim and kerf settings, OPTIMIZE CUT LAYOUT button, and the results summary" />
+    <figcaption>Scroll the sidebar past the blue <strong>In-Shop — Optimize Real Boards</strong> band. Add the boards you actually have, set trim and kerf, then click <strong>OPTIMIZE CUT LAYOUT</strong>.</figcaption>
   </figure>
 
   <h2 id="example">Worked Example</h2>
@@ -181,11 +190,21 @@
   </figure>
 
   <h2 id="glueup">Solid-Wood Panel Glue-Ups</h2>
-  <p>For solid-wood panels wider than a single board, DoorCut can help you plan how many glue-up strips to rip and how to batch them for glue-up. Use these settings when you are gluing up a raised panel or any other solid-wood panel wider than a single board:</p>
+  <p>Solid-wood panels wider than a typical retail board (about 7–10&nbsp;in / 175–250&nbsp;mm) are planned separately from the frame shopping guide. After Quick Compare, the right pane adds a glue-up lumber list and stick diagrams. Plywood and MDF panels are skipped here — those belong in Sheet Optimization.</p>
+
+  <figure class="help-figure">
+    <img src="images/wood-opto-glueup.png" alt="Solid panel glue-up shopping list and six glue-up blank diagrams showing nested yellow panels, orange crosscut gaps, green glue joints, and gray unused stick" />
+    <figcaption>Glue-up shopping list and nested stick diagrams. Yellow is the panel face, orange is the crosscut reserve (kerf + trim gap), green dashed is the edge-glue joint, and gray is unused stick (including end snipe).</figcaption>
+  </figure>
+
+  <p>Set these in the Quick Compare section <em>before</em> you click the orange button:</p>
   <ul>
-    <li><strong>Glue strip length:</strong> Leave this blank if your glue-up strips will be the same length as your frame stock, or enter the length you will rip them from if you are using longer boards.</li>
-    <li><strong>Per panel</strong> vs. <strong>wide blank:</strong> Plan each panel separately, or glue up one long blank and cut the finished panels from it afterward.</li>
+    <li><strong>Glue stick length:</strong> Nominal length of the boards you will rip for edge glue (before end trim). Leave blank to match the frame stick (96&nbsp;in / 2440&nbsp;mm). Use the <strong>8 ft</strong>, <strong>10 ft</strong>, or <strong>12 ft</strong> presets for longer retail sticks.</li>
+    <li><strong>Glue-up blanks:</strong> Draw one stick diagram per glued blank, with panels nested along the stick when they fit, plus the lumber shopping list.</li>
+    <li><strong>Also show each panel face:</strong> Extra rip-layout pictures for each panel.</li>
+    <li><strong>Wide-blank batching notes:</strong> Shop notes for edge-gluing one wide slab, then crosscutting several panels from it.</li>
   </ul>
+  <p>The shopping list columns are <strong>Row</strong>, <strong>Part</strong>, <strong>Qty</strong>, <strong>Rips</strong> (strips per blank), <strong>Blanks</strong> (glued-up assemblies), and <strong>Boards</strong> (raw sticks to buy — rips &times; blanks). Stick ends already reserve the Settings end/snipe amount for planer snipe.</p>
 
   <h2 id="approximate">Estimates vs. Actual Yield</h2>
   <p>Lumber is sold by nominal names such as <code>1&times;</code> or <code>8/4 &times; 10</code>, but actual boards vary after milling, even within the same grade. This tool works from the finished part sizes in your cut list and the board dimensions you enter.</p>
@@ -243,12 +262,12 @@
 
   <h2 id="tips">Practical Tips</h2>
   <ul>
-    <li>The <strong>Narrow</strong>, <strong>Medium</strong>, and <strong>Wide</strong> buttons under <em>Board Width Reference</em> are legacy labels and do not currently affect Quick Compare or OPTIMIZE CUT LAYOUT.</li>
-    <li><strong>Saw kerf:</strong> the width of your blade, counted between cuts. This is different from edge trim or end trim, which come off the board before any parts are placed.</li>
-    <li><strong>Extra crosscut allowance:</strong> extra length left between crosscuts in addition to the kerf. Use it if you rough-cut blanks a little long and trim them to final length later. Leave it at <strong>0</strong> if you cut straight to finished length.</li>
+    <li>Row numbers on the board diagrams match the parts list and the main cutlist grid.</li>
+    <li><strong>Saw kerf (blade):</strong> the width of your blade, counted between cuts. This is different from edge trim or end trim, which come off the board before any parts are placed.</li>
+    <li><strong>Crosscut gap (trim stock):</strong> extra length left between crosscuts in addition to the kerf. Use it if you rough-cut blanks a little long and trim them to final length later. Leave it at <strong>0</strong> if you cut straight to finished length. The default is 0.5&nbsp;in.</li>
+    <li><strong>End / snipe</strong> defaults to 0.25&nbsp;in per end. If you surface rough lumber, raise it to what your planer actually snipes (often 2–4&nbsp;in per end). S4S boards can stay at 0.</li>
     <li>If you want extra material on each <em>part</em> for final milling, add that extra length or width in the cut list itself. The trim settings here apply only to the stock board.</li>
   </ul>
-
   <!-- Extreme Tracking: https://extremetracking.com/ -->
   <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
 </body>

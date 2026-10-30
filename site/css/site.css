@@ -26,6 +26,8 @@ a { color: var(--walnut-soft); }
 a:hover { color: var(--amber); }
 
 .site-header {
+  position: relative;
+  z-index: 200;
   background: #000;
   color: #fff;
   padding: 14px 20px;
@@ -92,14 +94,14 @@ nav a[aria-current="page"] { color: var(--amber-light); }
 .nav-submenu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% - 2px);
   left: 0;
-  min-width: 148px;
-  padding-top: 6px;
+  min-width: 168px;
+  padding-top: 4px;
   background: transparent;
   border: none;
   box-shadow: none;
-  z-index: 20;
+  z-index: 210;
 }
 
 .nav-group:hover .nav-submenu,
@@ -117,6 +119,14 @@ nav a[aria-current="page"] { color: var(--amber-light); }
 }
 
 .nav-submenu a::after { content: none; }
+
+/* Current page in dropdown — stay dark like sibling items; don't use cream/amber wash */
+nav .nav-submenu a[aria-current="page"] {
+  color: var(--amber-light);
+  background: #141414;
+  border-color: rgba(196, 146, 58, 0.55);
+  font-weight: 600;
+}
 
 @media (max-width: 820px) {
   .nav-group {
@@ -141,6 +151,14 @@ nav a[aria-current="page"] { color: var(--amber-light); }
     border: none;
     box-shadow: none;
     opacity: 0.88;
+  }
+
+  nav .nav-submenu a[aria-current="page"] {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    font-weight: 600;
   }
 }
 

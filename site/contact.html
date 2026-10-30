@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -126,8 +126,11 @@
 
     .nav-submenu a::after { content: none; }
 
-    .nav-submenu a[aria-current="page"] {
-      background: rgba(196, 146, 58, 0.14);
+    nav .nav-submenu a[aria-current="page"] {
+      color: var(--amber-light);
+      background: #141414;
+      border-color: rgba(196, 146, 58, 0.55);
+      font-weight: 600;
     }
 
     @media (max-width: 820px) {
@@ -157,9 +160,12 @@
         opacity: 0.88;
       }
 
-      .nav-submenu a[aria-current="page"] {
+      nav .nav-submenu a[aria-current="page"] {
         background: transparent;
+        border: none;
+        box-shadow: none;
         opacity: 1;
+        font-weight: 600;
       }
     }
 
@@ -435,6 +441,8 @@
         <div class="nav-group">
           <a href="doorcut.html">DoorCut</a>
           <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html">DoorCut Pro</a>
             <a href="doorcut/help/index.html">Help</a>
           </div>
         </div>

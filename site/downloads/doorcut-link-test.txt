@@ -1,0 +1,15 @@
+DoorCut downloads folder — link test OK
+
+If you can read this file in the browser, the downloads/ path on woodsolutions.com is working.
+
+Next step for Barry:
+  1. Copy the real installer from DoorCut build:
+       DoorCut\artifacts\installer\DoorCut-Setup-3.0.exe
+     to this folder on the server as:
+       public_html/downloads/DoorCut-Setup-3.0.exe
+
+  2. Click "Download DoorCut 3.0" on doorcut.html — it should download the .exe.
+
+  3. Install → start 14-day trial → buy on Creem (test mode) → paste license key in DoorCut → Activate.
+
+This placeholder file can stay on the server or be deleted after the real installer is uploaded.

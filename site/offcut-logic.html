@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offcut Logic — Shop offcut rack | Wood Solutions</title>
+  <meta name="description" content="Offcut Logic — Windows app to track sheet and solid offcuts on your rack, list new job parts, and import piece lists from Sheet Logic Builder. $35 one-time. 14-day trial.">
+  <meta property="og:image" content="images/offcut-logic-logo.png">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .sl-hero {
+      display: grid;
+      grid-template-columns: minmax(140px, 220px) minmax(260px, 1fr);
+      gap: 1.5rem 2rem;
+      align-items: start;
+      margin: 0 0 1.5rem;
+    }
+    .sl-hero-brand { text-align: center; }
+    .sl-hero-brand .status { margin-bottom: 0.75rem; }
+    .sl-hero-logo {
+      display: block;
+      width: 200px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 0.65rem;
+    }
+    .sl-hero-brand .product-tagline {
+      display: block;
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+    .sl-price-card {
+      background: var(--walnut, #3d2914);
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      margin: 0;
+      max-width: none;
+      width: 100%;
+    }
+    .sl-price-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #f0c674;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .sl-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 10px 0 8px;
+      flex-wrap: wrap;
+    }
+    .sl-price-now {
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .sl-price-note { margin: 0 0 12px; font-size: .92rem; opacity: .92; }
+    .sl-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .sl-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #f0c674;
+    }
+    .sl-price-card ul { margin: 0 0 14px; padding-left: 1.1rem; }
+    .sl-price-card li { margin: 0.3rem 0; font-size: .95rem; }
+    .sl-price-card a.btn { margin-right: 8px; margin-bottom: 8px; }
+    .sl-price-card a { color: #f0c674; }
+    .sl-price-fine {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f7f3ea;
+      color: #1a1a1a;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .sl-price-fine a { color: #5c3d1e; font-weight: 600; }
+    main > .page-lead { max-width: none; width: 100%; }
+    @media (max-width: 720px) {
+      .sl-hero { grid-template-columns: 1fr; justify-items: center; }
+      .sl-price-card { max-width: 28rem; }
+      .sl-hero-logo { width: 160px; }
+    }
+  </style>
+</head>
+<body data-ws-page-product="offcut-logic">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-wordmark">Wood Solutions<span>Applications for cabinetmakers</span></span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="doorcut.html">DoorCut</a>
+          <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html">DoorCut Pro</a>
+            <a href="doorcut/help/index.html">Help</a>
+          </div>
+        </div>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="calculator/index.html">Fraction calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="sl-hero">
+      <div class="sl-hero-brand">
+        <span class="status status-live" data-ws-product="offcut-logic" data-ws-part="statusOnetime"></span>
+        <img class="sl-hero-logo"
+             src="images/offcut-logic-logo.png"
+             alt="Offcut Logic"
+             width="480"
+             height="140">
+        <span class="product-tagline">Sheet &amp; solid offcuts on the rack — job parts at a glance</span>
+      </div>
+
+      <aside class="sl-price-card" id="purchase">
+        <h2>One-time license</h2>
+        <div class="sl-price-row">
+          <span class="sl-price-now" data-ws-product="offcut-logic" data-ws-part="price"></span>
+        </div>
+        <p class="sl-price-note">
+          One-time license (USD) — no subscription. Separate from Sheet Logic Builder and Sheet Logic.
+        </p>
+        <div class="sl-badges">
+          <span class="sl-badge">14-day trial</span>
+          <span class="sl-badge">Windows 10/11</span>
+          <span class="sl-badge">Rack + job parts</span>
+          <span class="sl-badge">Builder import</span>
+        </div>
+        <p style="margin:0 0 12px;font-size:.95rem;opacity:.95;">
+          Track what is on the offcut rack, list what a job still needs, and print simple reports.
+          Import verified piece lists from <a href="sheet-logic-builder.html">Sheet Logic Builder</a> (<code>.wsoffcut.json</code>).
+          Tool inventory is a separate window and file — not mixed with offcuts.
+        </p>
+        <ul>
+          <li>Offcut rack — sheet and solid stock with sizes and bins</li>
+          <li>New Job Parts — parts the job still needs</li>
+          <li>Import Job Pieces from Builder export (after you check the list)</li>
+          <li>Print offcut and job-part tables for the shop</li>
+        </ul>
+        <p>
+          <a class="btn btn-primary" href="downloads/OffcutLogic-Setup-1.0.0.exe" download="OffcutLogic-Setup-1.0.0.exe">Download / trial</a>
+          <a class="btn btn-secondary" href="#" rel="noopener noreferrer" data-ws-product="offcut-logic" data-ws-part="buyLabel">Buy license</a>
+        </p>
+        <p class="sl-price-fine">
+          Download starts a <strong>14-day trial</strong> (no card) — the app opens without a key until the trial ends.
+          After you buy: <strong>Help &amp; license</strong> → enter key from your Creem email (internet required once).
+          Download only from this page. Questions:
+          <a href="mailto:sales@woodsolutions.com?subject=Offcut%20Logic">sales@woodsolutions.com</a>
+        </p>
+      </aside>
+    </div>
+
+    <p class="page-lead">
+      <strong>Offcut Logic</strong> is for the shop floor: know what offcuts you already have before you cut fresh sheet or lumber,
+      and keep a short list of parts a job still needs. It is a companion to
+      <a href="sheet-logic-builder.html">Sheet Logic Builder</a> (surface sheathing estimates) — not a cut-list optimizer.
+      Planning and counts only — verify every size on site before cutting.
+    </p>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Works with Sheet Logic Builder</h2>
+        <p style="margin:0;">
+          In Builder, use <strong>Save this tab for Offcut…</strong> on the tab you verified to save a <code>.wsoffcut.json</code> file.
+          In Offcut Logic, choose <strong>Import Job Pieces…</strong> to load that file into New Job Parts.
+          Builder and Offcut Logic use <strong>separate licenses</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Disclaimer (summary)</h2>
+        <p style="margin:0;">
+          Offcut Logic is for planning and estimates only. Verify every cut, count, and fit on site.
+          Wood Solutions is not liable for material waste or jobsite decisions based on this software.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions</p>
+    <p class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

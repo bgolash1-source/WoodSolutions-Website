@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const LICENSE_PROXY_VERSION = '1.0';
+const LICENSE_PROXY_VERSION = '1.1';
 
 function license_load_config(): array
 {
@@ -220,7 +220,7 @@ function license_extract_instance_id(?array $creemBody, string $instanceName): ?
     return null;
 }
 
-function license_map_creem_result(array $result, string $instanceName, bool $isActivate): void
+function license_map_creem_result(array $config, array $result, string $instanceName, bool $isActivate): void
 {
     if ($result['curl_error'] !== '') {
         license_json_response(502, [
@@ -233,6 +233,13 @@ function license_map_creem_result(array $result, string $instanceName, bool $isA
     /** @var ?array<string, mixed> $body */
     $body = $result['body'];
 
+    if ($httpCode === 401) {
+        license_json_response(502, [
+            'ok' => false,
+            'message' => 'License service API key is invalid or does not match test/live mode. Check config.php on the server (Creem Developers → API keys).',
+        ]);
+    }
+
     if ($httpCode === 403) {
         license_json_response(200, [
             'ok' => false,
@@ -244,7 +251,7 @@ function license_map_creem_result(array $result, string $instanceName, bool $isA
     if ($httpCode === 404) {
         license_json_response(200, [
             'ok' => false,
-            'message' => 'License key not found. Check for typos or use the key from your purchase email.',
+            'message' => 'License key not found. Check for typos, or confirm the server config.php uses the same Creem mode (test vs live) as the purchase.',
         ]);
     }
 
@@ -256,9 +263,22 @@ function license_map_creem_result(array $result, string $instanceName, bool $isA
     }
 
     if ($httpCode < 200 || $httpCode >= 300 || !is_array($body)) {
+        $creemMessage = '';
+        if (is_array($body)) {
+            $creemMessage = trim((string)($body['message'] ?? $body['error'] ?? ''));
+        }
+        if ($creemMessage !== '') {
+            license_json_response(502, [
+                'ok' => false,
+                'message' => $creemMessage,
+            ]);
+        }
+
         license_json_response(502, [
             'ok' => false,
-            'message' => 'License server returned an unexpected response. Try again in a few minutes or contact sales@woodsolutions.com.',
+            'message' => 'License server returned an unexpected response (HTTP '
+                . $httpCode
+                . '). Usually test/live mode mismatch in config.php. Contact sales@woodsolutions.com.',
         ]);
     }
 
@@ -268,6 +288,19 @@ function license_map_creem_result(array $result, string $instanceName, bool $isA
             'ok' => false,
             'message' => 'This license is not active (' . $status . ').',
         ]);
+    }
+
+    // Read the product ID from Creem's response data ($body = decoded JSON from Creem).
+    $creemProductId = trim((string)($body['product_id'] ?? ''));
+    if ($creemProductId === '' && is_array($body['product'] ?? null)) {
+        $creemProductId = trim((string)($body['product']['id'] ?? $body['product']['product_id'] ?? ''));
+    }
+
+    // Determine edition from config.php — Lite product id match, otherwise Pro (DoorCut default).
+    $edition = 'pro';
+    $liteProductId = trim((string)($config['creem_product_id_lite'] ?? ''));
+    if ($creemProductId !== '' && $creemProductId === $liteProductId) {
+        $edition = 'lite';
     }
 
     if ($isActivate) {
@@ -283,12 +316,14 @@ function license_map_creem_result(array $result, string $instanceName, bool $isA
             'ok' => true,
             'instance_id' => $instanceId,
             'status' => $status !== '' ? $status : 'active',
+            'edition' => $edition,
         ]);
     }
 
     license_json_response(200, [
         'ok' => true,
         'status' => $status !== '' ? $status : 'active',
+        'edition' => $edition,
     ]);
 }
 

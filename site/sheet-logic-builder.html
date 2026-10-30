@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sheet Logic Builder — Surface layout estimates | Wood Solutions</title>
+  <meta name="description" content="Sheet Logic Builder — Windows app for plywood/OSB sheathing sheet counts from wall and plan dimensions. Deck tab counts decking courses. One-page print/PDF per view. Not a lumber or cut-list optimizer.">
+  <meta property="og:image" content="images/sheet-logic-builder-logo.png">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .sl-hero {
+      display: grid;
+      grid-template-columns: minmax(140px, 220px) minmax(260px, 1fr);
+      gap: 1.5rem 2rem;
+      align-items: start;
+      margin: 0 0 1.5rem;
+    }
+    .sl-hero-brand { text-align: center; }
+    .sl-hero-brand .status { margin-bottom: 0.75rem; }
+    .sl-hero-logo {
+      display: block;
+      width: 160px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 0.65rem;
+    }
+    .sl-hero-brand .product-tagline {
+      display: block;
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+    .sl-price-card {
+      background: var(--walnut, #3d2914);
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      margin: 0;
+      max-width: none;
+      width: 100%;
+    }
+    .sl-price-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #f0c674;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .sl-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 10px 0 8px;
+      flex-wrap: wrap;
+    }
+    .sl-price-now {
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .sl-price-list {
+      font-size: 1.1rem;
+      opacity: .55;
+      text-decoration: line-through;
+    }
+    .sl-price-note { margin: 0 0 12px; font-size: .92rem; opacity: .92; }
+    .sl-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .sl-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #f0c674;
+    }
+    .sl-price-card ul { margin: 0 0 14px; padding-left: 1.1rem; }
+    .sl-price-card li { margin: 0.3rem 0; font-size: .95rem; }
+    .sl-price-card a.btn { margin-right: 8px; margin-bottom: 8px; }
+    .sl-price-card a { color: #f0c674; }
+    .sl-price-fine {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f7f3ea;
+      color: #1a1a1a;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .sl-price-fine a { color: #5c3d1e; font-weight: 600; }
+    main > .page-lead { max-width: none; width: 100%; }
+    @media (max-width: 720px) {
+      .sl-hero { grid-template-columns: 1fr; justify-items: center; }
+      .sl-price-card { max-width: 28rem; }
+      .sl-hero-logo { width: 140px; }
+    }
+  </style>
+</head>
+<body data-ws-page-product="sheet-logic-builder">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-wordmark">Wood Solutions<span>Applications for cabinetmakers</span></span>
+      </a>
+      <nav aria-label="Main">
+        <div class="nav-group">
+          <a href="doorcut.html">DoorCut</a>
+          <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html">DoorCut Pro</a>
+            <a href="doorcut/help/index.html">Help</a>
+          </div>
+        </div>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="calculator/index.html">Fraction calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="sl-hero">
+      <div class="sl-hero-brand">
+        <span class="status status-live" data-ws-product="sheet-logic-builder" data-ws-part="statusOnetime"></span>
+        <img class="sl-hero-logo"
+             src="images/sheet-logic-builder-logo.png"
+             alt="Sheet Logic Builder"
+             width="160"
+             height="160">
+        <span class="product-tagline">Sheathing &amp; surface estimates from your dimensions</span>
+      </div>
+
+      <aside class="sl-price-card" id="purchase">
+        <h2>One-time license</h2>
+        <div class="sl-price-row">
+          <span class="sl-price-now" data-ws-product="sheet-logic-builder" data-ws-part="price"></span>
+        </div>
+        <p class="sl-price-note">
+          One-time license (USD) — no subscription.
+        </p>
+        <div class="sl-badges">
+          <span class="sl-badge">14-day trial</span>
+          <span class="sl-badge">Windows 10/11</span>
+          <span class="sl-badge">One page per tab</span>
+          <span class="sl-badge">Separate from Sheet Logic</span>
+        </div>
+        <p style="margin:0 0 12px;font-size:.95rem;opacity:.95;">
+          Enter plan sizes once, get schematic layouts and material counts for walls, floors, roofs, decks, and sheds.
+          <strong>Print or PDF each view</strong> for the job folder — job name and site are remembered on your PC.
+        </p>
+        <ul>
+          <li>Garage gable, custom walls (doors &amp; window rows), floor underlayment</li>
+          <li>Deck surface — decking course count (not solid lumber); optional railing estimate</li>
+          <li>Roof sheathing on developed faces; rectangular shed totals</li>
+          <li>Landscape one-page reports with diagram + order line</li>
+        </ul>
+        <p style="margin:0 0 12px;font-size:.92rem;opacity:.92;">
+          <strong>Separate license</strong> from <a href="sheet-logic.html">Sheet Logic</a> (the parts-list optimizer).
+          One Builder license covers all tabs and job sizes within app limits.
+        </p>
+        <p>
+          <a class="btn btn-primary" href="downloads/SheetLogicBuilder-Setup-1.0.0.exe" download="SheetLogicBuilder-Setup-1.0.0.exe">Download / trial</a>
+          <a class="btn btn-secondary" href="#" rel="noopener noreferrer" data-ws-product="sheet-logic-builder" data-ws-part="buyLabel">Buy license</a>
+        </p>
+        <p class="sl-price-fine">
+          Download starts a <strong>14-day trial</strong> (no card) — the app opens without a key until the trial ends.
+          After you buy: <strong>Help &amp; license</strong> → enter key from your Creem email (internet required once).
+          Download only from this page. Questions:
+          <a href="mailto:sales@woodsolutions.com?subject=Sheet%20Logic%20Builder">sales@woodsolutions.com</a>
+        </p>
+      </aside>
+    </div>
+
+    <p class="page-lead">
+      <strong>Sheet Logic Builder</strong> answers “how many <strong>sheets</strong> for this wall, floor, or roof face?” from dimensions you type —
+      not from a cut list. It lays out standard 4×8-style panels on schematic diagrams for estimation and ordering.
+      The <strong>Deck</strong> tab counts <strong>decking courses</strong> on a plan view (plus optional railing) — not solid lumber boards.
+      It does <strong>not</strong> replace structural design, stud layout, or code review, and it is <strong>not</strong> a parts-list optimizer.
+      Pair it with <a href="sheet-logic.html">Sheet Logic</a> when you have a cut list and need nest layouts on plywood or lumber.
+    </p>
+
+    <!-- Add site/images/sheet-logic-builder-garage.png (app or print) to show the preview below. -->
+    <section class="section">
+      <details class="product-expand">
+        <summary>
+          <span class="summary-main">
+            <strong>Garage gable example</strong>
+            <span style="font-weight:400;color:var(--muted);">— wall + gable sheathing layout</span>
+          </span>
+          <img class="product-expand-thumb"
+               src="images/sheet-logic-builder-garage.png"
+               alt=""
+               width="224"
+               height="112"
+               aria-hidden="true"
+               onerror="this.style.visibility='hidden'">
+          <span class="expand-hint">Expand screenshot</span>
+        </summary>
+        <div class="product-expand-body product-expand-body--center">
+          <img class="product-shot"
+               src="images/sheet-logic-builder-garage.png"
+               alt="Sheet Logic Builder — Garage Gable tab with panel layout on the wall face"
+               width="1920"
+               height="1080"
+               loading="lazy">
+          <p class="shot-caption">
+            Garage Gable tab: elevation diagram with wall and optional gable triangles, sheet counts, and one-page print/PDF.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Six tabs, one job header</h2>
+        <ul class="check-list">
+          <li><strong>Garage Gable</strong> — wall + optional gable triangle, centered garage doors</li>
+          <li><strong>Walls</strong> — openings, even window rows, stagger</li>
+          <li><strong>Floor</strong> — underlayment layout (top-down)</li>
+          <li><strong>Deck</strong> — decking on plan view; optional railing counts</li>
+          <li><strong>Roof</strong> — sheathing on sloped rectangular faces</li>
+          <li><strong>Shed</strong> — floor, four walls, gable, and roof sheet totals</li>
+        </ul>
+        <p style="margin:1rem 0 0;">
+          Fill <strong>job details</strong> once (customer, site, notes); they carry across tabs and save locally.
+          When a layout looks right, use <strong>Print this tab</strong> or <strong>PDF</strong> — one landscape page per view.
+          Prints are your permanent job record; tab dimensions reset when you close the app unless you saved a PDF.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Export to Offcut Logic</h2>
+        <p style="margin:0;">
+          After you verify sizes on a tab, use <strong>Save this tab for Offcut…</strong> (toolbar, next to Print/PDF) to save a <code>.wsoffcut.json</code> file.
+          Open it in <a href="offcut-logic.html"><strong>Offcut Logic</strong></a> (separate app and license) to track rack stock and job parts.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Builder vs Sheet Logic</h2>
+        <p>
+          <strong>Sheet Logic Builder</strong> — quick surface-material estimates from length, width, height, pitch, and openings.
+          Schematic diagrams for sales and field checks.
+        </p>
+        <p>
+          <strong><a href="sheet-logic.html">Sheet Logic</a></strong> — import a parts list, optimize plywood and solid lumber,
+          print numbered nest layouts. Unlimited parts per job.
+        </p>
+        <p style="margin-bottom:0;">
+          Many shops use Builder for rough-order quantities on additions and garages, and Sheet Logic for cabinet and millwork cut lists.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>Disclaimer (summary)</h2>
+        <p style="margin:0;">
+          Counts and diagrams are approximations for estimation only — not engineering, load calculations, or code approval.
+          Verify on site against approved plans before ordering or cutting.
+          Full disclaimer is shown in the app on first run and under Help &amp; license.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wood Solutions</p>
+    <p class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+    <p class="footer-email"><a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
+    <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
+  </footer>
+
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
+  <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
+</body>
+</html>

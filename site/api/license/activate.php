@@ -16,4 +16,4 @@ $result = license_forward_to_creem($config, 'licenses/activate', [
     'instance_name' => $instanceName,
 ]);
 
-license_map_creem_result($result, $instanceName, true);
+license_map_creem_result($config, $result, $instanceName, true);
