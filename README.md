@@ -26,6 +26,7 @@ Your website files for [www.woodsolutions.com](https://www.woodsolutions.com).
 
 - https://www.woodsolutions.com/ — homepage (not calculator)
 - https://www.woodsolutions.com/projects.html
+- https://www.woodsolutions.com/sheet-logic.html
 - https://www.woodsolutions.com/calculator/index.html
 
 ---
@@ -36,12 +37,17 @@ Your website files for [www.woodsolutions.com](https://www.woodsolutions.com).
 |------|------------|
 | `index.html` | Homepage |
 | `doorcut.html` | DoorCut product page |
+| `sheet-logic.html` | **Sheet Logic** product page (pricing from `js/ws-products.js`) |
+| `js/ws-products.js` | **Single catalog** for USD prices & Creem checkout URLs |
+| `js/ws-pricing.js` | Fills `data-ws-product` / `data-ws-template` on wired pages |
 | `projects.html` + `projects/` | CNC, sander/planer, violin, gallery |
 | `calculator/` | Quick Fraction Calculator |
 | `images/projects/` | Project photos |
 | `api/license/` | Creem license proxy (config.php on server only) |
 
 **Contact on site:** sales@woodsolutions.com
+
+**Change a product price:** edit `site/js/ws-products.js` only (then deploy). See `site/js/README.md`. Creem dashboard price must match.
 
 ---
 

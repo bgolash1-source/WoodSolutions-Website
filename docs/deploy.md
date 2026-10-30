@@ -26,6 +26,9 @@ www.woodsolutions.com/
       validate.php
       config.example.php
   css/site.css                ← shared styles (new pages)
+  js/
+    ws-products.js            ← product prices & Creem checkout URLs (edit here)
+    ws-pricing.js             ← fills data-ws-* on wired pages
   doorcut/
     help/                       ← DoorCut user guide (sync from DoorCut/Help)
       index.html
@@ -77,6 +80,8 @@ Paid software goes through **Creem.io** (Merchant of Record — payment, tax, li
 
 Multi-seat / invoice sales stay on **sales@woodsolutions.com**.
 
+**Sheet Logic** (the installed app) still names **Lemon Squeezy** on the activation screen. That is leftover from the previous store. It is not wired in this website repo. Leave it until the desktop app is moved to Creem.
+
 ## License proxy (DoorCut / desktop apps)
 
 DoorCut activates Creem keys through **`api/license/`** on your site — the Creem API key stays server-side.
@@ -104,8 +109,9 @@ When syncing DoorCut help topics from `DoorCut/Help/`, re-run the tracking snipp
 
 1. Build installer in the app repo (DoorCut, MauiApp2, etc.).
 2. Copy `.exe` / `.apk` into the matching `site/**/downloads/` folder.
-3. Upload changed files only (FTP/SFTP or host file manager).
+3. Upload changed files only (FTP/SFTP or host file manager). If you changed a price, upload **`js/ws-products.js`** (and any HTML you touched). Pages with `data-ws-product` need both scripts under **`js/`** on the server.
 4. Smoke-test download links in a private/incognito window.
+5. Smoke-test pricing: homepage hero shows **$249** / **$299**, Sheet Logic shows **$99**, and **Buy license** opens Creem checkout.
 
 ## Contact on all pages
 

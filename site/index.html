@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wood Solutions — Software for Cabinetmakers</title>
-  <meta name="description" content="Practical software for cabinetmakers from Wood Solutions. DoorCut 3.0 releases soon — layout, cut planning, and shop workflow tools. TimberTally and more available now.">
+  <meta name="description" content="Practical software for cabinetmakers from Wood Solutions. DoorCut 3.0 Pro — $249 one-time license (reduced from $299), 14-day trial. Layout, cut planning, and shop workflow tools.">
   <style>
     :root {
       --walnut: #3d2e24;
@@ -36,6 +36,8 @@
     a:hover { color: var(--amber); }
 
     .site-header {
+      position: relative;
+      z-index: 200;
       background: #000;
       color: #fff;
       padding: 14px 20px;
@@ -109,10 +111,10 @@
     .nav-submenu {
       display: none;
       position: absolute;
-      top: 100%;
+      top: calc(100% - 2px);
       left: 0;
-      min-width: 148px;
-      padding-top: 6px;
+      min-width: 168px;
+      padding-top: 4px;
       background: transparent;
       border: none;
       box-shadow: none;
@@ -137,8 +139,11 @@
 
     .nav-submenu a::after { content: none; }
 
-    .nav-submenu a[aria-current="page"] {
-      background: rgba(196, 146, 58, 0.14);
+    nav .nav-submenu a[aria-current="page"] {
+      color: var(--amber-light);
+      background: #141414;
+      border-color: rgba(196, 146, 58, 0.55);
+      font-weight: 600;
     }
 
     @media (max-width: 820px) {
@@ -168,9 +173,12 @@
         opacity: 0.88;
       }
 
-      .nav-submenu a[aria-current="page"] {
+      nav .nav-submenu a[aria-current="page"] {
         background: transparent;
+        border: none;
+        box-shadow: none;
         opacity: 1;
+        font-weight: 600;
       }
     }
 
@@ -257,6 +265,86 @@
       border: 1px solid var(--border);
     }
 
+    .btn-watch {
+      background: var(--walnut);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      font-size: 0.98rem;
+      padding: 13px 22px;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(61, 46, 36, 0.25);
+    }
+
+    .btn-watch:hover {
+      filter: brightness(1.08);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .video-modal {
+      border: none;
+      border-radius: 12px;
+      padding: 0;
+      max-width: min(420px, 94vw);
+      width: 100%;
+      background: #111;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .video-modal::backdrop {
+      background: rgba(30, 22, 16, 0.72);
+    }
+
+    .video-modal-inner {
+      position: relative;
+      padding: 12px 12px 16px;
+    }
+
+    .video-modal video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background: #000;
+      aspect-ratio: 9 / 16;
+      object-fit: contain;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      z-index: 2;
+      border: none;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .video-modal-close:hover {
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    .video-modal-caption {
+      margin: 10px 4px 0;
+      color: #d8d0c6;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .video-modal-caption a {
+      color: var(--amber-light);
+      font-weight: 650;
+    }
+
     .hero-note {
       margin: 0;
       font-size: 0.9rem;
@@ -311,6 +399,33 @@
       margin: 0 0 12px;
       font-size: 1.55rem;
       color: var(--walnut);
+    }
+
+    .hero-price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 14px;
+    }
+
+    .hero-price {
+      font-size: 2.05rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--walnut);
+    }
+
+    .hero-price-was {
+      font-size: 1.05rem;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .hero-price-note {
+      font-size: 0.88rem;
+      font-weight: 650;
+      color: var(--amber);
     }
 
     .hero-card p {
@@ -431,24 +546,6 @@
       color: #7a5210;
     }
 
-    .release-notice {
-      margin: 0 0 24px;
-      padding: 16px 20px;
-      border-radius: 10px;
-      border: 1px solid rgba(196, 146, 58, 0.45);
-      background: rgba(196, 146, 58, 0.1);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .release-notice strong {
-      color: var(--walnut);
-    }
-
-    .release-notice a {
-      font-weight: 650;
-    }
-
     .product-card h3 {
       margin: 0;
       font-size: 1.2rem;
@@ -460,6 +557,27 @@
       color: var(--muted);
       font-size: 0.95rem;
       flex: 1;
+    }
+
+    .product-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .new-release-badge {
+      width: 56px;
+      height: auto;
+      flex-shrink: 0;
+      display: block;
+      margin: -4px -2px 0 0;
+    }
+
+    .hero-new-release {
+      width: 72px;
+      margin: 0;
+      align-self: center;
     }
 
     .product-card .btn {
@@ -531,100 +649,6 @@
       font-size: 0.88rem;
       font-weight: 600;
       color: var(--amber);
-    }
-
-    .doorcut-expand {
-      border: 1px solid var(--amber);
-      border-radius: 12px;
-      background: var(--card);
-      box-shadow: 0 0 0 1px rgba(196, 146, 58, 0.15), var(--shadow);
-      overflow: hidden;
-    }
-
-    .doorcut-expand summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 18px 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      user-select: none;
-    }
-
-    .doorcut-expand summary::-webkit-details-marker { display: none; }
-
-    .doorcut-expand[open] summary {
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, #fffdf8 0%, var(--card) 100%);
-    }
-
-    .summary-main {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
-      color: var(--walnut);
-    }
-
-    .summary-main strong { font-size: 1.15rem; }
-
-    .summary-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .expand-hint {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .expand-hint::after { content: " ▾"; color: var(--amber); }
-
-    .doorcut-expand[open] .expand-hint::after { content: " ▴"; }
-
-    .doorcut-expand-body {
-      padding: 24px 22px 26px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    @media (max-width: 820px) {
-      .doorcut-expand-body { grid-template-columns: 1fr; }
-    }
-
-    .doorcut-shot {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: block;
-    }
-
-    .doorcut-expand-body h3 {
-      margin: 0 0 10px;
-      color: var(--walnut);
-      font-size: 1.2rem;
-    }
-
-    .doorcut-expand-body p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .doorcut-expand-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
     }
 
     .contact-strip {
@@ -708,6 +732,8 @@
         <div class="nav-group">
           <a href="doorcut.html">DoorCut</a>
           <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html">DoorCut Pro</a>
             <a href="doorcut/help/index.html">Help</a>
           </div>
         </div>
@@ -720,12 +746,6 @@
   </header>
 
   <main>
-    <p class="release-notice" role="status">
-      <strong>DoorCut 3.0 releases soon.</strong>
-      Trial download and Creem.io checkout open when payment verification completes.
-      <a href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Email sales@woodsolutions.com</a> for launch updates.
-    </p>
-
     <section class="hero">
       <div>
         <img class="hero-logo"
@@ -741,19 +761,21 @@
           and visual clarity needed for real work — not glossy sales presentations.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="doorcut.html">DoorCut 3.0 — details &amp; pricing</a>
+          <button type="button" class="btn btn-watch" data-open-doorcut-video>▶ Watch DoorCut</button>
+          <a class="btn btn-primary" href="doorcut.html" data-ws-product="doorcut-pro" data-ws-part="ctaNamePrice">DoorCut 3.0 Pro — $249</a>
           <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com">Contact sales</a>
         </div>
-        <p class="hero-note">Questions about licensing, trials, or shop deployment? We’re happy to help.</p>
-        <p class="sys-req">
-          <strong>DoorCut 3.0 — system requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
-          Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
-        </p>
+        <p class="hero-note" data-ws-template="index-hero-builder-note"><strong>New — <a href="sheet-logic-builder.html">Sheet Logic Builder</a>:</strong> sheathing sheet counts from your dimensions (garage gable, walls, floor, roof, deck, shed). One-page print/PDF per tab. <strong>$55</strong> one-time · 14-day trial. Licensing questions? <a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a></p>
       </div>
 
       <aside class="hero-card" id="doorcut">
-        <div class="hero-card-label">Releasing soon</div>
-        <h2>DoorCut 3.0</h2>
+        <div class="hero-card-label" data-ws-product="doorcut-pro" data-ws-part="heroNowReduced">Now $249 — reduced from $299</div>
+        <h2>DoorCut 3.0 Pro</h2>
+        <div class="hero-price-row">
+          <span class="hero-price" data-ws-product="doorcut-pro" data-ws-part="price">$249</span>
+          <span class="hero-price-was" data-ws-product="doorcut-pro" data-ws-part="compareAt">$299</span>
+          <span class="hero-price-note">one-time license</span>
+        </div>
         <p>
           Design and production software for cabinet doors — accurate layout, joinery math,
           cut lists, and material planning for the shop.
@@ -762,73 +784,19 @@
           <li>Rails, stiles, panels, and muntins with full sizing control</li>
           <li>Joinery details calculated for your machining allowances</li>
           <li>Cut lists ready for the table saw and CNC</li>
-          <li>Sheet Logic optimizer — sheet goods and solid wood (shared across the product line)</li>
+          <li>Built-in sheet and solid-wood optimization for your door cutlist</li>
         </ul>
         <div class="hero-actions" style="margin-top: 18px; margin-bottom: 0;">
+          <button type="button" class="btn btn-watch" data-open-doorcut-video>▶ Watch overview</button>
           <a class="btn btn-primary" href="doorcut.html">Details &amp; pricing</a>
-          <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Launch updates</a>
+          <img class="new-release-badge hero-new-release" src="images/new-release-icon.png" width="72" height="69" alt="New release">
         </div>
-        <p class="hero-note" style="margin-top: 12px;">14-day free trial and checkout opening at launch — full features, no credit card for the trial.</p>
+        <p class="hero-note" style="margin-top: 12px;" data-ws-template="index-hero-note-doorcut">DoorCut Pro is <strong>$249</strong> — we lowered the price from <strong>$299</strong> so more shops can buy after the trial. 14-day free trial — full features, no credit card for the trial. New to doors? <a href="doorcut-lite.html">DoorCut Lite</a> — <strong>$65</strong> one-time, same installer.</p>
         <p class="sys-req">
           <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
           Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
         </p>
       </aside>
-    </section>
-
-    <section class="section" id="doorcut-details">
-      <details class="doorcut-expand">
-        <summary>
-          <span class="summary-main">
-            <span class="status status-release-soon">Releasing soon</span>
-            <strong>DoorCut 3.0</strong>
-            <span style="font-weight:400;color:var(--muted);">— door layout, joinery, cut lists</span>
-          </span>
-          <span class="summary-actions">
-            <a class="btn btn-primary" href="doorcut.html" onclick="event.stopPropagation()">Details &amp; pricing</a>
-            <span class="expand-hint">Screenshot &amp; details</span>
-          </span>
-        </summary>
-        <div class="doorcut-expand-body">
-          <div>
-            <img class="doorcut-shot"
-                 src="images/doorcut-screenshot.webp"
-                 alt="DoorCut — cabinet door layout and cut list screen"
-                 width="1246"
-                 height="648"
-                 loading="lazy">
-          </div>
-          <div>
-            <h3>Built for the door shop</h3>
-            <p>
-              DoorCut calculates every part in a typical cabinet door — stiles, rails, panels, and muntins —
-              with full control over machining allowances and panel placement within each style.
-            </p>
-            <p>
-              Originally developed in Borland Delphi and now modernized in C#, with sheet and solid-wood
-              optimization on the way through Sheet Logic.
-            </p>
-            <ul class="check-list">
-              <li>All stile, rail, and muntin widths definable</li>
-              <li>Custom panel placement — new looks from the same base style</li>
-              <li>Cut lists for the table saw and CNC</li>
-              <li>Label printing for the shop floor</li>
-            </ul>
-            <div class="doorcut-expand-actions">
-              <a class="btn btn-primary" href="doorcut.html">Details &amp; pricing</a>
-              <a class="btn btn-secondary" href="doorcut/help/index.html">Help guide</a>
-              <a class="btn btn-secondary" href="mailto:sales@woodsolutions.com?subject=DoorCut%203.0%20launch">Launch updates</a>
-            </div>
-            <p class="sys-req">
-              <strong>System requirements:</strong> <strong>Windows 10 or later, 64-bit.</strong>
-              Installer includes the <strong>application</strong>, <strong>built-in help</strong>, and <strong>default data folders</strong>.
-            </p>
-            <p style="margin:14px 0 0;font-size:0.9rem;color:var(--muted);">
-              Trial and purchase open at launch — run real jobs in your shop first.
-            </p>
-          </div>
-        </div>
-      </details>
     </section>
 
     <section class="section" id="about">
@@ -848,20 +816,33 @@
       <div class="section-head">
         <h2>Product line</h2>
         <p>
-          <strong>DoorCut 3.0</strong> releases soon — expand the section above for a screenshot and details.
-          <strong>Sheet Logic</strong> is the shared sheet-goods and solid-wood optimizer behind the line.
+          Price on the tile when an app ships. Details live on the product page.
         </p>
       </div>
 
       <div class="product-grid">
+        <a class="product-card" href="doorcut.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-release-soon" data-ws-product="doorcut-pro" data-ws-part="statusWas">$249 — was $299</span>
+          <h3>DoorCut Pro 3.0</h3>
+          <p>Cabinet door layout, joinery, cut lists, and shop labels.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Details &amp; pricing →</span>
+        </a>
+
+        <a class="product-card" href="doorcut-lite.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-live" data-ws-product="doorcut-lite" data-ws-part="statusAvailable">Available — $65</span>
+          <h3>DoorCut Lite</h3>
+          <p>Same installer — streamlined edition for learning door cut lists. 14-day trial.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Details &amp; pricing →</span>
+        </a>
+
         <a class="product-card" href="sheet-logic.html" style="text-decoration:none;color:inherit;">
-          <span class="status status-soon">In development</span>
+          <div class="product-card-top">
+            <span class="status status-live" data-ws-product="sheet-logic" data-ws-part="statusAvailable">Available — $99</span>
+            <img class="new-release-badge" src="images/new-release-icon.png" width="56" height="54" alt="New release">
+          </div>
           <h3>Sheet Logic</h3>
-          <p>
-            Sheet-goods and solid-wood optimization — compare layouts, reduce waste, and plan cuts before production.
-            Shared engine for DoorCut, DrawerCut, and CabinetLogic.
-          </p>
-          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+          <p data-ws-template="index-sheet-logic-blurb">Sheet-goods and solid-wood optimization for Windows. Unlimited parts. <strong>$99</strong> one-time license. 14-day free trial — download and buy now.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Download &amp; pricing →</span>
         </a>
 
         <a class="product-card" href="drawer-cut.html" style="text-decoration:none;color:inherit;">
@@ -869,6 +850,16 @@
           <h3>DrawerCut</h3>
           <p>Drawer boxes and fronts — same practical workflow as DoorCut, tuned for drawer banks and slide clearances.</p>
           <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+        </a>
+
+        <a class="product-card" href="sheet-logic-builder.html" style="text-decoration:none;color:inherit;">
+          <div class="product-card-top">
+            <span class="status status-live" data-ws-product="sheet-logic-builder" data-ws-part="statusOnetime">$55 — one-time</span>
+            <img class="new-release-badge" src="images/new-release-icon.png" width="56" height="54" alt="New release">
+          </div>
+          <h3>Sheet Logic Builder</h3>
+          <p data-ws-template="index-builder-blurb">Sheathing sheet counts from wall and plan dimensions — garage gable, walls, floor, roof, deck, and shed. One-page print/PDF per tab. <strong>$55</strong>. 14-day trial. Separate from Sheet Logic optimizer.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Features &amp; pricing →</span>
         </a>
 
         <a class="product-card" href="cabinet-logic.html" style="text-decoration:none;color:inherit;">
@@ -879,10 +870,10 @@
         </a>
 
         <a class="product-card" href="calculator/index.html" style="text-decoration:none;color:inherit;">
-          <span class="status status-release-soon">Releasing soon</span>
+          <span class="status status-live" data-ws-product="fraction-calc" data-ws-part="statusAvailable">Available — $20</span>
           <h3>Quick Fraction Calculator</h3>
-          <p>Fractions for the shop floor — Windows and Android. Waiting on Creem merchant verification.</p>
-          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Learn more →</span>
+          <p data-ws-template="index-fraction-blurb">Fractions for the shop floor — Windows and Android downloads live. <strong>$20</strong> one-time, 14-day trial.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Download →</span>
         </a>
 
         <a class="product-card" href="timbertally.html" style="text-decoration:none;color:inherit;">
@@ -890,6 +881,13 @@
           <h3>TimberTally</h3>
           <p>Board-foot calculator and lumber costing — free for Windows 10 or 11. No license key.</p>
           <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Download →</span>
+        </a>
+
+        <a class="product-card" href="offcut-logic.html" style="text-decoration:none;color:inherit;">
+          <span class="status status-live" data-ws-product="offcut-logic" data-ws-part="statusOnetime">$35 — one-time</span>
+          <h3>Offcut Logic</h3>
+          <p data-ws-template="index-offcut-blurb">Track sheet and solid offcuts on the rack, job parts, and import from Sheet Logic Builder. <strong>$35</strong>. 14-day trial.</p>
+          <span style="font-size:0.88rem;font-weight:600;color:var(--amber);">Download &amp; pricing →</span>
         </a>
       </div>
       <p style="margin:18px 0 0;text-align:center;">
@@ -949,6 +947,67 @@
     </section>
   </main>
 
+  <dialog class="video-modal" id="doorcut-video-modal" aria-label="DoorCut overview video">
+    <div class="video-modal-inner">
+      <button type="button" class="video-modal-close" data-close-doorcut-video aria-label="Close video">&times;</button>
+      <video id="doorcut-video"
+             controls
+             playsinline
+             preload="metadata"
+             poster="images/new-release-icon.png">
+        <source src="videos/doorcut-overview.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+      <p class="video-modal-caption">
+        DoorCut 3.0 — sheet &amp; solid wood · one-time purchase ·
+        <a href="doorcut.html">Details &amp; trial</a>
+      </p>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('doorcut-video-modal');
+      var video = document.getElementById('doorcut-video');
+      if (!modal || !video) return;
+
+      function openVideo() {
+        if (typeof modal.showModal === 'function') {
+          modal.showModal();
+        } else {
+          modal.setAttribute('open', '');
+        }
+        video.currentTime = 0;
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () { /* autoplay blocked — user can press play */ });
+        }
+      }
+
+      function closeVideo() {
+        video.pause();
+        if (typeof modal.close === 'function') {
+          modal.close();
+        } else {
+          modal.removeAttribute('open');
+        }
+      }
+
+      document.querySelectorAll('[data-open-doorcut-video]').forEach(function (btn) {
+        btn.addEventListener('click', openVideo);
+      });
+      document.querySelectorAll('[data-close-doorcut-video]').forEach(function (btn) {
+        btn.addEventListener('click', closeVideo);
+      });
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeVideo();
+      });
+      modal.addEventListener('close', function () {
+        video.pause();
+      });
+    })();
+  </script>
+
   <footer class="site-footer">
     <p>&copy; 2026 Wood Solutions. Custom software for cabinetmakers.</p>
     <p class="footer-links">
@@ -961,6 +1020,8 @@
   </footer>
 
 
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
   <!-- Extreme Tracking: https://extremetracking.com/ -->
   <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
 </body>

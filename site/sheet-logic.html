@@ -1,14 +1,131 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sheet Logic — Wood Solutions</title>
-  <meta name="description" content="Sheet Logic — sheet-goods and solid-wood optimization for cabinet shops. Shared engine for DoorCut, DrawerCut, and CabinetLogic. In development.">
+  <meta name="description" content="Sheet Logic — sheet-goods and solid-wood optimization for cabinet shops. $99 one-time license. Unlimited parts. 14-day trial. Windows.">
   <meta property="og:image" content="images/sheet-logic-logo.png">
   <link rel="stylesheet" href="css/site.css">
+  <style>
+    .sl-hero {
+      display: grid;
+      grid-template-columns: minmax(140px, 220px) minmax(260px, 1fr);
+      gap: 1.5rem 2rem;
+      align-items: start;
+      margin: 0 0 1.5rem;
+    }
+    .sl-hero-brand {
+      text-align: center;
+    }
+    .sl-hero-brand .status {
+      margin-bottom: 0.75rem;
+    }
+    .sl-hero-logo {
+      display: block;
+      width: 160px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 0.65rem;
+    }
+    .sl-hero-brand .product-tagline {
+      display: block;
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+    .sl-price-card {
+      background: var(--walnut, #3d2914);
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      margin: 0;
+      max-width: none;
+      width: 100%;
+    }
+    .sl-price-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #f0c674;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .sl-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 10px 0 8px;
+      flex-wrap: wrap;
+    }
+    .sl-price-now {
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .sl-price-list {
+      font-size: 1.1rem;
+      opacity: .55;
+      text-decoration: line-through;
+    }
+    .sl-price-note { margin: 0 0 12px; font-size: .92rem; opacity: .92; }
+    .sl-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .sl-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #f0c674;
+    }
+    .sl-price-card ul { margin: 0 0 14px; padding-left: 1.1rem; }
+    .sl-price-card li { margin: 0.3rem 0; font-size: .95rem; }
+    .sl-price-card a.btn { margin-right: 8px; margin-bottom: 8px; }
+    .sl-price-card a { color: #f0c674; }
+    .sl-price-fine {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f7f3ea;
+      color: #1a1a1a;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      opacity: 1;
+    }
+    .sl-price-fine a {
+      color: #5c3d1e;
+      font-weight: 600;
+    }
+    .sl-price-fine strong { color: #111; }
+    .sl-smartscreen {
+      margin: 0 0 28px;
+      max-width: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid #c5d4e8;
+      background: #f5f9ff;
+      border-radius: 4px;
+    }
+    .sl-smartscreen h2 { margin: 0 0 0.5rem; font-size: 1.15rem; color: #1a1a1a; }
+    .sl-smartscreen p { margin: 0; color: #333; }
+    /* Match full main column width (same as Interface preview / sections below) */
+    main > .page-lead {
+      max-width: none;
+      width: 100%;
+    }
+    @media (max-width: 720px) {
+      .sl-hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+      .sl-price-card { max-width: 28rem; }
+      .sl-hero-logo { width: 140px; }
+    }
+  </style>
 </head>
-<body>
+<body data-ws-page-product="sheet-logic">
 
   <header class="site-header">
     <div class="header-inner">
@@ -18,7 +135,11 @@
       <nav aria-label="Main">
         <div class="nav-group">
           <a href="doorcut.html">DoorCut</a>
-          <div class="nav-submenu"><a href="doorcut/help/index.html">Help</a></div>
+          <div class="nav-submenu">
+            <a href="doorcut-lite.html">DoorCut Lite</a>
+            <a href="doorcut.html">DoorCut Pro</a>
+            <a href="doorcut/help/index.html">Help</a>
+          </div>
         </div>
         <a href="products.html">Products</a>
         <a href="projects.html">Projects</a>
@@ -29,20 +150,77 @@
   </header>
 
   <main>
-    <div class="product-intro">
-      <span class="status status-soon">In development</span>
-      <img class="product-logo"
-           src="images/sheet-logic-logo.png"
-           alt="Sheet Logic Optimization"
-           width="512"
-           height="512">
-      <span class="product-tagline">Sheet-goods &amp; solid-wood optimization</span>
+    <div class="sl-hero">
+      <div class="sl-hero-brand">
+        <span class="status status-live" data-ws-product="sheet-logic" data-ws-part="statusAvailableNow">Available now — $99</span>
+        <img class="sl-hero-logo"
+             src="images/sheet-logic-logo.png"
+             alt="Sheet Logic Optimization"
+             width="160"
+             height="160">
+        <span class="product-tagline">Sheet-goods &amp; solid-wood optimization</span>
+      </div>
+
+      <aside class="sl-price-card" id="purchase">
+        <h2>Standalone optimizer</h2>
+        <div class="sl-price-row">
+          <span class="sl-price-now" data-ws-product="sheet-logic" data-ws-part="price">$99</span>
+        </div>
+        <p class="sl-price-note">
+          One-time license (USD) — no subscription.
+        </p>
+        <div class="sl-badges">
+          <span class="sl-badge">14-day trial</span>
+          <span class="sl-badge">Unlimited parts</span>
+          <span class="sl-badge">Sheet + solid</span>
+          <span class="sl-badge">Windows 10/11</span>
+        </div>
+        <p class="sl-price-note">
+          <strong>Unlimited part count.</strong> Some optimizers charge more (or sell tiers) when jobs get larger.
+          Sheet Logic does <strong>not</strong> meter how many parts you optimize — one license covers big kitchens and small fixtures the same way.
+        </p>
+        <ul>
+          <li>Plywood / MDF / melamine nesting (table-saw or CNC nest)</li>
+          <li>Solid lumber boards — numbered print layouts</li>
+          <li><strong>Unlimited parts</strong> per optimize — no part-count tiers</li>
+          <li>CSV / Excel import + Material Quick Apply</li>
+          <li>Print layouts, labels, and a text job summary</li>
+        </ul>
+        <p class="sl-price-note">
+          <strong>System requirements:</strong> Windows 10 or later, 64-bit.
+        </p>
+        <p>
+          <a class="btn btn-primary" href="downloads/SheetLogic-Setup-1.0.0.exe" download="SheetLogic-Setup-1.0.0.exe">Download Sheet Logic (64-bit)</a>
+          <a class="btn btn-secondary" href="https://www.creem.io/payment/prod_4S0IkIfPSXkTFjqG9l3J0B" rel="noopener noreferrer" data-ws-product="sheet-logic" data-ws-part="buyLabel">Buy license — $99</a>
+        </p>
+        <p class="sl-price-fine">
+          Download starts a <strong>14-day trial</strong> (no card) — the app opens without asking for a key until the trial ends.
+          After you buy: <strong>Settings</strong> → <strong>Trial &amp; license</strong> → <strong>Enter / manage license key…</strong>
+          Questions: <a href="mailto:sales@woodsolutions.com?subject=Sheet%20Logic">sales@woodsolutions.com</a>
+        </p>
+      </aside>
     </div>
+
     <p class="page-lead">
-      Sheet-goods and solid-wood optimization for the cabinet shop — compare layouts, reduce waste,
-      and plan cuts before you touch material. The same engine powers optimizers inside
-      <a href="doorcut.html">DoorCut</a>, DrawerCut, and CabinetLogic.
+      <strong>Sheet Logic is for sale now.</strong>
+      Standalone Windows optimizer for the cabinet shop: parts list in, nest plywood / sheet goods
+      or rip solid boards, then print numbered layouts. Built for real kerf, trim, and stock rules —
+      not a generic packing demo. Same Wood Solutions line as <a href="doorcut.html">DoorCut</a>.
+      <span data-ws-template="sheet-logic-page-lead"> Download the free 14-day trial below, then buy a one-time license for <strong>$99</strong>.</span>
     </p>
+
+    <section class="sl-smartscreen" aria-label="Windows SmartScreen">
+      <h2>Windows SmartScreen (“Windows protected your PC”)</h2>
+      <p>
+        The first time you run Sheet Logic, Windows may show a blue SmartScreen warning.
+        That is an unrecognized-publisher check — <strong>not</strong> the same as a Defender “virus found” alert.
+        Download only from Wood Solutions. Click <strong>More info</strong>, then <strong>Run anyway</strong>.
+      </p>
+      <p style="margin-top:0.75rem;font-size:0.95rem;color:#444;">
+        If Windows says a <strong>virus was detected</strong>, email
+        <a href="mailto:sales@woodsolutions.com">sales@woodsolutions.com</a>.
+      </p>
+    </section>
 
     <section class="section">
       <details class="product-expand">
@@ -67,8 +245,7 @@
                height="1080"
                loading="lazy">
           <p class="shot-caption">
-            User parts list, plywood and solid-wood optimizers, material quick-apply, and layout yield —
-            shared engine behind DoorCut, DrawerCut, and CabinetLogic. In active development.
+            Parts list, plywood and solid-wood optimizers, material quick-apply, and layout yield.
           </p>
         </div>
       </details>
@@ -76,12 +253,24 @@
 
     <section class="section">
       <div class="info-panel">
-        <h2>What it will do</h2>
+        <h2>Need surface estimates first?</h2>
+        <p style="margin:0;">
+          <a href="sheet-logic-builder.html"><strong>Sheet Logic Builder</strong></a> estimates sheathing sheet counts from wall and plan dimensions (deck tab: decking courses) —
+          garage gable, walls with openings, floor, roof, deck, and shed — with one-page print/PDF per tab.
+          It complements this optimizer; it does not import or nest a parts list.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <h2>What Sheet Logic does</h2>
         <ul class="check-list">
           <li>Sheet layout for panels, backs, and sheet-stock parts</li>
           <li>Solid-wood optimization for frame stock and glue-up planning</li>
           <li>Kerf, trim, and stock-size controls that match real shop practice</li>
-          <li>Quick Compare — side-by-side layouts before you commit</li>
+          <li><strong>Unlimited parts</strong> — no tiers that raise the price when the job grows</li>
+          <li>Print numbered layouts, labels, and a text summary for large jobs</li>
           <li>Shared materials mindset with the rest of the Wood Solutions line</li>
         </ul>
       </div>
@@ -89,26 +278,32 @@
 
     <section class="section">
       <div class="info-panel">
-        <h2>Status</h2>
+        <h2>How to buy</h2>
         <p>
-          Sheet Logic is actively in development. DoorCut 3.0 already includes early solid-wood
-          and sheet optimization paths — Sheet Logic is the dedicated, full-featured optimizer
-          as the product line matures.
+          <strong>1.</strong> <a href="downloads/SheetLogic-Setup-1.0.0.exe" download="SheetLogic-Setup-1.0.0.exe">Download</a> from this page only.
+          <strong>2.</strong> Run the <strong>14-day trial</strong> (the app opens with no key prompt while the trial is active).
+          <span data-ws-template="sheet-logic-howto-step3"><strong>3.</strong> Buy for <strong>$99</strong> through Creem — one-time license, unlimited parts.</span>
+          <strong>All sales final</strong> after the trial, same policy as DoorCut.
         </p>
+        <div class="info-panel" style="margin-top:1rem;">
+          <h2 style="font-size:1.15rem;">Where to enter your license key</h2>
+          <ol style="margin:0.5rem 0 0; padding-left:1.25rem; line-height:1.55;">
+            <li>Open <strong>Sheet Logic</strong>.</li>
+            <li>Go to the <strong>Settings</strong> tab (left side of the app).</li>
+            <li>Under <strong>Trial &amp; license</strong>, click <strong>Enter / manage license key…</strong></li>
+            <li>Paste the key from your purchase email, then click <strong>Activate</strong> (internet required once).</li>
+          </ol>
+          <p style="margin:0.75rem 0 0;">
+            After the trial ends, the same key window also appears when you start the app.
+            In Help, see <strong>Trial &amp; license key</strong>.
+          </p>
+        </div>
         <p>
-          Want updates when it ships?
-          <a href="mailto:sales@woodsolutions.com?subject=Sheet%20Logic%20notify">Email sales@woodsolutions.com</a>
-        </p>
-        <p class="legacy-note" style="margin-top:16px;margin-bottom:0;">
-          Older notes: <a href="sheet%20logic.html">legacy Sheet Logic page</a> (Xara).
+          <a class="btn btn-primary" href="downloads/SheetLogic-Setup-1.0.0.exe" download="SheetLogic-Setup-1.0.0.exe">Download Sheet Logic (64-bit)</a>
+          <a class="btn btn-secondary" href="https://www.creem.io/payment/prod_4S0IkIfPSXkTFjqG9l3J0B" rel="noopener noreferrer" data-ws-product="sheet-logic" data-ws-part="buyLabel">Buy license — $99</a>
         </p>
       </div>
     </section>
-
-    <div class="actions">
-      <a class="btn btn-primary" href="doorcut.html">DoorCut — available now</a>
-      <a class="btn btn-secondary" href="products.html">All products</a>
-    </div>
   </main>
 
   <footer class="site-footer">
@@ -122,6 +317,8 @@
     <p class="footer-mor">Payments processed by <a href="https://www.creem.io" rel="noopener noreferrer">Creem.io</a>, our Merchant of Record.</p>
   </footer>
 
+  <script src="js/ws-products.js"></script>
+  <script src="js/ws-pricing.js"></script>
   <script src="https://eprocode.com/js.js" id="eX-barrygol-2" async defer></script>
 </body>
 </html>
