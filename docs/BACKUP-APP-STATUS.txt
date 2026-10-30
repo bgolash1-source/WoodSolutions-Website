@@ -1,0 +1,25 @@
+﻿Wood Solutions — app backup status
+Generated: 2026-10-30 16:52
+Folder: C:\Users\bgola\source\repos
+
+Legend:
+  SYNCED     = pushed to GitHub, no uncommitted changes
+  PUSH       = commits on PC not uploaded yet
+  COMMIT     = changed files never saved to git
+  SETUP      = no GitHub remote or no git yet
+
+Project | Last commit (local) | GitHub | Action
+CabinetLogic | 2026-10-10 18:15:26 -0400 Add Shop Standards, sidebar, and catalog design note. | CabinetLogic | PUSH — 4 commit(s) not on GitHub; also COMMIT uncommitted work
+CAD Test | 2026-10-10 16:30:03 -0400 Rework FF applied ends behind the face frame, plan fit space, and elevation stock picks. | CAD-Test | COMMIT — uncommitted work, then push
+DoorCut | 2026-09-06 07:43:58 -0400 Fix cutlist print layout with auto-sized columns and wrapped shop notes. | DoorCut-Cutlist | COMMIT — uncommitted work, then push
+DrawerCut | 2026-09-05 11:45:12 -0400 Update | DrawerCut | COMMIT — uncommitted work, then push
+DrawerVision | 2026-06-27 19:38:37 -0400 Restructure as DrawerVision solution with elevation wizard and optimizer modules. | WinFormsFractional-CAL | SYNCED
+DrawerVision-Clean | 2026-07-31 11:03:29 -0400 Create standalone DrawerVision repo with ShopOptimizer. | (none) | SETUP — connect GitHub + initial back up
+garden-field-guide-main | 2026-08-31 09:29:54 -0400 Merge full Garden Field Guide features and fix Windows unpackaged launch. | garden-field-guide | COMMIT — uncommitted work, then push
+HomeNetworkWizard | — | — | SETUP — create git + GitHub repo, then back up
+MauiApp2 | 2026-06-27 19:38:46 -0400 Calculator licensing, Android installer tooling, and website docs. | MauiApp2 | COMMIT — uncommitted work, then push
+Offcut Logic | (no commits yet) | (none) | SETUP — connect GitHub + initial back up; also COMMIT uncommitted work
+SheetLogic | 2026-09-23 11:38:42 -0400 checkpoint before checking out master | SheetLogic | PUSH — 2 commit(s) not on GitHub; also COMMIT uncommitted work
+SheetLogic Builder | — | — | SETUP — create git + GitHub repo, then back up
+TimberTally | 2026-06-27 19:38:55 -0400 Initial TimberTally shop optimizer and installer project. | TimberTally | SYNCED
+WoodSolutions-Website | 2026-10-30 15:37:41 -0400 Allow .cursor/mcp.json.example in repo while ignoring secrets. | WoodSolutions-Website | COMMIT — uncommitted work, then push

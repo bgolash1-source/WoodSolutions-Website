@@ -1,0 +1,74 @@
+================================================================================
+  Wood Solutions — backup cheat sheet (plain English)
+  Keep this in the repo. NO passwords or API keys in this file.
+================================================================================
+
+THE 4 PLACES (you only need to remember one phrase to the agent)
+
+  1. YOUR PC     C:\Users\bgola\source\repos\...
+                 Where you actually work — with Cursor or Visual Studio + agent.
+
+  2. GITHUB      github.com/bgolash1-source/...
+                 Private backup copy. NOT where you edit day to day.
+                 Say: "Back up [project name] to GitHub."
+
+  3. WEB HOST    woodsolutions.com (public_html)
+                 What customers see. Upload site/ + installers separately.
+
+  4. EXTERNAL DRIVE
+                 Secrets, installers, and a full copy of repos now and then.
+
+
+WHAT GOES WHERE
+--------------------------------------------------------------------------------
+
+  GITHUB (private) — OK to back up:
+    • Website HTML, CSS, JS, PHP examples (config.example.php)
+    • App source code (C#, projects, solutions)
+    • Images, help docs, small videos you already put in the repo
+
+  NEVER put on GitHub:
+    • site/api/license/config.php  (live Creem API key)
+    • .cursor/mcp.json             (may contain API keys)
+    • .env files, license keys, passwords
+    • Copy secrets to external drive + password manager instead
+
+  EXTERNAL DRIVE + HOST (not GitHub):
+    • config.php from the server
+    • DoorCut / Sheet Logic / calculator .exe and .apk installers
+    • Periodic copy of entire source\repos folder (catches uncommitted work)
+
+
+THE ONE PHRASE TO USE WITH THE AGENT
+--------------------------------------------------------------------------------
+
+  "Back up [folder name] to GitHub — no secrets."
+
+  Examples:
+    Back up WoodSolutions-Website to GitHub.
+    Back up DoorCut to GitHub.
+    Back up SheetLogic to GitHub.
+
+
+OPTIONAL — END OF A GOOD WORK WEEK (about 5 minutes)
+--------------------------------------------------------------------------------
+
+  1. Tell the agent to back up each app you touched that week.
+  2. Copy C:\Users\bgola\source\repos to the external drive.
+  3. Copy server config.php and Creem notes to the drive (encrypted if you can).
+
+
+APP BACKUP STATUS (update when agent runs a scan)
+--------------------------------------------------------------------------------
+
+  Last scan: 2026-10-30 (agent-generated — ask to refresh)
+
+  See docs/BACKUP-APP-STATUS.txt for per-project GitHub sync notes.
+
+
+QUESTIONS
+--------------------------------------------------------------------------------
+
+  sales@woodsolutions.com — your projects; ask the agent for git/GitHub help.
+
+================================================================================
