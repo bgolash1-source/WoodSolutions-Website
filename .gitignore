@@ -21,6 +21,7 @@ Thumbs.db
 .cursor/*
 !.cursor/skills/
 !.cursor/skills/**
+!.cursor/mcp.json.example
 
 # Duplicate of site/videos/doorcut-overview.mp4 — deploy from site/videos only
 /doorcut-overview.mp4
